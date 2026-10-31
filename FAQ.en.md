@@ -15,7 +15,7 @@ V0.2 tiers are mostly derived statistically, with no chart-by-chart manual adjus
 ### 1. What is in the table?
 
 - Two tables: **EASY** (♂◇ Guyuan Daotu, EASY CLEAR pass line) and **HARD** (♂◆ Fengsha Jiantu, HARD CLEAR pass line).
-- Each table has **{{CHART_TOTAL}} charts**, 7 realms × (7 tiers + 1 pending tier) = **56 tiers**.
+- Each table has **{{CHART_TOTAL}} charts**, 7 realms × 7 tiers = **49 tiers**; each realm also has one pending tier, not counted in the 49.
 - Both tables use the same {{CHART_TOTAL}} charts; because the pass lines differ, the same chart can sit in different tiers.
 - Realms from low to high: Qi Refining, Foundation, Golden Core, Nascent Soul, Spirit Form, Void Refining, Mahayana.
 - The final tier of each realm, "Pending" (EASY, code `EBn-?`) / "Obscure" (HARD, code `HBn-?`), is a **pending tier**, not "harder than tiers 1–7".
