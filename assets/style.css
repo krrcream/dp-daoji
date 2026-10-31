@@ -1354,7 +1354,7 @@ body[data-lang="en"] .band-cell .name {
   .faq-hero h1 { letter-spacing: 0.1em; }
   .faq-toc { padding: 14px 16px; }
   .faq { padding-top: 26px; }
-  .faq h2 { font-size: 20px; }
+  .faq h2 { font-size: 20px; scroll-margin-top: 112px; }
   .faq h3 { font-size: 16px; }
   .faq p, .faq li { font-size: 13.5px; }
   .faq table { font-size: 12px; }
