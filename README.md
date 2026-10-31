@@ -15,9 +15,13 @@
 .
 ├── index.html              English home (default)
 ├── table.html              English table browser
+├── faq.html                English FAQ
+├── FAQ.en.md               English FAQ source
+├── FAQ.zh.md               Chinese FAQ source
 ├── zh/
 │   ├── index.html          中文主页
-│   └── table.html          中文表浏览页
+│   ├── table.html          中文表浏览页
+│   └── faq.html            中文 FAQ
 ├── assets/
 │   ├── style.css
 │   ├── app.js
@@ -31,6 +35,10 @@
 ├── .nojekyll
 └── README.md
 ```
+
+## FAQ 页面
+
+FAQ 页面由主工程的 `scripts/21_faq_build.py` 生成；本仓库保存生成结果和 Markdown 源（`FAQ.en.md` / `FAQ.zh.md`）。
 
 ## 部署到 GitHub Pages
 

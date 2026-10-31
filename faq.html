@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ · DP Daoji Table</title>
+  <meta name="description" content="Frequently asked questions about the DP Daoji tables: scope, data, error notes, and beatoraja import.">
+  <meta name="theme-color" content="#100e0c">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="faq" data-lang="en" data-root=".">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">道</span>
+        <span class="brand-text">DP Daoji</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="table.html?t=easy">Guyuan Daotu</a>
+        <a href="table.html?t=hard">Fengsha Jiantu</a>
+        <a class="active" href="faq.html" aria-current="page">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="faq-hero">
+      <p class="eyebrow">LR2IR full archive · 2026-05-29 snapshot</p>
+      <h1>FAQ</h1>
+      <p class="hero-sub">Scope, data, and error notes for the DP Daoji tables.</p>
+      <div class="lang-switch" aria-label="Language">
+        <span class="lang-active" aria-current="true">English</span>
+        <span class="sep">/</span>
+        <a href="zh/faq.html">中文</a>
+        <span class="sep">·</span>
+        <span class="version">V0.2</span>
+      </div>
+    </section>
+
+    <article class="section faq">
+<h2>In one sentence</h2>
+<p>This is an Insane DP difficulty table inferred from LR2IR records, split into EASY and HARD. It is not an official table and not a personal ranking; use it to see the approximate difficulty range, not to settle comparisons between adjacent tiers.</p>
+<p>V0.2 tiers are mostly derived statistically, with no chart-by-chart manual adjustment; only a few source levels have received an overall calibration. An individual chart may therefore still land in the wrong tier.</p>
+<hr>
+<h2>I. Scope</h2>
+<h3 id="q1">1. What is in the table?</h3>
+<ul><li>Two tables: <strong>EASY</strong> (♂◇ Guyuan Daotu, EASY CLEAR pass line) and <strong>HARD</strong> (♂◆ Fengsha Jiantu, HARD CLEAR pass line).</li><li>Each table has <strong>2,070 charts</strong>, 7 realms × (7 tiers + 1 pending tier) = <strong>56 tiers</strong>.</li><li>Both tables use the same 2,070 charts; because the pass lines differ, the same chart can sit in different tiers.</li><li>Realms from low to high: Qi Refining, Foundation, Golden Core, Nascent Soul, Spirit Form, Void Refining, Mahayana.</li><li>The final tier of each realm, "Pending" (EASY, code <code>EBn-?</code>) / "Obscure" (HARD, code <code>HBn-?</code>), is a <strong>pending tier</strong>, not "harder than tiers 1–7".</li></ul>
+<h3 id="q2">2. Which source tables and levels are covered?</h3>
+<p>V0.2 covers:</p>
+<div class="faq-table"><table><thead><tr><th>Source table</th><th>Levels</th></tr></thead><tbody><tr><td>δ Difficulty Table (δ難易度表)</td><td>δ11</td></tr><tr><td>DPBMS and Shokan (DPBMSと諸感)</td><td>☆11弱, ☆11中, ☆11強, ☆12</td></tr><tr><td>DP Satellite</td><td>DPsl1–DPsl8</td></tr><tr><td>Insane DP Difficulty Table (発狂DP難易度表)</td><td>★1–★7</td></tr><tr><td>DP Insane Yaminabe (発狂14keyBMS闇鍋難易度表)</td><td>★1–★7</td></tr></tbody></table></div>
+<p>The table is positioned around <strong>IIDX DP 8th dan to just below IIDX DP Kaiden</strong>. Charts above that range have fewer plays and cannot be estimated reliably, so they are not included for now. An ascension table may follow later.</p>
+<p>Composition of the 2,070 charts:</p>
+<ul><li><strong><code>1,792</code></strong> estimated directly by the five-level GRM;</li><li><strong><code>178</code></strong> DP Satellite charts that failed the new GRM inclusion filters (low sample, or extreme pass rate / poor fit), filled by a linear mapping from the previous 1PL model;</li><li><strong><code>100</code></strong> charts with only mocha star/review data, outside the LR2IR target set, filled by external regression.</li></ul>
+<p>Not every chart in those source tables is included. Charts with too few plays, extreme pass rates, or poor fit are excluded rather than forced into the table.</p>
+<h2>II. Data</h2>
+<h3 id="q3">3. Where does the score data come from?</h3>
+<ul><li><strong><a href="https://cdn.lr2ir.com/lr2ir-archive-v3.db.gz" target="_blank" rel="noreferrer">Full public LR2IR archive v3</a></strong>, snapshot <strong>2026-05-29</strong>.</li><li>LR2IR closed on <strong>2026-05-31</strong>; new scores after that cannot enter this dataset.</li><li>The compressed archive is about 3.27 GiB; the unpacked database is about 8.6 GB.</li><li>Source repository: <code>zkldi/lr2ir-dataset</code> (Unlicense).</li></ul>
+<h3 id="q4">4. How is the data cleaned?</h3>
+<ul><li>Only <strong>14-key (DP)</strong> charts; <code>is_cheated</code> and <code>suspended</code> rows are removed.</li><li>One best record per player × chart, so repeated plays are not counted as independent observations.</li><li>Only <strong>non-random charts</strong>: 乱 (random) and SR are excluded; 正 (normal), 鏡 (mirror), and 換 (flip) are kept.</li><li>Dan rank (<code>dan</code>) is not used in the model; it is only an external validity check.</li></ul>
+<h3 id="q5">5. How is difficulty estimated?</h3>
+<ul><li><strong>Five-level GRM</strong> (FAILED / EASY / NORMAL / HARD / FC), estimated with MCMC.</li><li>The EASY table uses <strong>b1</strong>: the threshold from FAILED to EASY or better.</li><li>The HARD table uses <strong>b3</strong>: the threshold from NORMAL to HARD.</li><li>Discrimination <code>a</code> separates charts that test overall stamina from charts that test a specific pattern; the public table only shows tiers, not separate "overall skill" / "individual difference" lists.</li><li>High-sample charts (n ≥ <code>100</code>) are split into 7 realms by quantiles of <code>b</code>, then into 7 tiers within each realm. The realms are not based on source-table levels; they are based on the difficulty distribution of all high-sample charts.</li><li>Low-sample charts (n &lt; <code>45</code>, or <code>se</code> above the per-table threshold: EASY <code>0.41</code> / HARD <code>0.39</code>) are not forced into a tier by their own <code>b</code>; they take the median tier of their source table and go to the pending tier.</li><li>Charts that clearly conflict with their source level, have high R-hat, an unusual player pool, or an extreme pass rate also go to the pending tier. A plain misfit flag alone does not force a pending tier.</li></ul>
+<h3 id="q6">6. Is player data published?</h3>
+<p>No. The public fields are only <code>md5</code>, <code>sha256</code> (when available), title, tier, and <code>comment</code>; no player names, individual scores, <code>b</code> / <code>θ</code>, or sample sizes.</p>
+<hr>
+<h2>III. Errors and how to use it</h2>
+<h3 id="q7">7. Why are there errors?</h3>
+<ul><li><strong>The DP BMS player pool is small.</strong> Many charts have few plays, so difficulty estimates have large variance.</li><li>With a small or unusual player pool, a chart can move between adjacent tiers or drift noticeably.</li><li>Some charts only have random-mode scores, or have scores removed, leaving even fewer observations.</li><li>Source-table levels are subjective, and tier numbers are not comparable across tables; the model uses them only as within-table reference.</li><li>Charts filled from external data did not enter the LR2IR model, so they are less reliable; predictions for unpopular charts can have larger errors.</li><li>The model cannot fit every chart; a poorly fitting chart may simply be noise rather than a real "individual difference".</li></ul>
+<h3 id="q8">8. Can I still use it?</h3>
+<p>Yes, as a rough reference:</p>
+<ul><li>Charts in the same realm and nearby tiers are usually close, and the overall trend across realms is reliable.</li><li><strong>Do not treat adjacent tiers as an absolute conclusion.</strong> The order within 1–2 tiers is easily affected by sample size and player pool; do not use it for skill certification, gatekeeping, or attacking others.</li><li>Treat "Pending / Obscure" as "the data is not enough to place this chart stably in tiers 1–7", not as "the hardest".</li></ul>
+<h3 id="q9">9. What is "Pending / Obscure"?</h3>
+<p>"Pending / Obscure" is the final pending tier of each realm. It means the current data is not enough to place the chart stably in tiers 1–7; <strong>it does not mean the chart is the hardest</strong>. Low sample size, random-only scores, external filling, or an unusual player pool can all cause this uncertainty.</p>
+<p>It is an uncertainty hint, but it is not a complete low-sample flag: some low-sample charts remain in tiers 1–7, and some pending-tier charts are not there because of low sample size. So even if a chart is in tiers 1–7, its tier is not guaranteed to be stable. This is the biggest limitation of the table.</p>
+<h3 id="q10">10. Will the table be updated?</h3>
+<ul><li>The data snapshot is fixed at 2026-05-29; LR2IR is closed, so the same data source will not receive new scores.</li><li>If the data source, model, or criteria change, a new version number will be released.</li></ul>
+<h3 id="q11">11. What do EB / HB mean?</h3>
+<ul><li><code>EB</code> = EASY table, <code>HB</code> = HARD table.</li><li>The first digit is the realm (1–7), the second is the tier (1–7); <code>?</code> means the pending tier ("Pending" for EASY / "Obscure" for HARD).</li><li>Example: <code>EB4-?</code> = pending tier of realm IV (Nascent Soul) in the EASY table; <code>HB2-3</code> = tier 3 of realm II (Foundation) in the HARD table.</li></ul>
+<hr>
+<h2>IV. Site and import</h2>
+<h3 id="q12">12. How do I import it into beatoraja?</h3>
+<p>Add the raw <code>header.json</code> URLs in the difficulty table manager:</p>
+<pre><code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_easy/header.json
+https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_hard/header.json</code></pre>
+<h3 id="q13">13. Is this an official table?</h3>
+<p>No. It is an unofficial difficulty table inferred from public score data. Results are indicative only.</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>DP Daoji Table · 2026-05-29 snapshot</p>
+      <p>Unofficial difficulty table. Results are indicative only.</p>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

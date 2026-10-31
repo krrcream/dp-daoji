@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>常见问题 · DP 道阶表</title>
+  <meta name="description" content="DP 道阶表的常见问题：收录范围、数据口径、误差说明与 beatoraja 导入。">
+  <meta name="theme-color" content="#100e0c">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="faq" data-lang="zh" data-root="..">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">道</span>
+        <span class="brand-text">DP 道阶表</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="index.html">主页</a>
+        <a href="table.html?t=easy">固元道途</a>
+        <a href="table.html?t=hard">鋒殺剣途</a>
+        <a class="active" href="faq.html" aria-current="page">常见问题</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="faq-hero">
+      <p class="eyebrow">LR2IR 全量存档 · 2026-05-29 快照</p>
+      <h1>常见问题</h1>
+      <p class="hero-sub">关于收录范围、数据口径和误差的说明。</p>
+      <div class="lang-switch" aria-label="语言 / Language">
+        <span class="lang-active" aria-current="true">中文</span>
+        <span class="sep">/</span>
+        <a href="../faq.html">English</a>
+        <span class="sep">·</span>
+        <span class="version">V0.2</span>
+      </div>
+    </section>
+
+    <article class="section faq">
+<h2>一句话</h2>
+<p>这是用 LR2IR 的 records 推定的発狂 DP 难度表，分 EASY / HARD 两套。它不是官方表，也不是某个人的主观排行；适合看“大概在哪个难度段”，不适合拿相邻阶做绝对比较。</p>
+<p>V0.2 的档位基本由统计计算得出，没有逐谱人工调级；只有少数来源等级做过整体性的口径校准。因此仍可能有个别谱定级偏歪。</p>
+<hr>
+<h2>一、收录范围</h2>
+<h3 id="q1">1. 表里到底有什么？</h3>
+<ul><li>两套表：<strong>EASY</strong>（♂◇ 固元道途，EASY CLEAR 通过线）和 <strong>HARD</strong>（♂◆ 鋒殺剣途，HARD CLEAR 通过线）。</li><li>每套 <strong>2,070 张谱</strong>，7 大境 ×（7 小阶 + 1 待考阶）= <strong>56 阶</strong>。</li><li>两套表使用同一批 2,070 张谱；因为通过线不同，同一张谱在两套表里的档位可能不一样。</li><li>大境从低到高：錬気、築基、結丹、元嬰、化神、錬虚、大乗。</li><li>每境末尾的「疑」（EASY，代号 <code>EBn-?</code>）/「晦」（HARD，代号 <code>HBn-?</code>）是<strong>待考阶</strong>，不是“比 1–7 阶更难”的意思。</li></ul>
+<h3 id="q2">2. 收录了哪些来源表和等级？</h3>
+<p>V0.2 的模型覆盖以下来源：</p>
+<div class="faq-table"><table><thead><tr><th>来源表</th><th>等级</th></tr></thead><tbody><tr><td>「δ難易度表」</td><td>δ11</td></tr><tr><td>「DPBMSと諸感」</td><td>☆11弱、☆11中、☆11強、☆12</td></tr><tr><td>DP Satellite</td><td>DPsl1–DPsl8</td></tr><tr><td>「発狂DP難易度表」</td><td>★1–★7</td></tr><tr><td>「発狂14keyBMS闇鍋難易度表」</td><td>★1–★7</td></tr></tbody></table></div>
+<p>本表的定位是收录 <strong>IIDX DP 八段左右到接近 IIDX DP 皆传</strong>的难度段。超过这个范围的谱，游玩样本更少，难度难以稳定估计，所以暂时只收这些；以后有机会再做升仙表。</p>
+<p>2,070 张的构成：</p>
+<ul><li><strong><code>1,792</code> 张</strong>由五级 GRM 直接估计；</li><li><strong><code>178</code> 张</strong> DP Satellite 谱未通过新 GRM 的入模筛选（样本不足，或通过率、拟合异常），用上一版 1PL 的难度值做线性映射补位；</li><li><strong><code>100</code> 张</strong>只有 mocha 星级/评分数据、没有进入 LR2IR 目标谱集合的谱，用外部回归预测补位。</li></ul>
+<p>不是这些源表的所有谱都收。样本太少、通过率极端、拟合过差的谱会被剔除，不会硬塞进表里。</p>
+<hr>
+<h2>二、收录的数据</h2>
+<h3 id="q3">3. 成绩数据从哪来？</h3>
+<ul><li><strong><a href="https://cdn.lr2ir.com/lr2ir-archive-v3.db.gz" target="_blank" rel="noreferrer">LR2IR 全量公开存档 v3</a></strong>，快照时间 <strong>2026-05-29</strong>。</li><li>LR2IR 已于 <strong>2026-05-31 关站</strong>；之后产生的新成绩不会进入这份数据。</li><li>压缩包约 3.27 GiB，解压后的数据库约 8.6 GB。</li><li>来源仓库：<code>zkldi/lr2ir-dataset</code>（Unlicense）。</li></ul>
+<h3 id="q4">4. 数据怎么清洗？</h3>
+<ul><li>只保留 <strong>14 keys（DP）</strong> 谱面；剔除 <code>is_cheated</code> 和 <code>suspended</code>。</li><li>每个「玩家 × 谱面」只取一条最好成绩，避免同一人多次游玩被当成多个独立观测。</li><li>只用<strong>非随机谱面</strong>：排除 乱 / SR，保留 正 / 鏡 / 換。</li><li>段位（<code>dan</code>）不进入模型，只用于外部效度校验。</li></ul>
+<h3 id="q5">5. 难度是怎么估的？</h3>
+<ul><li><strong>五级 GRM</strong>（FAILED / EASY / NORMAL / HARD / FC），MCMC 估计。</li><li>EASY 表看 <strong>b1</strong>：从 FAILED 跨到 EASY 及以上的门槛。</li><li>HARD 表看 <strong>b3</strong>：从 NORMAL 跨到 HARD 的门槛。</li><li>判别力 <code>a</code> 用来区分“吃综合实力/耐力”的谱和“吃特定 pattern”的谱；公开表只给档位，不单独列地力/個人差。</li><li>高样本谱（n ≥ <code>100</code>）按难度 <code>b</code> 的分位切成 7 大境，再在每境内切成 7 小阶。7 大境不是按源表等级切的，而是按全体高样本谱的难度分布切的。</li><li>低样本谱（n &lt; <code>45</code>，或 <code>se</code> 超过对应表的阈值：EASY <code>0.41</code> / HARD <code>0.39</code>）不按自身 <code>b</code> 强行归小阶，而是按来源表等级的中位档落位，并进入待考阶。</li><li>与源表等级明显冲突、R-hat 偏高、玩家池异常、通过率极端等谱面，也统一进待考阶；单独的 misfit 只打标，不必然进待考阶。</li></ul>
+<h3 id="q6">6. 会公开玩家数据吗？</h3>
+<p>不会。公开字段只有 <code>md5</code>、<code>sha256</code>（有则）、标题、档位和 <code>comment</code>；不包含玩家昵称、逐人成绩、<code>b</code> / <code>θ</code> / 样本量。</p>
+<hr>
+<h2>三、误差与使用建议</h2>
+<h3 id="q7">7. 为什么会有误差？</h3>
+<ul><li><strong>DP BMS 玩家池小。</strong> 很多谱的游玩样本本来就少，难度估计的方差会比较大。</li><li>样本少或玩家池特殊时，档位容易在相邻阶之间摆动，甚至出现明显偏离。</li><li>有些谱只有随机谱面成绩，或成绩被剔除，实际可用观测更少。</li><li>源表等级本身是主观的，不同表之间的等级数字也不能直接比较；模型只把它当表内参考。</li><li>用外部数据补位的谱没有进入 LR2IR 建模，可靠性更低；这类预测对冷门谱可能偏差较大。</li><li>模型不可能拟合所有谱；拟合不理想的谱也可能只是数据噪音，而不是真的“個人差”。</li></ul>
+<h3 id="q8">8. 那还能用吗？</h3>
+<p>可以，但要按“大概参考”来用：</p>
+<ul><li>同境、相邻阶的谱通常确实接近，跨大境看整体趋势也可靠。</li><li><strong>相邻阶别当绝对结论。</strong> 1–2 阶的先后很容易受样本和玩家池影响，不要拿它做实力认证、门票或攻击他人的依据。</li><li>看到「疑 / 晦」，把它理解成“现有数据不足以稳定归入 1–7 小阶”，不是“最难”。</li></ul>
+<h3 id="q9">9. 「疑 / 晦」是什么？</h3>
+<p>「疑 / 晦」是每境末尾的待考阶，表示现有数据不足以稳定归入 1–7 小阶，<strong>不代表它们最难</strong>。样本少、只有随机成绩、外部补位、玩家池异常等情况都可能造成这种不确定。</p>
+<p>它也可以当作一个不确定性提示，但它不是完整的低样本标记：有些低样本谱仍在 1–7 阶里，也有些待考阶并不是因为样本少。所以即使某张谱落在 1–7 阶，也不代表它的档位一定稳。这是本表最大的使用限制。</p>
+<h3 id="q10">10. 表会更新吗？</h3>
+<ul><li>数据快照固定在 2026-05-29；LR2IR 已关站，同一数据源不会有新成绩。</li><li>如果换数据源、改模型或调整口径，会以新版本号发布。</li></ul>
+<h3 id="q11">11. 表名里的 EB / HB 是什么意思？</h3>
+<ul><li><code>EB</code> = EASY 表，<code>HB</code> = HARD 表。</li><li>第一位数字是大境（1–7），第二位是小阶（1–7）；<code>?</code> 表示待考阶（EASY 的「疑」/ HARD 的「晦」）。</li><li>例：<code>EB4-?</code> = EASY 表第四境（元嬰）的待考阶；<code>HB2-3</code> = HARD 表第二境（築基）第三阶。</li></ul>
+<hr>
+<h2>四、站点与导入</h2>
+<h3 id="q12">12. 怎么导入 beatoraja？</h3>
+<p>在难度表管理里添加 <code>header.json</code> 的 raw URL：</p>
+<pre><code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_easy/header.json
+https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_hard/header.json</code></pre>
+<h3 id="q13">13. 这张表是官方表吗？</h3>
+<p>不是。它是基于公开成绩数据的非官方推定表，结果仅供参考。</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>DP 道阶表 · 2026-05-29 快照</p>
+      <p>非官方难度表，结果仅供参考。</p>
+    </div>
+  </footer>
+
+  <script src="../assets/app.js"></script>
+</body>
+</html>
