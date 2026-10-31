@@ -123,6 +123,8 @@ https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_easy/header.json
 https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_hard/header.json
 ```
 
-### 13. Is this an official table?
+### Results are indicative only
 
-No. It is an unofficial difficulty table inferred from public score data. Results are indicative only.
+### Results are indicative only
+
+### Results are indicative only

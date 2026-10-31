@@ -125,6 +125,8 @@ https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_easy/header.json
 https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_hard/header.json
 ```
 
-### 13. 这张表是官方表吗？
+### 结果仅供参考
 
-不是。它是基于公开成绩数据的非官方推定表，结果仅供参考。
+### 结果仅供参考
+
+### 结果仅供参考
