@@ -7,25 +7,25 @@
   const MAJORS = [
     {
       id: 1,
-      name: { en: "Qi Refining", zh: "炼气" },
+      name: { en: "Qi Refining", zh: "錬気" },
       numeral: { en: "I", zh: "一" },
       desc: { en: "First Steps", zh: "初窥门径" }
     },
     {
       id: 2,
-      name: { en: "Foundation", zh: "筑基" },
+      name: { en: "Foundation", zh: "築基" },
       numeral: { en: "II", zh: "二" },
       desc: { en: "Foundations Laid", zh: "根基初成" }
     },
     {
       id: 3,
-      name: { en: "Golden Core", zh: "结丹" },
+      name: { en: "Golden Core", zh: "結丹" },
       numeral: { en: "III", zh: "三" },
       desc: { en: "Core Formed", zh: "凝练中坚" }
     },
     {
       id: 4,
-      name: { en: "Nascent Soul", zh: "元婴" },
+      name: { en: "Nascent Soul", zh: "元嬰" },
       numeral: { en: "IV", zh: "四" },
       desc: { en: "Inner Sanctum", zh: "登堂入室" }
     },
@@ -37,13 +37,13 @@
     },
     {
       id: 6,
-      name: { en: "Void Refining", zh: "炼虚" },
+      name: { en: "Void Refining", zh: "錬虚" },
       numeral: { en: "VI", zh: "六" },
       desc: { en: "Trial of Extremes", zh: "极境试炼" }
     },
     {
       id: 7,
-      name: { en: "Mahayana", zh: "大乘" },
+      name: { en: "Mahayana", zh: "大乗" },
       numeral: { en: "VII", zh: "七" },
       desc: { en: "Summit", zh: "登顶之阶" }
     }
@@ -56,42 +56,36 @@
       folder: "DP_dao_easy",
       name: { en: "Guyuan Daotu", zh: "固元道途" },
       full: {
-        en: "DP♂✧ Daoji Table — Guyuan Daotu (EASY CLEAR)",
-        zh: "DP♂✧道阶表 固元道途 (EASY CLEAR)"
+        en: "DP♂◇ Daoji Table — Guyuan Daotu (EASY CLEAR)",
+        zh: "DP♂◇道階表 固元道途 (EASY CLEAR)"
       },
       mode: "EASY CLEAR",
-      symbol: "♂✧"
+      symbol: "♂◇"
     },
     hard: {
       folder: "DP_dao_hard",
-      name: { en: "Fengsha Jiantu", zh: "锋杀剑途" },
+      name: { en: "Fengsha Jiantu", zh: "鋒殺剣途" },
       full: {
-        en: "DP♂✦ Daoji Table — Fengsha Jiantu (HARD CLEAR)",
-        zh: "DP♂✦道阶表 锋杀剑途 (HARD CLEAR)"
+        en: "DP♂◆ Daoji Table — Fengsha Jiantu (HARD CLEAR)",
+        zh: "DP♂◆道階表 鋒殺剣途 (HARD CLEAR)"
       },
       mode: "HARD CLEAR",
-      symbol: "♂✦"
+      symbol: "♂◆"
     }
   };
 
-  const SUB_EN = {
-    "微": "Faint",
-    "浅": "Shallow",
-    "承": "Sustain",
-    "盈": "Full",
-    "锐": "Sharp",
-    "极": "Extreme",
-    "满": "Perfect",
-    "疑": "Pending",
-    "藏": "Conceal",
-    "驰": "Gallop",
-    "突": "Charge",
-    "击": "Strike",
-    "摧": "Crush",
-    "断": "Sever",
-    "灭": "Annihilate",
-    "晦": "Obscure"
+  const SUB_JP = {
+    easy: ["微", "浅", "承", "盈", "鋭", "極", "満"],
+    hard: ["蔵", "馳", "突", "撃", "摧", "断", "滅"]
   };
+
+  const SUB_EN = {
+    easy: ["Faint", "Shallow", "Sustain", "Full", "Sharp", "Extreme", "Perfect"],
+    hard: ["Conceal", "Gallop", "Charge", "Strike", "Crush", "Sever", "Annihilate"]
+  };
+
+  const BUCKET_JP = { easy: "疑", hard: "晦" };
+  const BUCKET_EN = { easy: "Pending", hard: "Obscure" };
 
   const TEXT = {
     en: {
@@ -120,7 +114,7 @@
 
   const T = TEXT[LANG];
 
-  const LEVEL_RE = /^\s*(炼气|筑基|结丹|元婴|化神|炼虚|大乘)\s*([微浅承盈锐极满疑藏驰突击摧断灭晦])\s*[（(]\s*([EH])B([1-7])-([1-7?])\s*[)）]\s*$/;
+  const LEVEL_RE = /^\s*(.*?)\s*[（(]\s*([EH])B([1-7])-([1-7?])\s*[)）]\s*$/;
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -131,8 +125,10 @@
     return formatter.format(Number(value) || 0);
   }
 
-  function subLabel(sub) {
-    return LANG === "zh" ? sub : (SUB_EN[sub] || sub);
+  function subLabel(kind, sub) {
+    if (sub === "?") return LANG === "zh" ? BUCKET_JP[kind] : BUCKET_EN[kind];
+    const index = Number(sub) - 1;
+    return LANG === "zh" ? SUB_JP[kind][index] : SUB_EN[kind][index];
   }
 
   function el(tag, className, text) {
@@ -152,16 +148,17 @@
   function parseLevel(level) {
     const match = LEVEL_RE.exec(level || "");
     if (!match) return null;
-    const majorId = Number(match[4]);
+    const kind = match[2] === "H" ? "hard" : "easy";
+    const majorId = Number(match[3]);
     const major = MAJOR_BY_ID.get(majorId);
     return {
       level,
-      majorName: match[1],
+      kind,
       major: majorId,
-      majorLabel: major ? major.name[LANG] : match[1],
-      sub: match[2],
-      code: `${match[3]}B${match[4]}-${match[5]}`,
-      bucket: match[5] === "?"
+      majorName: major ? major.name[LANG] : "",
+      sub: match[4],
+      code: `${match[2]}B${majorId}-${match[4]}`,
+      bucket: match[4] === "?"
     };
   }
 
@@ -358,9 +355,8 @@
 
     const head = el("div", "level-head");
     const isBucket = group.meta.bucket;
-    const chipText = LANG === "zh"
-      ? `${group.meta.majorName}${group.meta.sub}`
-      : subLabel(group.meta.sub);
+    const subText = subLabel(group.meta.kind, group.meta.sub);
+    const chipText = LANG === "zh" ? `${group.meta.majorName}${subText}` : subText;
     const chip = el("span", `level-chip${isBucket ? " bucket" : ""}`, chipText);
     if (isBucket) chip.title = T.bucketTitle;
     head.append(
@@ -424,7 +420,7 @@
         option.value = group.level;
         option.textContent = LANG === "zh"
           ? group.level
-          : `${subLabel(group.meta.sub)} (${group.meta.code})`;
+          : `${subLabel(group.meta.kind, group.meta.sub)} (${group.meta.code})`;
         optgroup.appendChild(option);
       });
       fragment.appendChild(optgroup);
