@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ · Daoji Upper · Zhengzhen Daotu</title>
+  <meta name="description" content="DP☉◇ Daoji Upper Table FAQ: scope, data sources, method, and beatoraja import.">
+  <link rel="stylesheet" href="assets/upper.css">
+</head>
+<body>
+  <header class="wrap topbar">
+    <div class="brand"><span class="mark">☉</span> DP DAOJI · UPPER</div>
+    <nav class="nav">
+      <a href="upperindex.html">Home</a>
+      <a href="uppertable.html">Table</a>
+      <a href="daoindex.html">Lower table</a>
+      <a class="lang" href="zh/upperfaq.html">中文</a>
+    </nav>
+  </header>
+
+  <main class="wrap faq-body">
+    <section class="page-head plain" style="padding-top:34px">
+      <div class="hero-symbol">☉ ◇ &nbsp; FAQ</div>
+      <h1>Daoji Upper FAQ</h1>
+      <p class="sub">DP☉◇ Daoji Upper Table — Zhengzhen Daotu: scope, data sources, and method</p>
+    </section>
+
+    <section>
+      <h2>1. What is this</h2>
+      <p>This is an <b>Insane DP upper difficulty table</b> estimated from LR2IR records, positioned above the Daoji table (Guyuan Daotu). It uses the <b>EASY CLEAR</b> pass line only.</p>
+      <p>It is not an official table, nor a per-chart manual ranking. It is useful for “roughly which band”, not for absolute comparison between neighbouring tiers; Yuwai especially is indicative only.</p>
+    </section>
+
+    <section>
+      <h2>2. Scope</h2>
+      <p>The table takes charts from the following sources that fit the upper range:</p>
+      <table>
+        <thead><tr><th>Source</th><th>Levels</th></tr></thead>
+        <tbody>
+          <tr><td>Insane DP table (発狂DP難易度表)</td><td>★8–★13</td></tr>
+          <tr><td>Insane 14key BMS Yaminabe table (発狂14keyBMS闇鍋難易度表)</td><td>★8–★★17</td></tr>
+          <tr><td>DP Satellite</td><td>DPsl8–DPsl10</td></tr>
+          <tr><td>Community manual ratings</td><td>★8–★12 (small supplement)</td></tr>
+        </tbody>
+      </table>
+      <p>The <b>2,070 charts</b> already in the Daoji table are excluded. The final table has <b>2,399 charts</b> and <b>42 tiers</b> (5 realms × 7 + Yuwai 7). There are also 5 pending tiers (闕 / Que) which are not counted in the 42.</p>
+      <p>Not every chart from these sources is included; charts with too few samples, rating conflicts, or no match are removed or placed in the pending tier of their realm.</p>
+
+      <h3>Realms and Yuwai</h3>
+      <table>
+        <thead><tr><th>Realm</th><th>Code</th><th>Charts</th><th>Tiers (weak → strong)</th><th>Pending</th></tr></thead>
+        <tbody>
+          <tr><td>真仙 Zhenxian</td><td>EB8</td><td>698</td><td>Yi · Chuan · Wen · Gu · Wang · Ni · Mang</td><td>Que</td></tr>
+          <tr><td>金仙 Jinxian</td><td>EB9</td><td>479</td><td>Yi · Chuan · Wen · Gu · Wang · Ni · Mang</td><td>Que</td></tr>
+          <tr><td>太乙 Taiyi</td><td>EB10</td><td>242</td><td>Yi · Chuan · Wen · Gu · Wang · Ni · Mang</td><td>Que</td></tr>
+          <tr><td>大羅 Daluo</td><td>EB11</td><td>181</td><td>Yi · Chuan · Wen · Gu · Wang · Ni · Mang</td><td>Que</td></tr>
+          <tr><td>道祖 Daozu</td><td>EB12</td><td>243</td><td>Yi · Chuan · Wen · Gu · Wang · Ni · Mang</td><td>Que</td></tr>
+          <tr><td>域外 Yuwai</td><td>EB13</td><td>556</td><td colspan="2">Weipian · Qixiang · Huizong · Guji · Wuzheng · Nili · Huangyao</td></tr>
+        </tbody>
+      </table>
+      <p><b>Direction:</b> within each realm, 1 → 7 is weak → strong; realms 8 → 12 are also weak → strong. 闕 (Que) is a pending tier for low-sample or uncertain charts, <b>not</b> “harder than 7”. Yuwai is above Daozu, with 7 coarser tiers.</p>
+    </section>
+
+    <section>
+      <h2>3. Relation to the Daoji table</h2>
+      <ul>
+        <li>The <b>2,070 charts</b> already in the Daoji table (Guyuan Daotu / Fengsha Jiantu) are excluded; nothing is duplicated.</li>
+        <li>The Daoji table uses codes <code>EB1–EB7</code>; this table continues from <code>EB8</code>, so the 5 realms are numbered 8–12 and Yuwai is <code>EB13</code>.</li>
+        <li>The Daoji table has both EASY and HARD; this table is EASY only.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Data sources</h2>
+      <ul>
+        <li><b>LR2IR public archive v3</b> (2026-05-29 snapshot) records; LR2IR closed on 2026-05-31.</li>
+        <li>Source difficulty tables: <b>Insane DP table</b>, <b>Insane 14key BMS Yaminabe table</b>, <b>DP Satellite</b>.</li>
+        <li>A small number of charts use <b>community manual ratings</b> as a supplement; these are not separately credited.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Method</h2>
+      <p>The table is built in two stages: <b>a core set fixes the scale; the additions are only inserted</b>.</p>
+
+      <h3>5.1 Core set</h3>
+      <ul>
+        <li>The core is <b>650 charts</b> with community manual ratings, ★8–★12.</li>
+        <li>1PL (Rasch), <code>θ ~ N(0,1)</code>, with a monotone star prior (★8 &lt; … &lt; ★12), τ = 0.75.</li>
+        <li>These 650 charts define the θ scale and the 5 realm boundaries; later charts <b>do not change them</b>.</li>
+      </ul>
+
+      <h3>5.2 Additions (fixed-θ insertion)</h3>
+      <ul>
+        <li>The other <b>1,848 charts</b> in scope are estimated one by one with θ fixed, using EC outcomes.</li>
+        <li>Prior: τ = 0.75 for ≥30 players; τ = 0.5 for 3–29 players (tighter, marked L).</li>
+        <li>Additions <b>do not participate</b> in estimating θ or the realm boundaries; they are inserted into a tier by their own b.</li>
+      </ul>
+
+      <h3>5.3 Sub-tiers</h3>
+      <ul>
+        <li>Within each realm, 7 sub-tiers are cut by <b>equal width over p2–p98 of b</b>, keeping the bell shape (thicker in the middle, thinner at both ends), not equal frequency.</li>
+        <li>The pending tier 闕 (Que) holds charts with too few samples or rating conflicts and is not part of the sub-tier ordering.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Importing into beatoraja</h2>
+      <p>Same as the Daoji tables: add the raw URL of <code>header.json</code> in the difficulty table manager:</p>
+      <p><code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_upper/header.json</code></p>
+      <p><code>data.json</code> uses <code>md5 / title / level / comment</code>, the same fields as the Daoji table. Use the actual repository URL when published.</p>
+    </section>
+
+    <section>
+      <h2>7. Snapshot and disclaimer</h2>
+      <ul>
+        <li>Data snapshot: <b>2026-05-29</b>; LR2IR closed on 2026-05-31, so later scores are not included.</li>
+        <li>No per-player scores or player names are published; only aggregated difficulty values.</li>
+        <li>With few samples, tiers can wobble between neighbouring levels; 3–29 player charts, low-sample charts, and Yuwai are indicative only.</li>
+        <li>This is not an official table. Results are indicative only.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Results are indicative only</h2>
+      <h2>Results are indicative only</h2>
+      <h2>Results are indicative only</h2>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>DP☉◇ Daoji Upper Table · Zhengzhen Daotu · 2026-05-29 snapshot</span>
+    <span>Results are indicative only</span>
+  </footer>
+</body>
+</html>

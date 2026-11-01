@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DP 道阶表 · 発狂 DP 难度表</title>
+  <meta name="description" content="基于 LR2IR 2026-05-29 快照的発狂 DP 难度推定，七境四十九阶，EASY / HARD 两套 beatoraja 难度表。">
+  <meta name="theme-color" content="#100e0c">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="home" data-lang="zh" data-root="..">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="daoindex.html">
+        <span class="brand-mark" aria-hidden="true">道</span>
+        <span class="brand-text">DP 道阶表</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a class="active" href="daoindex.html">主页</a>
+        <a href="table.html?t=easy">固元道途</a>
+        <a href="table.html?t=hard">鋒殺剣途</a>
+        <a href="faq.html">常见问题</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <svg class="hero-mountains" viewBox="0 0 1200 240" fill="none" aria-hidden="true">
+        <path d="M0 212 L118 150 L192 178 L300 102 L392 168 L470 130 L562 198 L670 118 L762 182 L862 136 L952 198 L1062 148 L1142 184 L1200 158 V240 H0 Z" fill="#2e6b5a" opacity=".17"/>
+        <path d="M0 228 L92 190 L172 208 L262 156 L342 202 L432 170 L522 216 L622 164 L722 210 L822 176 L922 218 L1022 182 L1112 212 L1200 188 V240 H0 Z" fill="#c9a35c" opacity=".09"/>
+        <path d="M0 236 L110 214 L220 228 L330 206 L440 230 L550 212 L660 232 L770 210 L880 230 L990 212 L1100 230 L1200 218" stroke="#c9a35c" stroke-opacity=".16"/>
+      </svg>
+
+      <div class="seal" aria-hidden="true"><span>♂</span><i>道</i></div>
+      <p class="eyebrow">LR2IR 全量存档 · 発狂 DP · 2026-05-29 快照</p>
+      <h1>道阶表</h1>
+      <div class="lang-switch" aria-label="语言 / Language">
+        <span class="lang-active" aria-current="true">中文</span>
+        <span class="sep">/</span>
+        <a href="../daoindex.html" data-lang-link="en">English</a>
+        <span class="sep">·</span>
+        <span class="version">V0.2</span>
+      </div>
+      <p class="hero-sub">以 LR2IR 的 records 推定谱面难度。七境七七四十九阶，分 EASY 与 HARD 两途。</p>
+      <div class="hero-meta">
+        <span><b>2,070</b>谱 / 表</span>
+        <span><b>49</b>阶</span>
+        <span><b>7</b>境</span>
+        <span><b>2026-05-29</b>数据快照</span>
+      </div>
+    </section>
+
+    <section class="cards" aria-label="两套难度表">
+      <a class="card easy" href="table.html?t=easy" data-symbol="♂◇">
+        <div class="card-top">
+          <span class="card-symbol">♂◇</span>
+          <span class="card-mode">EASY CLEAR</span>
+        </div>
+        <h2>固元道途</h2>
+        <p>以 EASY CLEAR 为通过线，衡量谱面的基础承载力与稳定度。</p>
+        <div class="card-stats">
+          <div class="stat"><b data-total="easy">2,070</b><span>谱面</span></div>
+          <div class="stat"><b>49</b><span>阶</span></div>
+          <div class="stat"><b>7</b><span>境</span></div>
+        </div>
+        <span class="card-cta">进入表 <i>→</i></span>
+      </a>
+
+      <a class="card hard" href="table.html?t=hard" data-symbol="♂◆">
+        <div class="card-top">
+          <span class="card-symbol">♂◆</span>
+          <span class="card-mode">HARD CLEAR</span>
+        </div>
+        <h2>鋒殺剣途</h2>
+        <p>以 HARD CLEAR 为通过线，衡量谱面的上限压制与爆发要求。</p>
+        <div class="card-stats">
+          <div class="stat"><b data-total="hard">2,070</b><span>谱面</span></div>
+          <div class="stat"><b>49</b><span>阶</span></div>
+          <div class="stat"><b>7</b><span>境</span></div>
+        </div>
+        <span class="card-cta">进入表 <i>→</i></span>
+      </a>
+    </section>
+
+    <p id="load-hint" class="load-hint" hidden>
+      当前是直接以文件方式打开的页面，浏览器会拦截数据读取。请通过本地服务器或 GitHub Pages 访问。
+    </p>
+
+    <section class="section" aria-labelledby="bands-title">
+      <div class="section-head">
+        <h2 id="bands-title">七境</h2>
+        <p>由低至高，每境七阶，末置一阶以纳待考 · <span class="count-easy">青玉 EASY</span> / <span class="count-hard">朱红 HARD</span></p>
+      </div>
+      <div class="band-grid">
+        <div class="band-cell">
+          <span class="no">一</span><span class="name">錬気</span><span class="desc">初窥门径</span>
+          <span class="counts"><span class="count-easy" data-band="easy-1">—</span><span class="count-hard" data-band="hard-1">—</span></span>
+        </div>
+        <div class="band-cell">
+          <span class="no">二</span><span class="name">築基</span><span class="desc">根基初成</span>
+          <span class="counts"><span class="count-easy" data-band="easy-2">—</span><span class="count-hard" data-band="hard-2">—</span></span>
+        </div>
+        <div class="band-cell">
+          <span class="no">三</span><span class="name">結丹</span><span class="desc">凝练中坚</span>
+          <span class="counts"><span class="count-easy" data-band="easy-3">—</span><span class="count-hard" data-band="hard-3">—</span></span>
+        </div>
+        <div class="band-cell">
+          <span class="no">四</span><span class="name">元嬰</span><span class="desc">登堂入室</span>
+          <span class="counts"><span class="count-easy" data-band="easy-4">—</span><span class="count-hard" data-band="hard-4">—</span></span>
+        </div>
+        <div class="band-cell">
+          <span class="no">五</span><span class="name">化神</span><span class="desc">高阶之境</span>
+          <span class="counts"><span class="count-easy" data-band="easy-5">—</span><span class="count-hard" data-band="hard-5">—</span></span>
+        </div>
+        <div class="band-cell">
+          <span class="no">六</span><span class="name">錬虚</span><span class="desc">极境试炼</span>
+          <span class="counts"><span class="count-easy" data-band="easy-6">—</span><span class="count-hard" data-band="hard-6">—</span></span>
+        </div>
+        <div class="band-cell">
+          <span class="no">七</span><span class="name">大乗</span><span class="desc">登顶之阶</span>
+          <span class="counts"><span class="count-easy" data-band="easy-7">—</span><span class="count-hard" data-band="hard-7">—</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="import-title">
+      <div class="section-head">
+        <h2 id="import-title">导入 beatoraja</h2>
+        <p>把下面两个 header 地址加入难度表</p>
+      </div>
+      <div class="import">
+        <p>在 beatoraja 的难度表管理中新增 URL，粘贴 <code>header.json</code> 地址。表内 <code>data_url</code> 已指向对应的 <code>data.json</code>。</p>
+        <div class="url-row">
+          <span class="url-label easy">EASY</span>
+          <code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_easy/header.json</code>
+          <button class="copy-btn" type="button" data-copy="https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_easy/header.json" data-label="EASY header 地址">复制</button>
+        </div>
+        <div class="url-row">
+          <span class="url-label hard">HARD</span>
+          <code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_hard/header.json</code>
+          <button class="copy-btn" type="button" data-copy="https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_hard/header.json" data-label="HARD header 地址">复制</button>
+        </div>
+        <p class="hint">仓库需要设为 Public，私有仓库的 raw 地址会返回 404。更新表之后，在 beatoraja 中先删除旧表再重新添加，避免缓存旧的失败地址。</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="method-title">
+      <div class="section-head">
+        <h2 id="method-title">口径</h2>
+      </div>
+      <div class="notes">
+        <article>
+          <h3>数据</h3>
+          <p>LR2IR 全量存档，2026-05-29 快照。仅使用非随机谱面，排除 乱 / SR，保留 正 / 鏡 / 換。</p>
+        </article>
+        <article>
+          <h3>模型</h3>
+          <p>五级 GRM（FAILED / EASY / NORMAL / HARD / FC），MCMC 估计。判别力用于区分地力谱与个人差谱。</p>
+        </article>
+        <article>
+          <h3>分档</h3>
+          <p>高样本谱面确定 7 大境 × 7 小阶；样本不足或玩家池异常的谱面，附于每境末尾的「疑 / 晦」待考阶。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>DP 道阶表 · 2026-05-29 快照</p>
+      <p>结果仅供参考。</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

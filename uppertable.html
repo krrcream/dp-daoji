@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Table · Daoji Upper · Zhengzhen Daotu</title>
+  <link rel="stylesheet" href="assets/upper.css">
+  <style>
+    .lvhead { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .empty { color: var(--muted); font-size: 13px; padding: 6px 0; }
+    .row[hidden], details[hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <div class="brand"><span class="mark">☉</span> DP DAOJI · UPPER</div>
+    <nav class="nav">
+      <a href="upperindex.html">Home</a>
+      <a href="upperfaq.html">FAQ</a>
+      <a href="daoindex.html">Lower table</a>
+      <a class="lang" href="zh/uppertable.html">中文</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="page-head">
+      <div class="hero-symbol">☉ ◇ &nbsp; EASY CLEAR</div>
+      <h1>Zhengzhen Daotu</h1>
+      <p class="sub">DP☉◇ Daoji Upper Table · 2,399 charts · weak → strong</p>
+    </section>
+
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="Search title / md5" autocomplete="off">
+      <select id="major">
+        <option value="">All realms</option>
+        <option value="8">Zhenxian (EB8)</option>
+        <option value="9">Jinxian (EB9)</option>
+        <option value="10">Taiyi (EB10)</option>
+        <option value="11">Daluo (EB11)</option>
+        <option value="12">Daozu (EB12)</option>
+        <option value="13">Yuwai (EB13)</option>
+      </select>
+      <span class="stat" id="stat">Loading…</span>
+    </div>
+
+    <div id="levels">
+      <div class="loading">Loading DP_dao_upper/data.json …</div>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    <span>DP☉◇ Daoji Upper Table · Zhengzhen Daotu · 2026-05-29 snapshot</span>
+    <span>1 → 7 weak → strong; 闕 = pending; Yuwai = above Daozu (7 tiers)</span>
+  </footer>
+
+  <script>
+  (async function () {
+    const $ = (s, r = document) => r.querySelector(s);
+    const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const short = h => (h && h.length > 12) ? h.slice(0, 10) + "…" : (h || "—");
+    const codeOf = lvl => (lvl.match(/\(([EH]B\d+-[\d?])\)/) || [])[1] || "";
+
+    let header, data;
+    try {
+      [header, data] = await Promise.all([
+        fetch("DP_dao_upper/header.json", { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error("header " + r.status); return r.json(); }),
+        fetch("DP_dao_upper/data.json", { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error("data " + r.status); return r.json(); })
+      ]);
+    } catch (e) {
+      $("#levels").innerHTML = '<div class="error">Failed to load: ' + esc(e.message) +
+        '<br>Serve the site over HTTP (file:// is blocked), e.g. <code>python -m http.server</code>.</div>';
+      $("#stat").textContent = "Failed";
+      return;
+    }
+
+    const order = header.level_order || [];
+    const byLevel = new Map(order.map(l => [l, []]));
+    data.forEach(c => { if (!byLevel.has(c.level)) byLevel.set(c.level, []); byLevel.get(c.level).push(c); });
+
+    const frag = document.createDocumentFragment();
+    order.forEach(level => {
+      const charts = byLevel.get(level) || [];
+      const code = codeOf(level);
+      const major = (code.match(/B(\d+)-/) || [])[1] || "";
+      const d = document.createElement("details");
+      d.className = "level";
+      d.dataset.major = major;
+      d.dataset.code = code;
+      d.innerHTML =
+        '<summary><span class="dot"></span><span class="lvhead"><span class="lv">' + esc(level) +
+        '</span></span><span class="cnt">' + charts.length + ' charts</span></summary>' +
+        '<div class="rows">' + (charts.length ? charts.map(c =>
+          '<div class="row" data-s="' + esc((c.title + " " + c.md5).toLowerCase()) + '"><span class="t">' + esc(c.title) +
+          '</span><span class="h">' + esc(short(c.md5)) + '</span></div>').join("") :
+          '<div class="empty">No charts (reserved tier)</div>') + '</div>';
+      frag.appendChild(d);
+    });
+    $("#levels").innerHTML = "";
+    $("#levels").appendChild(frag);
+
+    const all = Array.from(document.querySelectorAll("details.level"));
+    const stat = $("#stat");
+    function refresh() {
+      const q = $("#q").value.trim().toLowerCase();
+      const m = $("#major").value;
+      let visibleCharts = 0, visibleLevels = 0;
+      all.forEach(d => {
+        const majorOK = !m || d.dataset.major === m;
+        let shown = 0;
+        d.querySelectorAll(".row").forEach(row => {
+          const ok = majorOK && (!q || row.dataset.s.includes(q));
+          row.hidden = !ok;
+          if (ok) shown++;
+        });
+        const show = majorOK && (!q || shown > 0);
+        d.hidden = !show;
+        if (show) {
+          if (!d.dataset.code.endsWith("?")) visibleLevels++;
+          visibleCharts += shown;
+        }
+        if (q) d.open = show && shown > 0;
+      });
+      stat.textContent = visibleLevels + " tiers / " + visibleCharts + " charts";
+    }
+    $("#q").addEventListener("input", refresh);
+    $("#major").addEventListener("change", refresh);
+    refresh();
+  })();
+  </script>
+</body>
+</html>
