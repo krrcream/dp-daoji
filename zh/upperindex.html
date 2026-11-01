@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DP☉◇道極表 証真道途 · 上位表</title>
-  <meta name="description" content="DP☉◇道極表 証真道途 — 基于 LR2IR 与社区人工评级的発狂 DP 上位难度表，EASY CLEAR 通过线。">
+  <title>DP◉◇道極表 証真道途 · 上位表</title>
+  <meta name="description" content="DP◉◇道極表 証真道途 — 基于 LR2IR 与社区人工评级的発狂 DP 上位难度表，EASY CLEAR 通过线。">
   <link rel="stylesheet" href="../assets/upper.css">
 </head>
 <body>
   <header class="wrap topbar">
-    <a class="brand" href="../index.html"><span class="mark">☉</span> DP DAOJI · UPPER</a>
+    <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">道</span> DP DAOJI · UPPER</a>
     <nav class="nav">
       <a href="uppertable.html">難易度表</a>
       <a href="daoindex.html">固元道途 ▪ 鋒殺剣途</a>
@@ -21,9 +21,9 @@
   <main class="wrap">
     <section class="hero">
       <div>
-        <div class="hero-symbol">☉ ◇ &nbsp; EASY CLEAR</div>
+        <div class="hero-symbol">◉ ◇ &nbsp; EASY CLEAR</div>
         <h1>道極表<br>証真道途</h1>
-        <p class="sub">DP☉◇道極表 証真道途 — 発狂 DP 上位难度表</p>
+        <p class="sub">DP◉◇道極表 証真道途 — 発狂 DP 上位难度表</p>
         <div class="meta">
           <span><b>2,399</b> 张</span>
           <span>分成 <b>5</b> 大境界 + 域外 共 <b>42</b> 阶</span>
@@ -37,7 +37,7 @@
       <div class="ornament" aria-hidden="true">
         <div class="cloud c1"></div>
         <div class="cloud c2"></div>
-        <div class="sun">☉</div>
+        <div class="sun">◉</div>
       </div>
     </section>
 
@@ -90,11 +90,33 @@
         <b>读法：</b>每个大境界内部 1 → 7 是弱 → 强；「闕」是待考阶，表示样本不足或评级不确定；<b>域外是比道祖更难的部分，但分级没有五境那么细，只分 7 级</b>。本表只做 EASY CLEAR，不做 HARD。
       </div>
     </div>
+
+    <section class="import">
+      <h2>导入 beatoraja</h2>
+      <p>在 beatoraja 的难度表管理里添加 <code>header.json</code> 的 URL；它的 <code>data_url</code> 已经指向对应的 <code>data.json</code>。</p>
+      <div class="url-box">
+        <code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_upper/header.json</code>
+        <button class="copy-btn" type="button" data-copy="https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_upper/header.json" data-label="复制">复制</button>
+      </div>
+      <p class="hint">仓库必须是 Public；私有仓库的 raw URL 会 404。更新表后，先在 beatoraja 里删掉旧条目再重新添加，避免继续用缓存的失败 URL。</p>
+    </section>
   </main>
 
   <footer class="wrap">
-    <span>DP☉◇道極表 証真道途 · 2026-05-29 数据快照</span>
+    <span>DP◉◇道極表 証真道途 · 2026-05-29 数据快照</span>
     <span>结果仅供参考 / Results are indicative only</span>
   </footer>
+  <script>
+  document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.copy);
+        const old = btn.textContent;
+        btn.textContent = "已复制";
+        setTimeout(() => { btn.textContent = old; }, 1400);
+      } catch (e) {}
+    });
+  });
+  </script>
 </body>
 </html>

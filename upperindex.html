@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Daoji Upper · Zhengzhen Daotu</title>
-  <meta name="description" content="DP☉◇ Daoji Upper Table — Zhengzhen Daotu: an Insane DP upper difficulty table based on LR2IR records and community manual ratings, EASY CLEAR.">
+  <meta name="description" content="DP◉◇ Daoji Upper Table — Zhengzhen Daotu: an Insane DP upper difficulty table based on LR2IR records and community manual ratings, EASY CLEAR.">
   <link rel="stylesheet" href="assets/upper.css">
 </head>
 <body>
   <header class="wrap topbar">
-    <a class="brand" href="index.html"><span class="mark">☉</span> DP DAOJI · UPPER</a>
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">道</span> DP DAOJI · UPPER</a>
     <nav class="nav">
       <a href="uppertable.html">Table</a>
       <a href="daoindex.html">Guyuan Daotu ▪ Fengsha Jiantu</a>
@@ -21,9 +21,9 @@
   <main class="wrap">
     <section class="hero">
       <div>
-        <div class="hero-symbol">☉ ◇ &nbsp; EASY CLEAR</div>
+        <div class="hero-symbol">◉ ◇ &nbsp; EASY CLEAR</div>
         <h1>Daoji Upper<br>Zhengzhen Daotu</h1>
-        <p class="sub">DP☉◇道極表 証真道途 — Insane DP upper difficulty table</p>
+        <p class="sub">DP◉◇道極表 証真道途 — Insane DP upper difficulty table</p>
         <div class="meta">
           <span><b>2,399</b> charts</span>
           <span><b>5</b> realms + Yuwai · <b>42</b> tiers</span>
@@ -37,7 +37,7 @@
       <div class="ornament" aria-hidden="true">
         <div class="cloud c1"></div>
         <div class="cloud c2"></div>
-        <div class="sun">☉</div>
+        <div class="sun">◉</div>
       </div>
     </section>
 
@@ -90,11 +90,33 @@
         <b>How to read:</b> within each realm, 1 → 7 is weak → strong; <b>闕 (Que)</b> is a pending tier for low-sample or uncertain charts; <b>Yuwai</b> is above Daozu, with 7 coarser tiers. This table is EASY CLEAR only.
       </div>
     </div>
+
+    <section class="import">
+      <h2>Import into beatoraja</h2>
+      <p>Open the difficulty table manager in beatoraja and add the <code>header.json</code> URL. Its <code>data_url</code> points to the matching <code>data.json</code>.</p>
+      <div class="url-box">
+        <code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_upper/header.json</code>
+        <button class="copy-btn" type="button" data-copy="https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_upper/header.json" data-label="Copy">Copy</button>
+      </div>
+      <p class="hint">The repository must be public; raw URLs on a private repository return 404. After updating the table, delete the old entry and add it again so the cached failed URL is not reused.</p>
+    </section>
   </main>
 
   <footer class="wrap">
-    <span>DP☉◇ Daoji Upper Table · Zhengzhen Daotu · 2026-05-29 snapshot</span>
+    <span>DP◉◇ Daoji Upper Table · Zhengzhen Daotu · 2026-05-29 snapshot</span>
     <span>Results are indicative only</span>
   </footer>
+  <script>
+  document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.copy);
+        const old = btn.textContent;
+        btn.textContent = "Copied";
+        setTimeout(() => { btn.textContent = old; }, 1400);
+      } catch (e) {}
+    });
+  });
+  </script>
 </body>
 </html>
