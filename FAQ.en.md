@@ -1,12 +1,12 @@
 # DP Daoji Table FAQ
 
-> Table version **V0.2** (data snapshot 2026-05-29).
+> Table version **V0.3** (data snapshot 2026-05-29).
 
 ## In one sentence
 
 This is an Insane DP difficulty table inferred from LR2IR records, split into EASY and HARD. It is not an official table and not a personal ranking; use it to see the approximate difficulty range, not to settle comparisons between adjacent tiers.
 
-V0.2 tiers are mostly derived statistically, with no chart-by-chart manual adjustment; only a few source levels have received an overall calibration. An individual chart may therefore still land in the wrong tier.
+V0.3 tiers are computed statistically, with no chart-by-chart manual adjustment; realms are anchored to the community rating where available and fall back to source-table levels otherwise. An individual chart may therefore still land in the wrong tier.
 
 ---
 
@@ -22,7 +22,7 @@ V0.2 tiers are mostly derived statistically, with no chart-by-chart manual adjus
 
 ### 2. Which source tables and levels are covered?
 
-V0.2 covers:
+V0.3 covers:
 
 | Source table | Levels |
 |---|---|
@@ -60,13 +60,7 @@ Not every chart in those source tables is included. Charts with too few plays, e
 
 ### 5. How is difficulty estimated?
 
-- **Five-level GRM** (FAILED / EASY / NORMAL / HARD / FC), estimated with MCMC.
-- The EASY table uses **b1**: the threshold from FAILED to EASY or better.
-- The HARD table uses **b3**: the threshold from NORMAL to HARD.
-- Discrimination `a` separates charts that test overall stamina from charts that test a specific pattern; the public table only shows tiers, not separate "overall skill" / "individual difference" lists.
-- High-sample charts (n ≥ `{{HIGH_SAMPLE_N}}`) are split into 7 realms by quantiles of `b`, then into 7 tiers within each realm. The realms are not based on source-table levels; they are based on the difficulty distribution of all high-sample charts.
-- Low-sample charts (n < `{{LOW_SAMPLE_N}}`, or `se` above the per-table threshold: EASY `{{SE_MAX_EASY}}` / HARD `{{SE_MAX_HARD}}`) are not forced into a tier by their own `b`; they take the median tier of their source table and go to the pending tier.
-- Charts that clearly conflict with their source level, have high R-hat, an unusual player pool, or an extreme pass rate also go to the pending tier. A plain misfit flag alone does not force a pending tier.
+Difficulty is estimated with a **five-level graded response model (GRM: FAILED / EASY / NORMAL / HARD / FC)** fitted on the public LR2IR archive; the EASY table uses the FAILED→EASY threshold and the HARD table the NORMAL→HARD threshold. Realms follow the community rating where available and source-table levels otherwise; tiers within a realm are ordered by the estimated difficulty.
 
 ### 6. Is player data published?
 
@@ -81,7 +75,6 @@ No. The public fields are only `md5`, `sha256` (when available), title, tier, an
 - **The DP BMS player pool is small.** Many charts have few plays, so difficulty estimates have large variance.
 - With a small or unusual player pool, a chart can move between adjacent tiers or drift noticeably.
 - Some charts only have random-mode scores, or have scores removed, leaving even fewer observations.
-- Source-table levels are subjective, and tier numbers are not comparable across tables; the model uses them only as within-table reference.
 - Charts filled from external data did not enter the LR2IR model, so they are less reliable; predictions for unpopular charts can have larger errors.
 - The model cannot fit every chart; a poorly fitting chart may simply be noise rather than a real "individual difference".
 
