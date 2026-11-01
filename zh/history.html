@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN" data-from="lower">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>更新历史 · DP 道阶表</title>
+  <meta name="description" content="DP 道阶表下位表（固元道途 / 鋒殺剣途）与上位表（証真道途）的更新历史。">
+  <meta name="theme-color" content="#100e0c">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/history.css">
+  <script>
+    (function () {
+      var from = new URLSearchParams(location.search).get("from");
+      if (from === "upper") document.documentElement.setAttribute("data-from", "upper");
+    })();
+  </script>
+</head>
+<body>
+  <header class="lower-bar">
+    <div class="inner">
+      <a class="brand" href="../index.html">
+        <span class="mark" aria-hidden="true">道</span>
+        <span class="brand-text">DP 道阶表</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="table.html?t=easy">固元道途</a>
+        <a href="table.html?t=hard">鋒殺剣途</a>
+        <a href="upperindex.html">証真道途</a>
+        <a href="faq.html">常见问题</a>
+        <a class="active" href="history.html?from=lower" aria-current="page">更新历史</a>
+      </nav>
+    </div>
+  </header>
+
+  <header class="upper-bar">
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">道</span> DP DAOJI · UPPER</a>
+    <nav class="nav" aria-label="上位表导航">
+      <a href="upperindex.html">首页</a>
+      <a href="daoindex.html">固元道途 ▪ 鋒殺剣途</a>
+      <a href="upperfaq.html">常见问题</a>
+      <a class="active" href="history.html?from=upper" aria-current="page">更新历史</a>
+      <a class="lang" href="../history.html?from=upper">EN</a>
+    </nav>
+  </header>
+
+  <main class="hist-wrap">
+    <div class="hist-kicker">变更记录</div>
+    <h1 class="hist-title">更新历史</h1>
+    <p class="hist-sub">难度表的变更记录</p>
+
+    <div class="hist-grid">
+      <section class="hist-col hist-lower">
+        <div class="hist-kicker">下位表</div>
+        <div class="hist-date">2026/11/2</div>
+        <p>重新划定了下位表每个大境的边界并重新定阶，避免个别数据特殊的谱面跨越大境过多。</p>
+      </section>
+
+      <section class="hist-col hist-upper">
+        <div class="hist-kicker">上位表</div>
+        <div class="hist-date">2026/11/2</div>
+        <p>微调了上位表的个别谱面。</p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

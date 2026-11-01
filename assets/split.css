@@ -302,3 +302,24 @@ body {
   .lang-switch { top: 14px; right: 16px; padding: 5px 10px; }
   .title { font-size: clamp(38px, 11vw, 62px); }
 }
+
+/* changelog entry on the split home */
+.history-link {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 30;
+  padding: 6px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(10, 12, 14, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: #cfc7b8;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+.history-link:hover { color: #fff; border-color: rgba(201, 163, 92, 0.6); }

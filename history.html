@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" data-from="lower">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Update History · DP Daoji</title>
+  <meta name="description" content="Update history of the DP Daoji lower table (Guyuan Daotu / Fengsha Jiantu) and upper table (Zhengzhen Daotu).">
+  <meta name="theme-color" content="#100e0c">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/history.css">
+  <script>
+    (function () {
+      var from = new URLSearchParams(location.search).get("from");
+      if (from === "upper") document.documentElement.setAttribute("data-from", "upper");
+    })();
+  </script>
+</head>
+<body>
+  <header class="lower-bar">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <span class="mark" aria-hidden="true">道</span>
+        <span class="brand-text">DP Daoji</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="table.html?t=easy">Guyuan Daotu</a>
+        <a href="table.html?t=hard">Fengsha Jiantu</a>
+        <a href="upperindex.html">Zhengzhen Daotu</a>
+        <a href="faq.html">FAQ</a>
+        <a class="active" href="history.html?from=lower" aria-current="page">History</a>
+      </nav>
+    </div>
+  </header>
+
+  <header class="upper-bar">
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true">道</span> DP DAOJI · UPPER</a>
+    <nav class="nav" aria-label="Upper table navigation">
+      <a href="upperindex.html">Home</a>
+      <a href="daoindex.html">Guyuan Daotu ▪ Fengsha Jiantu</a>
+      <a href="upperfaq.html">FAQ</a>
+      <a class="active" href="history.html?from=upper" aria-current="page">History</a>
+      <a class="lang" href="zh/history.html?from=upper">中文</a>
+    </nav>
+  </header>
+
+  <main class="hist-wrap">
+    <div class="hist-kicker">Changelog</div>
+    <h1 class="hist-title">Update History</h1>
+    <p class="hist-sub">Changes to the difficulty tables</p>
+
+    <div class="hist-grid">
+      <section class="hist-col hist-lower">
+        <div class="hist-kicker">Lower table</div>
+        <div class="hist-date">2026/11/2</div>
+        <p>Redrew the realm boundaries of the lower table and re-tiered its charts, so that a few charts with unusual data no longer jump across too many realms.</p>
+      </section>
+
+      <section class="hist-col hist-upper">
+        <div class="hist-kicker">Upper table</div>
+        <div class="hist-date">2026/11/2</div>
+        <p>Minor adjustments to a few charts in the upper table.</p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
