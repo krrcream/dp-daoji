@@ -9,11 +9,12 @@
 </head>
 <body>
   <header class="wrap topbar">
-    <div class="brand"><span class="mark">☉</span> DP DAOJI · UPPER</div>
+    <a class="brand" href="index.html"><span class="mark">☉</span> DP DAOJI · UPPER</a>
     <nav class="nav">
       <a href="upperindex.html">Home</a>
       <a href="uppertable.html">Table</a>
-      <a href="daoindex.html">Lower table</a>
+      <a href="daoindex.html">Guyuan Daotu ▪ Fengsha Jiantu</a>
+      <a href="upperfaq.html">FAQ</a>
       <a class="lang" href="zh/upperfaq.html">中文</a>
     </nav>
   </header>
@@ -118,6 +119,19 @@
         <li>No per-player scores or player names are published; only aggregated difficulty values.</li>
         <li>With few samples, tiers can wobble between neighbouring levels; 3–29 player charts, low-sample charts, and Yuwai are indicative only.</li>
         <li>This is not an official table. Results are indicative only.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>8. Why are there errors?</h2>
+      <ul>
+        <li><b>The DP BMS player pool is small.</b> Many charts have few plays, so the variance of difficulty estimates is larger.</li>
+        <li>With few samples or an unusual player pool, tiers can wobble between neighbouring levels or deviate noticeably.</li>
+        <li>Some charts only have random-mod scores, or their scores were removed, so fewer observations are usable.</li>
+        <li>Source-table levels are subjective; level numbers are not directly comparable across tables, and the model uses them only as a within-table reference.</li>
+        <li>Low-sample charts and fixed-θ insertions did not enter the core scale estimation; their reliability is lower, and predictions for obscure charts can be more biased.</li>
+        <li>The model cannot fit every chart; a poorly fitting chart may simply be data noise rather than a real “individual difference”.</li>
+        <li><b>The upper table has fewer players than the lower table</b>, especially for 3–29 player charts and Yuwai; deviations can be larger, and these tiers are indicative only.</li>
       </ul>
     </section>
 

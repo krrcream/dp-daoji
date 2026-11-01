@@ -3,25 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FAQ · DP☉◇道極表 証真道途</title>
+  <title>常见问题 · DP☉◇道極表 証真道途</title>
   <meta name="description" content="DP☉◇道極表 証真道途 FAQ：收录范围、数据来源、算法说明与 beatoraja 导入。">
   <link rel="stylesheet" href="../assets/upper.css">
 </head>
 <body>
   <header class="wrap topbar">
-    <div class="brand"><span class="mark">☉</span> DP DAOJI · UPPER</div>
+    <a class="brand" href="../index.html"><span class="mark">☉</span> DP DAOJI · UPPER</a>
     <nav class="nav">
       <a href="upperindex.html">首页</a>
       <a href="uppertable.html">難易度表</a>
-      <a href="daoindex.html">下位表</a>
+      <a href="daoindex.html">固元道途 ▪ 鋒殺剣途</a>
+      <a href="upperfaq.html">常见问题</a>
       <a class="lang" href="../upperfaq.html">EN</a>
     </nav>
   </header>
 
   <main class="wrap faq-body">
     <section class="page-head plain" style="padding-top:34px">
-      <div class="hero-symbol">☉ ◇ &nbsp; FAQ</div>
-      <h1>道極表 FAQ</h1>
+      <div class="hero-symbol">☉ ◇ &nbsp; 常见问题</div>
+      <h1>道極表 常见问题</h1>
       <p class="sub">DP☉◇道極表 証真道途 — 收录范围、数据来源与算法说明</p>
     </section>
 
@@ -118,6 +119,19 @@
         <li>不发布逐人成绩或玩家昵称，只发布聚合难度。</li>
         <li>样本少时档位容易在相邻阶之间摆动；3–29 人、低样本、域外只能当参考。</li>
         <li>不是官方表，结果仅供参考。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>八、为什么会有误差？</h2>
+      <ul>
+        <li><b>DP BMS 玩家池小。</b>很多谱的游玩样本本来就少，难度估计的方差会比较大。</li>
+        <li>样本少或玩家池特殊时，档位容易在相邻阶之间摆动，甚至出现明显偏离。</li>
+        <li>有些谱只有随机谱面成绩，或成绩被剔除，实际可用观测更少。</li>
+        <li>源表等级本身是主观的，不同表之间的等级数字也不能直接比较；模型只把它当表内参考。</li>
+        <li>低样本谱和固定 θ 插入的谱没有进入核心尺度估计，可靠性更低；这类谱对冷门谱可能偏差较大。</li>
+        <li>模型不可能拟合所有谱；拟合不理想的谱也可能只是数据噪音，而不是真的“個人差”。</li>
+        <li><b>上位表的玩家比下位表更少</b>，尤其 3–29 人的谱和域外，偏差可能更大；这些档位只能当参考。</li>
       </ul>
     </section>
 
