@@ -109,6 +109,20 @@ body {
   font-size: 34px;
   pointer-events: none;
 }
+.side-upper .sun-mark {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--upper-gold);
+  border-radius: 50%;
+  position: relative;
+}
+.side-upper .sun-mark::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: var(--upper-gold);
+}
 .side-upper:hover { filter: brightness(1.015); }
 
 /* shared typography */

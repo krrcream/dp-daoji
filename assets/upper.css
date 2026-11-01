@@ -157,6 +157,17 @@ a { color: inherit; }
   color: var(--ink-soft);
   font-size: 17px;
 }
+.version {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 1px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: var(--muted);
+  vertical-align: .12em;
+}
 .hero .meta {
   display: flex;
   flex-wrap: wrap;
@@ -210,6 +221,20 @@ a { color: inherit; }
   font-size: 40px;
   background: radial-gradient(circle at 35% 30%, #fffdf6, #f6e8c8 62%, #e3c98f);
   box-shadow: 0 0 0 14px rgba(255, 255, 255, 0.4), 0 24px 60px rgba(184, 137, 63, 0.24);
+}
+.sun-mark {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  position: relative;
+}
+.sun-mark::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: var(--gold);
 }
 .cloud {
   position: absolute;
