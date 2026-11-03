@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>よくある質問 · DP 道階表 / 道極表</title>
+<style>
+  :root{
+    --ink:#14171a; --ink-soft:#5b656d; --ink-faint:#9aa4ac;
+    --paper:#fdfdfb; --line:rgba(20,23,26,.12);
+    --mist-1:#eaeef1; --mist-2:#d7dee4;
+    --night:#0d0f11; --night-2:#131619; --paper-night:#e9e9e6; --muted-night:#98a1a8; --line-night:rgba(255,255,255,.13);
+    --vermilion:#b23a2e; --jade:#2f6f5d;
+    --serif:"Songti SC","SimSun","Noto Serif CJK SC",serif;
+    --sans:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{width:min(880px,calc(100% - 48px));margin:0 auto;position:relative}
+
+  /* ---------- 动效 ---------- */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* ---------- 天空 ---------- */
+  .sky{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(900px 420px at 78% 6%, rgba(255,255,255,.95), rgba(255,255,255,0) 70%),
+      linear-gradient(180deg,#ffffff 0%,#f7fafc 38%,#e9eff4 100%);
+    padding-bottom:46px;
+  }
+  .clouds{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .clouds span{position:absolute;background:#fff;border-radius:999px;opacity:.92;
+    box-shadow:0 24px 60px rgba(133,160,184,.12);will-change:transform}
+  .clouds span::before,.clouds span::after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .cl1{width:240px;height:60px;left:-60px;top:140px}
+  .cl1::before{width:104px;height:104px;left:36px;bottom:12px}
+  .cl1::after{width:70px;height:70px;right:36px;bottom:4px}
+  .cl2{width:160px;height:42px;right:5%;top:96px;opacity:.72}
+  .cl2::before{width:74px;height:74px;left:24px;bottom:8px}
+  .cl2::after{width:50px;height:50px;right:22px;bottom:2px}
+  .cl3{width:280px;height:68px;right:14%;top:330px;opacity:.82}
+  .cl3::before{width:118px;height:118px;left:48px;bottom:14px}
+  .cl3::after{width:78px;height:78px;right:44px;bottom:6px}
+  .cl4{width:140px;height:36px;left:8%;top:560px;opacity:.55}
+  .cl4::before{width:62px;height:62px;left:20px;bottom:6px}
+  .cl4::after{width:42px;height:42px;right:18px;bottom:2px}
+  .wash{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;opacity:.55}
+  .w1{width:460px;height:460px;right:-120px;top:40px;background:radial-gradient(circle,rgba(178,58,46,.07),transparent 70%)}
+  .w2{width:520px;height:520px;left:-180px;top:640px;background:radial-gradient(circle,rgba(47,111,93,.07),transparent 70%)}
+
+  /* ---------- 顶部导航 ---------- */
+  .nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 0}
+  .brand{font-family:var(--serif);font-size:15px;letter-spacing:.14em;text-decoration:none}
+  .nav nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+  .nav nav a{padding:7px 12px;font-size:13px;letter-spacing:.06em;color:var(--ink-soft);text-decoration:none;border-radius:999px;transition:color .2s}
+  .nav nav a:hover{color:var(--ink)}
+  .nav nav a.active{border:1px solid var(--line);color:var(--ink)}
+  .nav .lang{border:1px solid var(--line);padding:5px 13px;font-size:12px;border-radius:999px}
+
+  /* ---------- 卷首 ---------- */
+  .hero{position:relative;z-index:2;padding:44px 0 30px}
+  .hero .seal{
+    position:absolute;right:8px;top:26px;width:72px;height:72px;border:2px solid var(--vermilion);
+    border-radius:6px;display:grid;place-items:center;transform:rotate(5deg);
+    font-family:var(--serif);font-size:38px;color:var(--vermilion);opacity:.88;
+    box-shadow:inset 0 0 0 4px rgba(178,58,46,.10);
+  }
+  .eyebrow{font-size:11px;letter-spacing:.32em;color:var(--ink-faint);margin:0 0 16px}
+  .hero h1{font-family:var(--serif);font-size:clamp(44px,7vw,74px);font-weight:600;
+    letter-spacing:.18em;text-indent:.18em;margin:0 0 20px}
+  .lead{max-width:600px;margin:0;font-size:15px;line-height:2;color:var(--ink-soft)}
+  .hero .vnote{position:absolute;right:104px;top:30px}
+
+  .vnote{writing-mode:vertical-rl;text-orientation:upright;font-family:var(--serif);
+    font-size:11px;letter-spacing:.42em;color:var(--ink-faint)}
+
+  /* ---------- 章节 ---------- */
+  .block{position:relative;z-index:2;padding:54px 0 12px}
+  .block + .block{border-top:1px solid var(--line)}
+  .block h2{position:relative;z-index:1;font-family:var(--serif);font-size:27px;font-weight:600;
+    letter-spacing:.12em;margin:0 0 8px}
+  .num-bg{position:absolute;z-index:0;left:-6px;top:-46px;font-family:var(--serif);
+    font-size:170px;line-height:1;color:rgba(20,23,26,.045);pointer-events:none;user-select:none}
+  .block .vnote{position:absolute;right:0;top:6px}
+  .sub{margin:0 0 20px;font-size:13px;color:var(--ink-soft);letter-spacing:.02em}
+  .block h3{font-size:15px;font-weight:600;margin:28px 0 8px}
+  .block p,.block li{font-size:14.5px;line-height:1.95;color:var(--ink-soft)}
+  .block p{margin:0 0 10px}
+  .block p b,.block li b{color:var(--ink);font-weight:600}
+  .block ul{margin:6px 0 14px;padding-left:18px}
+  .block li{margin:4px 0}
+
+  /* ---------- 境界阶梯 ---------- */
+  .realms{list-style:none;margin:14px 0 0;padding:0;position:relative}
+  .realms::before{content:"";position:absolute;left:23px;top:10px;bottom:10px;width:1px;
+    background:linear-gradient(180deg,rgba(20,23,26,0),rgba(20,23,26,.18) 6%,rgba(20,23,26,.18) 94%,rgba(20,23,26,0))}
+  .realms li{position:relative;display:grid;grid-template-columns:46px 1fr auto;
+    grid-template-areas:"idx name code" ". desc desc";gap:1px 16px;align-items:baseline;
+    padding:7px 0;border-bottom:1px solid var(--line)}
+  .realms li::before{content:"";position:absolute;left:20px;top:15px;width:7px;height:7px;border-radius:50%;
+    background:var(--paper);border:1px solid rgba(20,23,26,.32)}
+  .realms li.peak::before{background:var(--paper);border-color:var(--vermilion)}
+  .realms .idx{grid-area:idx;font-family:var(--serif);font-size:11px;letter-spacing:.1em;color:var(--ink-faint);text-align:center}
+  .realms .rname{grid-area:name;font-family:var(--serif);font-size:18px;line-height:1.35;letter-spacing:.12em}
+  .realms .rname em{font-family:var(--sans);font-style:normal;font-size:10px;letter-spacing:.14em;color:var(--ink-faint);margin-left:9px}
+  .realms .rcode{grid-area:code;font-size:11px;letter-spacing:.1em;color:var(--ink-soft);white-space:nowrap;
+    border:1px solid var(--line);border-radius:999px;padding:1px 9px}
+  .realms p{grid-area:desc;margin:0;font-size:12.8px;line-height:1.65;color:var(--ink-soft)}
+
+  /* ---------- 小卡片 / 徽章 ---------- */
+  .table-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0 8px}
+  .tcard{position:relative;border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;
+    background:rgba(255,255,255,.66);overflow:hidden}
+  .tcard .sym{font-size:20px;letter-spacing:.08em}
+  .tcard h4{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:.12em;margin:6px 0 2px}
+  .tcard .meta{font-size:11.5px;letter-spacing:.08em;color:var(--ink-faint)}
+  .tcard .n{font-family:var(--serif);font-size:30px;margin-top:10px}
+  .tcard.easy{--c:var(--jade)} .tcard.hard{--c:var(--vermilion)}
+  .tcard .sym,.tcard .n{color:var(--c)}
+  .tcard::after{content:"";position:absolute;right:-30px;bottom:-40px;width:120px;height:120px;border-radius:50%;
+    background:radial-gradient(circle,rgba(0,0,0,.05),transparent 70%)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+  .chip{font-size:12px;letter-spacing:.04em;padding:5px 11px;border-radius:999px;
+    border:1px solid var(--line);color:var(--ink-soft);background:rgba(255,255,255,.6)}
+  .chip b{color:var(--ink)}
+
+  .mini-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:16px 0 6px}
+  .mini{border:1px solid var(--line);border-radius:14px;padding:14px 15px;background:rgba(255,255,255,.6)}
+  .mini .k{font-size:11px;letter-spacing:.16em;color:var(--ink-faint)}
+  .mini .v{font-family:var(--serif);font-size:17px;margin-top:6px;letter-spacing:.06em}
+  .mini p{font-size:12.5px;line-height:1.8;margin:6px 0 0}
+
+  .intro{max-width:720px;margin:8px 0 16px;font-size:15px;line-height:1.95;color:var(--ink)}
+  .figure{margin:26px 0 8px}
+  .figure a{display:block}
+  .figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:14px;
+    background:#fff;box-shadow:0 20px 44px rgba(20,23,26,.07);transition:transform .3s ease,box-shadow .3s ease}
+  .figure a:hover img{transform:translateY(-2px);box-shadow:0 26px 54px rgba(20,23,26,.10)}
+  .figure figcaption{margin-top:9px;font-size:11.5px;letter-spacing:.08em;color:var(--ink-faint);text-align:right}
+
+  /* ---------- 收录范围 ---------- */
+  .scope-legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 4px;font-size:11.5px;letter-spacing:.04em;color:var(--ink-faint)}
+  .scope-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+  .scope-legend i.e{background:var(--jade)}
+  .scope-legend i.h{background:var(--vermilion)}
+  .scope-sub{margin:0 0 8px;font-size:12.5px;line-height:1.8;color:var(--ink-faint)}
+
+  .xtable{margin:10px 0 6px}
+  .xt{width:auto;border-collapse:collapse;table-layout:fixed;font-size:11px}
+  .xt th,.xt td{border-bottom:1px solid rgba(20,23,26,.08);padding:0;height:36px}
+  .xt thead th{font-weight:500;font-size:10px;letter-spacing:.06em;color:var(--ink-faint);
+    position:sticky;top:0;background:#fbfbf9;z-index:2;text-align:center}
+  .xt thead th.rh{text-align:left;padding-left:8px}
+  .xt tbody th{font-weight:500;font-family:var(--serif);font-size:12.5px;text-align:left;padding-left:8px;white-space:nowrap}
+  .xt tbody th em{display:block;font-family:var(--sans);font-style:normal;font-size:9.5px;color:var(--ink-faint);letter-spacing:.08em}
+  .xt tbody td.src{font-size:11.5px;color:var(--ink-soft);padding-left:8px;white-space:nowrap}
+  .xt tbody td.lv{font-size:10.5px;color:var(--ink-faint);white-space:nowrap}
+  .xt th:not(.rh),.xt td.dc{border-left:1px solid rgba(20,23,26,.10)}
+  .dc{position:relative;background-image:linear-gradient(to bottom right,transparent calc(50% - .6px),rgba(20,23,26,.14) 50%,transparent calc(50% + .6px))}
+  .dc .e,.dc .h{position:absolute;font-size:10px;line-height:1;font-variant-numeric:tabular-nums}
+  .dc.empty{background-image:none}
+  .dc .e{left:20%;top:4px;color:var(--jade)}
+  .dc .h{right:20%;bottom:4px;color:var(--vermilion)}
+  .xt tr.upper th,.xt tr.upper td{border-top:1px solid rgba(20,23,26,.22)}
+  .xt.lv td:nth-child(10),.xt.lv th:nth-child(10){border-left:1px solid rgba(20,23,26,.18)}
+  .scope-note{margin:14px 0 4px;font-size:11.5px;line-height:1.8;color:var(--ink-faint)}
+
+  /* ---------- 中段深色带 ---------- */
+  .mid{background:linear-gradient(180deg,#111417 0%,#0c0e10 100%);color:var(--paper-night);padding:52px 0 66px}
+  .mid .block{padding:4px 0 0;border:0}
+  .mid h2,.mid h3{color:var(--paper-night)}
+  .mid .num-bg{color:rgba(255,255,255,.045)}
+  .mid .vnote{color:#6f787f}
+  .mid .intro,.mid .scope-read,.mid .scope-sub{color:var(--muted-night)}
+  .mid .scope-legend{color:#7f888f}
+  .mid .scope-legend i.e{background:#7fb3a0}
+  .mid .scope-legend i.h{background:#d9968b}
+  .mid .xt th,.mid .xt td{border-bottom-color:rgba(255,255,255,.10);border-left-color:rgba(255,255,255,.08)}
+  .mid .xt thead th{background:#0d0f11;color:#8a949c}
+  .mid .xt tbody th{color:var(--paper-night)}
+  .mid .xt tbody td.src{color:#b9c2c8}
+  .mid .xt tbody td.lv{color:#8a949c}
+  .mid .dc{background-image:linear-gradient(to bottom right,transparent calc(50% - .6px),rgba(255,255,255,.16) 50%,transparent calc(50% + .6px))}
+  .mid .dc.empty{background-image:none}
+  .mid .dc .e{color:#7fb3a0}
+  .mid .dc .h{color:#d9968b}
+  .mid .xt tr.upper th,.mid .xt tr.upper td{border-top-color:rgba(255,255,255,.22)}
+  .mid .scope-note{color:#6f787f}
+
+  .ridge-tail{display:block;width:100%;height:110px;line-height:0;background:#eef3f7}
+  .sky-2{position:relative;overflow:hidden;padding-bottom:46px;
+    background:linear-gradient(180deg,#eef3f7 0%,#f6fafc 38%,#e9eff4 100%)}
+
+  /* ---------- 山脊 ---------- */
+  .ridge-dark{display:block;width:100%;height:170px;line-height:0}
+
+  /* ---------- 山脚 ---------- */
+  .ground{background:linear-gradient(180deg,var(--night) 0%,var(--night-2) 100%);color:var(--paper-night);padding:10px 0 0}
+  .ground .block{border-color:var(--line-night)}
+  .ground .block + .block{border-top:1px solid var(--line-night)}
+  .ground h2,.ground h3{color:var(--paper-night)}
+  .ground .sub,.ground p,.ground li{color:var(--muted-night)}
+  .ground p b,.ground li b{color:var(--paper-night)}
+  .ground .num-bg{color:rgba(255,255,255,.045)}
+  .ground .vnote{color:#6f787f}
+  .ground code{font-size:12px;color:#cfd6db;word-break:break-all}
+  .urls{display:grid;gap:10px;margin:14px 0 6px}
+  .url{display:flex;gap:14px;align-items:center;padding:12px 15px;border:1px solid var(--line-night);
+    border-radius:12px;background:rgba(255,255,255,.03);transition:border-color .2s,background .2s}
+  .url:hover{border-color:rgba(255,255,255,.24);background:rgba(255,255,255,.05)}
+  .url span{font-size:11px;letter-spacing:.14em;min-width:52px}
+  .url.easy span{color:#7fb3a0} .url.hard span{color:#d9968b}
+  footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    padding:34px 0 46px;margin-top:46px;border-top:1px solid var(--line-night);font-size:12px;color:#7e878e}
+
+  /* ---------- 右侧目录 ---------- */
+  .toc{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:20;display:grid;gap:2px;
+    font-size:11.5px;letter-spacing:.06em}
+  .toc a{display:flex;align-items:center;gap:8px;padding:5px 8px;text-decoration:none;color:#9aa4ac;
+    border-right:1px solid rgba(20,23,26,.14);transition:color .2s}
+  .toc a i{font-style:normal;font-family:var(--serif);font-size:10px;opacity:.7}
+  .toc a:hover{color:var(--ink)}
+  .toc a.on{color:var(--vermilion);border-right-color:var(--vermilion)}
+  @media (max-width:1180px){.toc{display:none}}
+
+  @media (max-width:640px){
+    .nav{flex-wrap:wrap;padding:18px 0}
+    .nav nav{width:100%}
+    .hero{padding:26px 0 16px}
+    .hero .seal{width:54px;height:54px;font-size:28px;top:10px}
+    .hero .vnote{display:none}
+    .realms li{grid-template-columns:34px 1fr;grid-template-areas:"idx name" ". code" ". desc";gap:6px 12px}
+    .realms::before{left:17px}
+    .realms li::before{left:14px;top:14px}
+    .realms .rcode{justify-self:start}
+    .table-cards,.mini-grid{grid-template-columns:1fr}
+    .xtable{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .xt{min-width:620px}
+    .num-bg{font-size:120px;top:-30px}
+    .ridge-dark{height:110px}
+  }
+</style>
+  <link rel="stylesheet" href="../assets/lang.css?v=20261103">
+  <link rel="stylesheet" href="../assets/footer-bar.css?v=20261103">
+</head>
+<body>
+
+<nav class="toc" aria-label="目录">
+  <a href="#map"><i>壹</i>難易度の計算</a>
+  <a href="#scope"><i>贰</i>収録範囲</a>
+  <a href="#realm"><i>叁</i>境界体系</a>
+  <a href="#basics"><i>肆</i>小階の読み方</a>
+  <a href="#import"><i>伍</i>サイトと導入</a>
+</nav>
+
+<div class="sky">
+  <div class="clouds" aria-hidden="true">
+    <span class="cl1" data-parallax="0.04"></span>
+    <span class="cl2" data-parallax="0.07"></span>
+    <span class="cl3" data-parallax="0.03"></span>
+    <span class="cl4" data-parallax="0.09"></span>
+  </div>
+  <div class="wash w1" aria-hidden="true"></div>
+  <div class="wash w2" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="daoindex.html">道 · DP DAOJI</a>
+      <nav>
+        <a href="daoindex.html">固元道途 ▪ 鋒殺剣途</a>
+        <a href="upperindex.html">証真道途 ▪ 離妄塵途</a>
+        <a class="active" href="faq.html" aria-current="page">よくある質問</a>
+        <a href="history.html">更新履歴</a>
+        <div class="lang-menu" data-lang="ja" data-theme="light">
+      <a href="../faq.html?v=20261103" hreflang="en">English</a>
+      <a href="../zh/faq.html?v=20261103" hreflang="zh">中文</a>
+      <a href="faq.html?v=20261103" hreflang="ja">日本語</a>
+    </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero reveal">
+        <div class="seal" aria-hidden="true">問</div>
+        <span class="vnote">登山問道</span>
+        <p class="eyebrow">DP DAOJI · FAQ</p>
+        <h1>よくある質問</h1>
+        <p class="lead">DP 修仙界へようこそ。世間の修行者が座禅で気を巡らせる一方、我々は両手で同時に修行する——すなわち 14 鍵を同時に叩く。境界が高いほど、譜面は難しい。</p>
+      </section>
+
+      <section class="block" id="map">
+        <span class="num-bg" aria-hidden="true">壹</span>
+        <span class="vnote">モデル算出</span>
+        <h2>難易度の計算方法</h2>
+        <p class="intro">手に入れた譜面は、すべてモデルで直接計算しています。難易度モデルはまだ初期段階で、隣り合う境界は今も重なっています。異なる境界の絶対比較には向かず、「だいたいどの難易度帯か」を見るのが適切です。不自然に感じる譜面があれば、どれかを教えていただけるとモデルの改善が早まります。</p>
+        <p class="sub">横軸はモデルが算出したスコア、縦軸は実際の難易度です。色付きの帯は大境界の区間、その下の 4 段の目盛りは各出典表の等級（sl / st / ★ / ★★）がどこに位置するかを示します。上は EASY、下は HARD。</p>
+        <figure class="figure reveal">
+          <a href="../assets/level-map-bands.png" target="_blank" rel="noopener">
+            <img src="../assets/level-map-bands.png" alt="モデルスコアと実際の難易度の分布図：上 EASY、下 HARD、EB / HB の大境界区間と各出典表の等級の位置を示す">
+          </a>
+          <figcaption>クリックで原寸表示</figcaption>
+        </figure>
+      </section>
+
+    </main>
+  </div>
+
+</div>
+
+  <svg class="ridge-dark" viewBox="0 0 1440 170" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 118 L120 86 L240 112 L360 78 L480 108 L600 88 L720 116 L840 82 L960 110 L1080 90 L1200 114 L1320 88 L1440 108 L1440 170 L0 170 Z" fill="#9aa8b4" opacity=".55"/>
+    <path d="M0 140 L100 104 L196 132 L300 84 L404 126 L512 96 L620 140 L736 92 L852 132 L962 100 L1074 138 L1190 104 L1300 130 L1404 112 L1440 120 L1440 170 L0 170 Z" fill="#0d0f11"/>
+  </svg>
+
+<div class="mid">
+  <div class="wrap">
+      <section class="block" id="scope">
+        <span class="num-bg" aria-hidden="true">贰</span>
+        <span class="vnote">出典と枚数</span>
+        <h2>収録範囲</h2>
+        <p class="intro">4 つの表は同じ譜面プールから作られています。各尺度で、1 つの譜面は下位か上位のどちらか一方の表にしか入りません。合計 10,330 枚 —— 下位 EASY 7,781 / HARD 7,574、上位 EASY 2,549 / HARD 2,756。</p>
+
+        <p class="scope-read">下の 2 つ目の表を見ると、全体としてすでに形になっていることが分かります。ただし闇鍋表の譜面は学習素材が少なく、配置も特殊なものが多いため、一部の譜面は奇妙な位置に落ちます。この部分は今後のモデル更新を待つしかありません。闇鍋表の難易度情報は非常に少なく、現状ではここまでが限界です。</p>
+
+                <div class="scope-legend">
+          <span><i class="e"></i>左上 = EASY</span>
+          <span><i class="h"></i>右下 = HARD</span>
+          <span>空白 = 0</span>
+        </div>
+
+        <h3>一、大境界 × 出典表</h3>
+        <div class="xtable" id="scope-band-table" data-h="大境界"></div>
+
+        <h3>二、出典等級 × 大境界</h3>
+        <p class="scope-sub">横に見ると、その表・その等級が最終的にどの大境界へ落ちたか。縦に見ると、各大境界に何枚収録されたか。E1–E7 が下位、E8–E13 が上位です。</p>
+        <div class="xtable" id="scope-level-table" data-h1="出典" data-h2="等級"></div>
+
+        <p class="scope-note">1 つの譜面が複数の出典表に属することがあるため、出典を横に足すと実際の枚数より多くなります。実際の総量は 4 つの表の合計を基準にしてください。合計 10,330 枚。</p>
+      </section>
+
+  </div>
+</div>
+
+<svg class="ridge-tail" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 0 H1440 V64 C1312 104 1188 54 1064 80 C940 106 816 52 692 78 C568 104 444 52 320 76 C196 100 98 58 0 82 Z" fill="#0c0e10"/>
+</svg>
+
+<div class="sky sky-2">
+  <div class="wrap">
+    <main>
+      <section class="block" id="realm">
+        <span class="num-bg" aria-hidden="true">叁</span>
+        <span class="vnote">十四重天</span>
+        <h2>境界体系</h2>
+        <p class="sub">山麓の凡人から雲上の道祖まで。渡劫期は設定上の通過点で、現在の表には独立した枠がありません。</p>
+
+        <ol class="realms">
+          <li class="reveal"><span class="idx">01</span><span class="rname">錬気期 <em>Qi Refining</em></span><span class="rcode">EB1 / HB1</span><p>天地の霊気を感じ、体内に取り込み、凡躯を鍛える。まだ門をくぐったばかりで、すべてが芽生えの段階。</p></li>
+          <li class="reveal"><span class="idx">02</span><span class="rname">築基期 <em>Foundation</em></span><span class="rcode">EB2 / HB2</span><p>道の基礎を築き、仙根を固める。ここで凡俗を離れ、「修行者」と「凡人」の分かれ目になる。</p></li>
+          <li class="reveal"><span class="idx">03</span><span class="rname">結丹期 <em>Golden Core</em></span><span class="rcode">EB3 / HB3</span><p>霊力が丹となって凝縮する、修行最初の質的変化。金丹が成れば戦力は一気に跳ね上がる。</p></li>
+          <li class="reveal"><span class="idx">04</span><span class="rname">元嬰期 <em>Nascent Soul</em></span><span class="rcode">EB4 / HB4</span><p>金丹が砕けて元婴が生まれ、体外へ出られる。肉身が壊れても奪舎して蘇り、寿命は千年に及ぶ。</p></li>
+          <li class="reveal"><span class="idx">05</span><span class="rname">化神期 <em>Spirit Form</em></span><span class="rcode">EB5 / HB5</span><p>元婴が形を成し、神識が外へ広がり、天地の法則に触れ始める。すでに凡界の頂点級。</p></li>
+          <li class="reveal"><span class="idx">06</span><span class="rname">錬虚期 <em>Void Refining</em></span><span class="rcode">EB6 / HB6</span><p>神を錬り道と合一し、天地と融け合う。凡俗の頂点で、飛昇まであと一歩。</p></li>
+          <li class="reveal"><span class="idx">07</span><span class="rname">大乗期 <em>Mahayana</em></span><span class="rcode">EB7 / HB7</span><p>凡俗の極致。片足はすでに仙界に入り、天劫を待つばかり。</p></li>
+          <li class="reveal"><span class="idx">08</span><span class="rname">渡劫期 <em>Tribulation Crossing</em></span><span class="rcode">—</span><p>九天の雷劫という最終試練。越えれば飛昇、越えられなければ死して道は消える。現在の表では独立した枠なし。</p></li>
+          <li class="reveal peak"><span class="idx">09</span><span class="rname">真仙 <em>True Immortal</em></span><span class="rcode">EB8 / HB8</span><p>仙界へ飛昇して最初の境界。凡胎を脱ぎ、仙班に連なり、輪廻に入らない。</p></li>
+          <li class="reveal peak"><span class="idx">10</span><span class="rname">金仙 <em>Golden Immortal</em></span><span class="rcode">EB9 / HB9</span><p>不朽の金身を修め、法力も深い。仙界の中核を担う存在。</p></li>
+          <li class="reveal peak"><span class="idx">11</span><span class="rname">太乙 <em>Taiyi</em></span><span class="rcode">EB10 / HB10</span><p>太乙の大道を悟り、法則の本源へ近づく。「道」の本質に触れ始める。</p></li>
+          <li class="reveal peak"><span class="idx">12</span><span class="rname">大羅 <em>Daluo</em></span><span class="rcode">EB11 / HB11</span><p>万劫に侵されず、自在悠々。時間の長河を超え、仙界最上層の戦力。</p></li>
+          <li class="reveal peak"><span class="idx">13</span><span class="rname">道祖 <em>Dao Ancestor</em></span><span class="rcode">EB12 / HB12</span><p>道の始祖、法則の化身。一念で万物の生滅を定める。</p></li>
+          <li class="reveal peak"><span class="idx">14</span><span class="rname">域外 <em>Yuwai</em></span><span class="rcode">EB13 / HB13</span><p>三界の外に超脱し、五行の中にない。もはや常識では測れない。</p></li>
+        </ol>
+      </section>
+
+      <section class="block" id="basics">
+        <span class="num-bg" aria-hidden="true">肆</span>
+        <span class="vnote">七階一境</span>
+        <h2>小階の読み方</h2>
+        <div class="mini-grid">
+          <div class="mini reveal"><div class="k">各境界</div><div class="v">7 小階</div><p>数字が大きいほど難しく、1 → 7 の順に弱から強へ。（のはず）</p></div>
+          <div class="mini reveal"><div class="k">境界</div><div class="v">相互に重なる</div><p>現在、小階の難易度は相互に重なります。大境界の境目でも重なることがあります。</p></div>
+          <div class="mini reveal"><div class="k">出典</div><div class="v">自動分類</div><p>重なりは統計的な分類によるもので、個人の得意不得意や体感差も加わり、自然な現象です。</p></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+  <svg class="ridge-dark" viewBox="0 0 1440 170" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 118 L120 86 L240 112 L360 78 L480 108 L600 88 L720 116 L840 82 L960 110 L1080 90 L1200 114 L1320 88 L1440 108 L1440 170 L0 170 Z" fill="#9aa8b4" opacity=".55"/>
+    <path d="M0 140 L100 104 L196 132 L300 84 L404 126 L512 96 L620 140 L736 92 L852 132 L962 100 L1074 138 L1190 104 L1300 130 L1404 112 L1440 120 L1440 170 L0 170 Z" fill="#0d0f11"/>
+  </svg>
+
+<div class="ground">
+  <div class="wrap">
+    <section class="block" id="import">
+      <span class="num-bg" aria-hidden="true">伍</span>
+      <span class="vnote">導入</span>
+      <h2>サイトと導入</h2>
+      <p>beatoraja の難易度表管理で <code>header.json</code> の raw URL を追加してください：</p>
+      <div class="urls">
+        <div class="url easy"><span>EASY</span><code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_easy/header.json</code></div>
+        <div class="url hard"><span>HARD</span><code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_hard/header.json</code></div>
+        <div class="url easy"><span>上位 EASY</span><code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_upper/header.json</code></div>
+        <div class="url hard"><span>上位 HARD</span><code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_upper_hard/header.json</code></div>
+      </div>
+    </section>
+
+    <footer>
+      <span>DP DAOJI · FAQ · <span data-version>V0.5.0</span></span>
+      <span>結果は参考程度に / Results are indicative only</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+  // 淡入
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  // 目录高亮
+  const links = [...document.querySelectorAll(".toc a")];
+  const io2 = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  document.querySelectorAll("section[id]").forEach(s => io2.observe(s));
+
+  // 云层视差
+  let raf = 0;
+  window.addEventListener("scroll", () => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = 0;
+      const y = window.scrollY;
+      document.querySelectorAll("[data-parallax]").forEach(el => {
+        el.style.transform = "translate3d(0," + (y * parseFloat(el.dataset.parallax)) + "px,0)";
+      });
+    });
+  }, { passive: true });
+</script>
+<script src="../assets/site-data.js?v=20261103"></script>
+<script src="../assets/scope-tables.js?v=20261103"></script>
+<script src="../assets/lang.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
+</body>
+</html>

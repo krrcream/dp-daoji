@@ -7,13 +7,15 @@
   <meta name="description" content="DP 道阶表下位表（固元道途 / 鋒殺剣途）与上位表（証真道途）的更新历史。">
   <meta name="theme-color" content="#100e0c">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/history.css">
+  <link rel="stylesheet" href="../assets/history.css?v=20261103">
   <script>
     (function () {
       var from = new URLSearchParams(location.search).get("from");
       if (from === "upper") document.documentElement.setAttribute("data-from", "upper");
     })();
   </script>
+  <link rel="stylesheet" href="../assets/lang.css?v=20261103">
+  <link rel="stylesheet" href="../assets/footer-bar.css?v=20261103">
 </head>
 <body>
   <header class="lower-bar">
@@ -23,11 +25,14 @@
         <span class="brand-text">DP 道阶表</span>
       </a>
       <nav class="nav" aria-label="主导航">
-        <a href="table.html?t=easy">固元道途</a>
-        <a href="table.html?t=hard">鋒殺剣途</a>
-        <a href="upperindex.html">証真道途</a>
+        <a href="upperindex.html">証真道途 ▪ 離妄塵途</a>
         <a href="faq.html">常见问题</a>
         <a class="active" href="history.html?from=lower" aria-current="page">更新历史</a>
+        <div class="lang-menu" data-lang="zh" data-theme="dark">
+      <a href="../history.html?from=lower" hreflang="en">English</a>
+      <a href="history.html?from=lower" hreflang="zh">中文</a>
+      <a href="../ja/history.html?from=lower" hreflang="ja">日本語</a>
+    </div>
       </nav>
     </div>
   </header>
@@ -35,11 +40,14 @@
   <header class="upper-bar">
     <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">道</span> DP DAOJI · UPPER</a>
     <nav class="nav" aria-label="上位表导航">
-      <a href="upperindex.html">首页</a>
       <a href="daoindex.html">固元道途 ▪ 鋒殺剣途</a>
-      <a href="upperfaq.html">常见问题</a>
+      <a href="faq.html">常见问题</a>
       <a class="active" href="history.html?from=upper" aria-current="page">更新历史</a>
-      <a class="lang" href="../history.html?from=upper">EN</a>
+      <div class="lang-menu" data-lang="zh" data-theme="light">
+      <a href="../history.html?from=upper" hreflang="en">English</a>
+      <a href="history.html?from=upper" hreflang="zh">中文</a>
+      <a href="../ja/history.html?from=upper" hreflang="ja">日本語</a>
+    </div>
     </nav>
   </header>
 
@@ -60,7 +68,15 @@
         <div class="hist-date">2026/11/2</div>
         <p>微调了上位表的个别谱面。</p>
       </section>
+
+      <section class="hist-col hist-wide">
+        <div class="hist-kicker">全部表</div>
+        <div class="hist-date">2026/11/3</div>
+        <p>替换计算模型，增加收录的谱面，增加上位难度表。</p>
+      </section>
     </div>
   </main>
+<script src="../assets/lang.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
 </body>
 </html>

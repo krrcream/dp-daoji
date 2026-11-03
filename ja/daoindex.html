@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DP 道階表 · 発狂 DP 難易度表</title>
+  <meta name="description" content="譜面特徴とコミュニティ評価から推定した発狂 DP 難易度。七境界四十九階、EASY / HARD の 2 つの beatoraja 難易度表。">
+  <meta name="theme-color" content="#100e0c">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css?v=20261103">
+  <link rel="stylesheet" href="../assets/lang.css?v=20261103">
+  <link rel="stylesheet" href="../assets/footer-bar.css?v=20261103">
+</head>
+<body data-page="home" data-lang="ja" data-root="..">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">道</span>
+        <span class="brand-text">DP 道階表</span>
+      </a>
+      <nav class="nav" aria-label="メインナビ">
+        <a href="upperindex.html">証真道途 ▪ 離妄塵途</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="history.html">更新履歴</a>
+        <div class="lang-menu" data-lang="ja" data-theme="dark">
+      <a href="../daoindex.html" hreflang="en">English</a>
+      <a href="../zh/daoindex.html" hreflang="zh">中文</a>
+      <a href="daoindex.html" hreflang="ja">日本語</a>
+    </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <svg class="hero-mountains" viewBox="0 0 1200 240" fill="none" aria-hidden="true">
+        <path d="M0 212 L118 150 L192 178 L300 102 L392 168 L470 130 L562 198 L670 118 L762 182 L862 136 L952 198 L1062 148 L1142 184 L1200 158 V240 H0 Z" fill="#2e6b5a" opacity=".17"/>
+        <path d="M0 228 L92 190 L172 208 L262 156 L342 202 L432 170 L522 216 L622 164 L722 210 L822 176 L922 218 L1022 182 L1112 212 L1200 188 V240 H0 Z" fill="#c9a35c" opacity=".09"/>
+        <path d="M0 236 L110 214 L220 228 L330 206 L440 230 L550 212 L660 232 L770 210 L880 230 L990 212 L1100 230 L1200 218" stroke="#c9a35c" stroke-opacity=".16"/>
+      </svg>
+
+      <div class="seal" aria-hidden="true"><span>♂</span><i>道</i></div>
+      <p class="eyebrow">譜面特徴モデル · 発狂 DP · 2026-11-03 版</p>
+      <h1>道階表</h1>
+      <div class="lang-switch" aria-label="バージョン">
+        <span class="version" data-version>V0.5.0</span>
+      </div>
+      <p class="hero-sub">七境界四十九階、EASY と HARD の二系統。</p>
+      <div class="hero-meta">
+        <span><b data-stat="total:lower_easy">7,781</b>EASY 譜</span>
+        <span><b data-stat="total:lower_hard">7,574</b>HARD 譜</span>
+        <span><b>49</b>階 / 表</span>
+        <span><b>7</b>境界</span>
+      </div>
+    </section>
+
+    <section class="cards" aria-label="2 つの難易度表">
+      <a class="card easy" href="table.html?t=easy" data-symbol="♂◇">
+        <div class="card-top">
+          <span class="card-symbol">♂◇</span>
+          <span class="card-mode">EASY CLEAR</span>
+        </div>
+        <h2>固元道途</h2>
+        <p>EASY CLEAR を通過ラインとし、譜面の基礎的な地力と安定度を測ります。</p>
+        <div class="card-stats">
+          <div class="stat"><b data-total="easy">7,781</b><span>譜面</span></div>
+          <div class="stat"><b>49</b><span>階</span></div>
+          <div class="stat"><b>7</b><span>境界</span></div>
+        </div>
+        <span class="card-cta">表へ <i>→</i></span>
+      </a>
+
+      <a class="card hard" href="table.html?t=hard" data-symbol="♂◆">
+        <div class="card-top">
+          <span class="card-symbol">♂◆</span>
+          <span class="card-mode">HARD CLEAR</span>
+        </div>
+        <h2>鋒殺剣途</h2>
+        <p>HARD CLEAR を通過ラインとし、譜面の上限押しと瞬発要求を測ります。</p>
+        <div class="card-stats">
+          <div class="stat"><b data-total="hard">7,574</b><span>譜面</span></div>
+          <div class="stat"><b>49</b><span>階</span></div>
+          <div class="stat"><b>7</b><span>境界</span></div>
+        </div>
+        <span class="card-cta">表へ <i>→</i></span>
+      </a>
+    </section>
+
+    <p id="load-hint" class="load-hint" hidden>
+      ファイルとして直接開いているため、ブラウザがデータ読み込みをブロックしています。HTTP サーバーか GitHub Pages で開いてください。
+    </p>
+
+    <section class="section" aria-labelledby="bands-title">
+      <div class="section-head">
+        <h2 id="bands-title">七境界</h2>
+        <p>低い順に、各境界 7 階 · <span class="count-easy">青玉 EASY</span> / <span class="count-hard">朱紅 HARD</span></p>
+      </div>
+      <div class="band-grid">
+        <div class="band-cell">
+          <span class="no">一</span><span class="name">錬気</span><span class="desc">初窺門径</span>
+          <span class="counts"><span class="count-easy" data-band="easy-1">—</span><span class="count-hard" data-band="hard-1">—</span></span>
+        </div>
+        <div class="band-cell">
+          <span class="no">二</span><span class="name">築基</span><span class="desc">根基初成</span>
+          <span class="counts"><span class="count-easy" data-band="easy-2">—</span><span class="count-hard" data-band="hard-2">—</span></span>
+        </div>
+        <div class="band-cell">
+          <span class="no">三</span><span class="name">結丹</span><span class="desc">凝練中堅</span>
+          <span class="counts"><span class="count-easy" data-band="easy-3">—</span><span class="count-hard" data-band="hard-3">—</span></span>
+        </div>
+        <div class="band-cell">
+          <span class="no">四</span><span class="name">元嬰</span><span class="desc">登堂入室</span>
+          <span class="counts"><span class="count-easy" data-band="easy-4">—</span><span class="count-hard" data-band="hard-4">—</span></span>
+        </div>
+        <div class="band-cell">
+          <span class="no">五</span><span class="name">化神</span><span class="desc">高階之境</span>
+          <span class="counts"><span class="count-easy" data-band="easy-5">—</span><span class="count-hard" data-band="hard-5">—</span></span>
+        </div>
+        <div class="band-cell">
+          <span class="no">六</span><span class="name">錬虚</span><span class="desc">極境試煉</span>
+          <span class="counts"><span class="count-easy" data-band="easy-6">—</span><span class="count-hard" data-band="hard-6">—</span></span>
+        </div>
+        <div class="band-cell">
+          <span class="no">七</span><span class="name">大乗</span><span class="desc">登頂之階</span>
+          <span class="counts"><span class="count-easy" data-band="easy-7">—</span><span class="count-hard" data-band="hard-7">—</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="import-title">
+      <div class="section-head">
+        <h2 id="import-title">beatoraja への導入</h2>
+        <p>以下の 2 つの header アドレスを難易度表に追加してください</p>
+      </div>
+      <div class="import">
+        <p>beatoraja の難易度表管理で URL を追加し、<code>header.json</code> のアドレスを貼り付けてください。<code>data_url</code> は対応する <code>data.json</code> を指しています。</p>
+        <div class="url-row">
+          <span class="url-label easy">EASY</span>
+          <code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_easy/header.json</code>
+          <button class="copy-btn" type="button" data-copy="https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_easy/header.json" data-label="EASY header アドレス">コピー</button>
+        </div>
+        <div class="url-row">
+          <span class="url-label hard">HARD</span>
+          <code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_hard/header.json</code>
+          <button class="copy-btn" type="button" data-copy="https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_hard/header.json" data-label="HARD header アドレス">コピー</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>DP 道階表 · 2026-11-03 版</p>
+      <p>結果は参考程度に。</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="../assets/site-data.js?v=20261103"></script>
+<script src="../assets/app.js?v=20261103"></script>
+<script src="../assets/lang.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
+</body>
+</html>

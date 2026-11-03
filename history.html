@@ -7,13 +7,15 @@
   <meta name="description" content="Update history of the DP Daoji lower table (Guyuan Daotu / Fengsha Jiantu) and upper table (Zhengzhen Daotu).">
   <meta name="theme-color" content="#100e0c">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/history.css">
+  <link rel="stylesheet" href="assets/history.css?v=20261103">
   <script>
     (function () {
       var from = new URLSearchParams(location.search).get("from");
       if (from === "upper") document.documentElement.setAttribute("data-from", "upper");
     })();
   </script>
+  <link rel="stylesheet" href="assets/lang.css?v=20261103">
+  <link rel="stylesheet" href="assets/footer-bar.css?v=20261103">
 </head>
 <body>
   <header class="lower-bar">
@@ -23,11 +25,14 @@
         <span class="brand-text">DP Daoji</span>
       </a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="table.html?t=easy">Guyuan Daotu</a>
-        <a href="table.html?t=hard">Fengsha Jiantu</a>
-        <a href="upperindex.html">Zhengzhen Daotu</a>
+        <a href="upperindex.html">Zhengzhen Daotu ▪ Liwang Chentu</a>
         <a href="faq.html">FAQ</a>
         <a class="active" href="history.html?from=lower" aria-current="page">History</a>
+        <div class="lang-menu" data-lang="en" data-theme="dark">
+      <a href="history.html?from=lower" hreflang="en">English</a>
+      <a href="zh/history.html?from=lower" hreflang="zh">中文</a>
+      <a href="ja/history.html?from=lower" hreflang="ja">日本語</a>
+    </div>
       </nav>
     </div>
   </header>
@@ -35,11 +40,14 @@
   <header class="upper-bar">
     <a class="brand" href="index.html"><span class="mark" aria-hidden="true">道</span> DP DAOJI · UPPER</a>
     <nav class="nav" aria-label="Upper table navigation">
-      <a href="upperindex.html">Home</a>
       <a href="daoindex.html">Guyuan Daotu ▪ Fengsha Jiantu</a>
-      <a href="upperfaq.html">FAQ</a>
+      <a href="faq.html">FAQ</a>
       <a class="active" href="history.html?from=upper" aria-current="page">History</a>
-      <a class="lang" href="zh/history.html?from=upper">中文</a>
+      <div class="lang-menu" data-lang="en" data-theme="light">
+      <a href="history.html?from=upper" hreflang="en">English</a>
+      <a href="zh/history.html?from=upper" hreflang="zh">中文</a>
+      <a href="ja/history.html?from=upper" hreflang="ja">日本語</a>
+    </div>
     </nav>
   </header>
 
@@ -60,7 +68,15 @@
         <div class="hist-date">2026/11/2</div>
         <p>Minor adjustments to a few charts in the upper table.</p>
       </section>
+
+      <section class="hist-col hist-wide">
+        <div class="hist-kicker">All tables</div>
+        <div class="hist-date">2026/11/3</div>
+        <p>Replaced the scoring model, expanded the chart set, and added the upper difficulty table.</p>
+      </section>
     </div>
   </main>
+<script src="assets/lang.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
 </body>
 </html>

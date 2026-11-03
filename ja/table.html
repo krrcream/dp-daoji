@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>表を見る · DP 道階表</title>
+  <meta name="description" content="DP 道階表の EASY / HARD を曲名・md5・sha256 で検索し、大境界と小階で絞り込めます。">
+  <meta name="theme-color" content="#100e0c">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css?v=20261103">
+  <link rel="stylesheet" href="../assets/footer-bar.css?v=20261103">
+</head>
+<body data-page="table" data-lang="ja" data-root="..">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">道</span>
+        <span class="brand-text">DP 道階表</span>
+      </a>
+      <nav class="nav" aria-label="メインナビ">
+        <a href="table.html?t=easy" data-nav="easy">固元道途</a>
+        <a href="table.html?t=hard" data-nav="hard">鋒殺剣途</a>
+        <a href="upperindex.html">証真道途</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="history.html">更新履歴</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="table-hero">
+      <div class="table-id">
+        <span id="table-symbol" class="symbol" aria-hidden="true">♂◇</span>
+        <div>
+          <p class="eyebrow"><span id="mode-label">EASY CLEAR</span> · 2026-05-29 スナップショット</p>
+          <h1 id="table-name">固元道途</h1>
+          <p class="name-sub" id="table-fullname">DP♂◇道階表 固元道途 (EASY CLEAR)</p>
+          <div class="lang-switch" aria-label="语言 / Language">
+            <span class="version" data-version>V0.5.0</span>
+            <span class="sep">·</span>
+            <a href="../table.html?t=easy" data-lang-link="en">English</a>
+            <span class="sep">/</span>
+            <a href="../zh/table.html?t=easy" data-lang-link="zh">中文</a>
+            <span class="sep">/</span>
+            <a class="lang-active" href="table.html?t=easy" data-lang-link="ja" aria-current="true">日本語</a>
+          </div>
+        </div>
+      </div>
+      <div class="table-side">
+        <div class="table-stats">
+          <div class="stat"><b id="stat-total">—</b><span>譜面</span></div>
+          <div class="stat"><b id="stat-sha">—</b><span>sha256 あり</span></div>
+          <div class="stat"><b id="stat-levels">56</b><span>階</span></div>
+        </div>
+        <div class="switch" role="group" aria-label="表の切り替え">
+          <a id="switch-easy" href="table.html?t=easy">EASY</a>
+          <a id="switch-hard" href="table.html?t=hard">HARD</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="検索と絞り込み">
+      <label class="search">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M12.6 12.6L17 17" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <input id="q" type="search" placeholder="曲名 / md5 / sha256 で検索" autocomplete="off" spellcheck="false">
+      </label>
+      <select id="band" aria-label="大境界で絞り込み">
+        <option value="">全七境界</option>
+        <option value="1">一 · 錬気</option>
+        <option value="2">二 · 築基</option>
+        <option value="3">三 · 結丹</option>
+        <option value="4">四 · 元嬰</option>
+        <option value="5">五 · 化神</option>
+        <option value="6">六 · 錬虚</option>
+        <option value="7">七 · 大乗</option>
+      </select>
+      <select id="level" aria-label="小階で絞り込み">
+        <option value="">全階</option>
+      </select>
+      <button id="reset" class="reset-btn" type="button">リセット</button>
+    </section>
+
+    <div class="resultbar">
+      <span>表示 <b id="shown-count">—</b> / <b id="total-count">—</b> 譜</span>
+      <span class="legend"><i class="dot bucket"></i>疑 / 晦 = 保留階 · ハッシュをクリックでコピー</span>
+    </div>
+
+    <p id="loading" class="loading">譜面データを読み込み中…</p>
+    <section id="bands" class="bands" aria-live="polite"></section>
+
+    <div id="empty" class="empty" hidden>
+      <p>一致する譜面がありません。</p>
+      <button id="empty-reset" class="reset-btn" type="button">絞り込みを解除</button>
+    </div>
+
+    <div id="error" class="error" hidden></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>DP 道階表 · 2026-05-29 スナップショット</p>
+      <p>結果は参考程度に。</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="../assets/site-data.js?v=20261103"></script>
+<script src="../assets/app.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
+</body>
+</html>

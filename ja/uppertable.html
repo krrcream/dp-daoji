@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>難易度表 · DP◎◇道極表 証真道途</title>
+  <link rel="stylesheet" href="../assets/upper.css?v=20261103">
+  <style>
+    .lvhead { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .lvhead .code { color: var(--gold); font-size: 12px; letter-spacing: .14em; }
+    .empty { color: var(--muted); font-size: 13px; padding: 6px 0; }
+    .row[hidden], details[hidden] { display: none; }
+  </style>
+  <link rel="stylesheet" href="../assets/lang.css?v=20261103">
+  <link rel="stylesheet" href="../assets/footer-bar.css?v=20261103">
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">道</span> DP DAOJI · UPPER</a>
+    <nav class="nav">
+      <a href="upperindex.html">ホーム</a>
+      <a href="daoindex.html">固元道途 ▪ 鋒殺剣途</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="history.html?from=upper">更新履歴</a>
+      <div class="lang-menu" data-lang="ja" data-theme="light" data-keep-query>
+      <a href="../uppertable.html" hreflang="en">English</a>
+      <a href="../zh/uppertable.html" hreflang="zh">中文</a>
+      <a href="uppertable.html" hreflang="ja">日本語</a>
+    </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="page-head">
+      <div class="hero-symbol" id="mode-symbol">◎ ◇ &nbsp; EASY CLEAR</div>
+      <h1 id="table-name">証真道途</h1>
+      <p class="sub" id="table-sub">DP◎◇道極表 証真道途 · 2,549 枚 · 弱 → 強</p>
+      <p class="mode-switch">
+        <a href="uppertable.html?t=easy" data-mode="easy">EASY</a>
+        <a href="uppertable.html?t=hard" data-mode="hard">HARD</a>
+      </p>
+    </section>
+
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="タイトル / md5 で検索" autocomplete="off">
+      <select id="major">
+        <option value="">全大境界</option>
+        <option value="8">真仙 (EB8)</option>
+        <option value="9">金仙 (EB9)</option>
+        <option value="10">太乙 (EB10)</option>
+        <option value="11">大羅 (EB11)</option>
+        <option value="12">道祖 (EB12)</option>
+        <option value="13">域外 (EB13)</option>
+      </select>
+      <span class="stat" id="stat">読み込み中…</span>
+    </div>
+
+    <div id="levels">
+      <div class="loading" id="loading">DP_dao_upper/data.json を読み込み中…</div>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    <span id="foot-line">DP 道極表 · 2026-11-03 版</span>
+    <span>1 → 7 が弱 → 強；域外は道祖より上（7 段階）</span>
+  </footer>
+
+  <script>
+  (async function () {
+    const $ = (s, r = document) => r.querySelector(s);
+    const MODES = {
+      easy: { folder: "DP_dao_upper", mode: "EASY CLEAR", symbol: "◎ ◇", name: "証真道途", full: "DP◎◇道極表" },
+      hard: { folder: "DP_dao_upper_hard", mode: "HARD CLEAR", symbol: "◎ ◆", name: "離妄塵途", full: "DP◎◆道極表" }
+    };
+    const key = new URLSearchParams(location.search).get("t") === "hard" ? "hard" : "easy";
+    const M = MODES[key];
+    document.title = `難易度表 · ${M.full} ${M.name}`;
+    $("#mode-symbol").textContent = `${M.symbol}   ${M.mode}`;
+    $("#table-name").textContent = M.name;
+    $("#loading").textContent = `${M.folder}/data.json を読み込み中…`;
+    document.querySelectorAll(".mode-switch a").forEach(a => a.classList.toggle("active", a.dataset.mode === key));
+    const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const short = h => (h && h.length > 12) ? h.slice(0, 10) + "…" : (h || "—");
+    const codeOf = lvl => (lvl.match(/\(([EH]B\d+-[\d?])\)/) || [])[1] || "";
+
+    let header, data;
+    try {
+      [header, data] = await Promise.all([
+        fetch("../" + M.folder + "/header.json", { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error("header " + r.status); return r.json(); }),
+        fetch("../" + M.folder + "/data.json", { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error("data " + r.status); return r.json(); })
+      ]);
+    } catch (e) {
+      $("#levels").innerHTML = '<div class="error">読み込みに失敗しました：' + esc(e.message) +
+        '<br>HTTP サーバーで開いてください（file:// はブロックされます）。例：<code>python -m http.server</code>。</div>';
+      $("#stat").textContent = "読み込み失敗";
+      return;
+    }
+
+    const order = header.level_order || [];
+    const byLevel = new Map(order.map(l => [l, []]));
+    data.forEach(c => { if (!byLevel.has(c.level)) byLevel.set(c.level, []); byLevel.get(c.level).push(c); });
+
+    const frag = document.createDocumentFragment();
+    order.forEach(level => {
+      const charts = byLevel.get(level) || [];
+      const code = codeOf(level);
+      const major = (code.match(/B(\d+)-/) || [])[1] || "";
+      const d = document.createElement("details");
+      d.className = "level";
+      d.dataset.major = major;
+      d.dataset.code = code;
+      d.innerHTML =
+        '<summary><span class="dot"></span><span class="lvhead"><span class="lv">' + esc(level) +
+        '</span></span><span class="cnt">' + charts.length + ' 枚</span></summary>' +
+        '<div class="rows">' + (charts.length ? charts.map(c =>
+          '<div class="row" data-s="' + esc((c.title + " " + c.md5).toLowerCase()) + '"><span class="t">' + esc(c.title) +
+          '</span><span class="h">' + esc(short(c.md5)) + '</span></div>').join("") :
+          '<div class="empty">収録なし（保留枠）</div>') + '</div>';
+      frag.appendChild(d);
+    });
+    $("#levels").innerHTML = "";
+    $("#levels").appendChild(frag);
+    $("#table-sub").textContent = `${M.full} ${M.name} · ${data.length.toLocaleString()} 枚 · 弱 → 強`;
+    $("#foot-line").textContent = "DP 道極表 · 2026-11-03 版";
+
+    const all = Array.from(document.querySelectorAll("details.level"));
+    const stat = $("#stat");
+    function refresh() {
+      const q = $("#q").value.trim().toLowerCase();
+      const m = $("#major").value;
+      let visibleCharts = 0, visibleLevels = 0;
+      all.forEach(d => {
+        const majorOK = !m || d.dataset.major === m;
+        let shown = 0;
+        d.querySelectorAll(".row").forEach(row => {
+          const ok = majorOK && (!q || row.dataset.s.includes(q));
+          row.hidden = !ok;
+          if (ok) shown++;
+        });
+        const show = majorOK && (!q || shown > 0);
+        d.hidden = !show;
+        if (show) {
+          if (!d.dataset.code.endsWith("?")) visibleLevels++;
+          visibleCharts += shown;
+        }
+        if (q) d.open = show && shown > 0;
+      });
+      stat.textContent = visibleLevels + " 階 / " + visibleCharts + " 枚";
+    }
+    $("#q").addEventListener("input", refresh);
+    $("#major").addEventListener("change", refresh);
+    refresh();
+  })();
+  </script>
+<script src="../assets/lang.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
+</body>
+</html>

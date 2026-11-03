@@ -323,3 +323,20 @@ body {
   transition: color 0.18s ease, border-color 0.18s ease;
 }
 .history-link:hover { color: #fff; border-color: rgba(201, 163, 92, 0.6); }
+
+/* bottom links row on the split home */
+.page-links {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  gap: 8px;
+}
+.page-links .history-link {
+  position: static;
+  left: auto;
+  bottom: auto;
+  transform: none;
+}

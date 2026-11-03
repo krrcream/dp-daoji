@@ -151,6 +151,26 @@ code { font-family: var(--mono); }
   border-color: rgba(201, 163, 92, 0.22);
 }
 
+.nav .sep {
+  color: var(--faint);
+  opacity: 0.6;
+  font-size: 11px;
+  padding: 0 1px;
+}
+
+.nav .lang {
+  padding: 5px 14px;
+  border: 1px solid rgba(201, 163, 92, 0.45);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.nav .lang:hover {
+  color: var(--gold);
+  border-color: rgba(201, 163, 92, 0.6);
+}
+
 /* ---------- 主页 · 卷首 ---------- */
 
 .hero {

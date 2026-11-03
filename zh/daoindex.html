@@ -4,10 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DP 道阶表 · 発狂 DP 难度表</title>
-  <meta name="description" content="基于 LR2IR 2026-05-29 快照的発狂 DP 难度推定，七境四十九阶，EASY / HARD 两套 beatoraja 难度表。">
+  <meta name="description" content="以谱面特征与社区评级推定的発狂 DP 难度，七境四十九阶，EASY / HARD 两套 beatoraja 难度表。">
   <meta name="theme-color" content="#100e0c">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/style.css?v=20261103">
+  <link rel="stylesheet" href="../assets/lang.css?v=20261103">
+  <link rel="stylesheet" href="../assets/footer-bar.css?v=20261103">
 </head>
 <body data-page="home" data-lang="zh" data-root="..">
   <header class="topbar">
@@ -17,11 +19,14 @@
         <span class="brand-text">DP 道阶表</span>
       </a>
       <nav class="nav" aria-label="主导航">
-        <a href="table.html?t=easy">固元道途</a>
-        <a href="table.html?t=hard">鋒殺剣途</a>
-        <a href="upperindex.html">証真道途</a>
+        <a href="upperindex.html">証真道途 ▪ 離妄塵途</a>
         <a href="faq.html">常见问题</a>
         <a href="history.html">更新历史</a>
+        <div class="lang-menu" data-lang="zh" data-theme="dark">
+      <a href="../daoindex.html" hreflang="en">English</a>
+      <a href="daoindex.html" hreflang="zh">中文</a>
+      <a href="../ja/daoindex.html" hreflang="ja">日本語</a>
+    </div>
       </nav>
     </div>
   </header>
@@ -35,21 +40,17 @@
       </svg>
 
       <div class="seal" aria-hidden="true"><span>♂</span><i>道</i></div>
-      <p class="eyebrow">LR2IR 全量存档 · 発狂 DP · 2026-05-29 快照</p>
+      <p class="eyebrow">谱面特征模型 · 発狂 DP · 2026-11-03 版</p>
       <h1>道阶表</h1>
-      <div class="lang-switch" aria-label="语言 / Language">
-        <span class="lang-active" aria-current="true">中文</span>
-        <span class="sep">/</span>
-        <a href="../daoindex.html" data-lang-link="en">English</a>
-        <span class="sep">·</span>
-        <span class="version">V0.3</span>
+      <div class="lang-switch" aria-label="版本">
+        <span class="version" data-version>V0.5.0</span>
       </div>
-      <p class="hero-sub">以 LR2IR 的 records 推定谱面难度。七境七七四十九阶，分 EASY 与 HARD 两途。</p>
+      <p class="hero-sub">七境四十九阶，分 EASY 与 HARD 两途。</p>
       <div class="hero-meta">
-        <span><b>2,070</b>谱 / 表</span>
-        <span><b>49</b>阶</span>
+        <span><b data-stat="total:lower_easy">7,781</b>EASY 谱</span>
+        <span><b data-stat="total:lower_hard">7,574</b>HARD 谱</span>
+        <span><b>49</b>阶 / 表</span>
         <span><b>7</b>境</span>
-        <span><b>2026-05-29</b>数据快照</span>
       </div>
     </section>
 
@@ -62,7 +63,7 @@
         <h2>固元道途</h2>
         <p>以 EASY CLEAR 为通过线，衡量谱面的基础承载力与稳定度。</p>
         <div class="card-stats">
-          <div class="stat"><b data-total="easy">2,070</b><span>谱面</span></div>
+          <div class="stat"><b data-total="easy">7,781</b><span>谱面</span></div>
           <div class="stat"><b>49</b><span>阶</span></div>
           <div class="stat"><b>7</b><span>境</span></div>
         </div>
@@ -77,7 +78,7 @@
         <h2>鋒殺剣途</h2>
         <p>以 HARD CLEAR 为通过线，衡量谱面的上限压制与爆发要求。</p>
         <div class="card-stats">
-          <div class="stat"><b data-total="hard">2,070</b><span>谱面</span></div>
+          <div class="stat"><b data-total="hard">7,574</b><span>谱面</span></div>
           <div class="stat"><b>49</b><span>阶</span></div>
           <div class="stat"><b>7</b><span>境</span></div>
         </div>
@@ -92,7 +93,7 @@
     <section class="section" aria-labelledby="bands-title">
       <div class="section-head">
         <h2 id="bands-title">七境</h2>
-        <p>由低至高，每境七阶，末置一阶以纳待考 · <span class="count-easy">青玉 EASY</span> / <span class="count-hard">朱红 HARD</span></p>
+        <p>由低至高，每境七阶 · <span class="count-easy">青玉 EASY</span> / <span class="count-hard">朱红 HARD</span></p>
       </div>
       <div class="band-grid">
         <div class="band-cell">
@@ -145,36 +146,19 @@
         </div>
       </div>
     </section>
-
-    <section class="section" aria-labelledby="method-title">
-      <div class="section-head">
-        <h2 id="method-title">口径</h2>
-      </div>
-      <div class="notes">
-        <article>
-          <h3>数据</h3>
-          <p>LR2IR 全量存档，2026-05-29 快照。仅使用非随机谱面，排除 乱 / SR，保留 正 / 鏡 / 換。</p>
-        </article>
-        <article>
-          <h3>模型</h3>
-          <p>五级 GRM（FAILED / EASY / NORMAL / HARD / FC），MCMC 估计。判别力用于区分地力谱与个人差谱。</p>
-        </article>
-        <article>
-          <h3>分档</h3>
-          <p>高样本谱面确定 7 大境 × 7 小阶；样本不足或玩家池异常的谱面，附于每境末尾的「疑 / 晦」待考阶。</p>
-        </article>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <p>DP 道阶表 · 2026-05-29 快照</p>
+      <p>DP 道阶表 · 2026-11-03 版</p>
       <p>结果仅供参考。</p>
     </div>
   </footer>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="../assets/app.js"></script>
+  <script src="../assets/site-data.js?v=20261103"></script>
+<script src="../assets/app.js?v=20261103"></script>
+<script src="../assets/lang.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
 </body>
 </html>

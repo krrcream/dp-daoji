@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja" data-from="lower">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>更新履歴 · DP Daoji</title>
+  <meta name="description" content="DP 道階表（下位表 固元道途 / 鋒殺剣途）と上位表（証真道途 / 離妄塵途）の更新履歴。">
+  <meta name="theme-color" content="#100e0c">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/history.css?v=20261103">
+  <link rel="stylesheet" href="../assets/lang.css?v=20261103">
+  <script>
+    (function () {
+      var from = new URLSearchParams(location.search).get("from");
+      if (from === "upper") document.documentElement.setAttribute("data-from", "upper");
+    })();
+  </script>
+  <link rel="stylesheet" href="../assets/footer-bar.css?v=20261103">
+</head>
+<body>
+  <header class="lower-bar">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <span class="mark" aria-hidden="true">道</span>
+        <span class="brand-text">DP 道階表</span>
+      </a>
+      <nav class="nav" aria-label="メインナビ">
+        <a href="upperindex.html">証真道途 ▪ 離妄塵途</a>
+        <a href="faq.html">よくある質問</a>
+        <a class="active" href="history.html?from=lower" aria-current="page">更新履歴</a>
+        <div class="lang-menu" data-lang="ja" data-theme="dark">
+      <a href="../history.html?from=lower" hreflang="en">English</a>
+      <a href="../zh/history.html?from=lower" hreflang="zh">中文</a>
+      <a href="history.html?from=lower" hreflang="ja">日本語</a>
+    </div>
+      </nav>
+    </div>
+  </header>
+
+  <header class="upper-bar">
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true">道</span> DP DAOJI · UPPER</a>
+    <nav class="nav" aria-label="上位表ナビ">
+      <a href="daoindex.html">固元道途 ▪ 鋒殺剣途</a>
+      <a href="faq.html">よくある質問</a>
+      <a class="active" href="history.html?from=upper" aria-current="page">更新履歴</a>
+      <div class="lang-menu" data-lang="ja" data-theme="light">
+      <a href="../history.html?from=upper" hreflang="en">English</a>
+      <a href="../zh/history.html?from=upper" hreflang="zh">中文</a>
+      <a href="history.html?from=upper" hreflang="ja">日本語</a>
+    </div>
+    </nav>
+  </header>
+
+  <main class="hist-wrap">
+    <div class="hist-kicker">変更履歴</div>
+    <h1 class="hist-title">更新履歴</h1>
+    <p class="hist-sub">難易度表の変更履歴</p>
+
+    <div class="hist-grid">
+      <section class="hist-col hist-lower">
+        <div class="hist-kicker">下位表</div>
+        <div class="hist-date">2026/11/2</div>
+        <p>下位表の各大境界の境界を引き直して再格付けし、データの癖が強い一部の譜面が大境界をまたぎすぎないようにしました。</p>
+      </section>
+
+      <section class="hist-col hist-upper">
+        <div class="hist-kicker">上位表</div>
+        <div class="hist-date">2026/11/2</div>
+        <p>上位表の一部の譜面を微調整しました。</p>
+      </section>
+
+      <section class="hist-col hist-wide">
+        <div class="hist-kicker">全表</div>
+        <div class="hist-date">2026/11/3</div>
+        <p>計算モデルを置き換え、収録譜面を増やし、上位難易度表を追加しました。</p>
+      </section>
+    </div>
+  </main>
+<script src="../assets/lang.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
+</body>
+</html>

@@ -7,7 +7,8 @@
   <meta name="description" content="浏览 DP 道阶表的 EASY / HARD 两套难度表，按曲名、md5、sha256 搜索，按大境与小阶筛选。">
   <meta name="theme-color" content="#100e0c">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/style.css?v=20261103">
+  <link rel="stylesheet" href="../assets/footer-bar.css?v=20261103">
 </head>
 <body data-page="table" data-lang="zh" data-root="..">
   <header class="topbar">
@@ -35,11 +36,13 @@
           <h1 id="table-name">固元道途</h1>
           <p class="name-sub" id="table-fullname">DP♂◇道階表 固元道途 (EASY CLEAR)</p>
           <div class="lang-switch" aria-label="语言 / Language">
-            <span class="lang-active" aria-current="true">中文</span>
-            <span class="sep">/</span>
-            <a href="../table.html?t=easy" data-lang-link="en">English</a>
+            <span class="version" data-version>V0.5.0</span>
             <span class="sep">·</span>
-            <span class="version">V0.3</span>
+            <a href="../table.html?t=easy" data-lang-link="en">English</a>
+            <span class="sep">/</span>
+            <a class="lang-active" href="table.html?t=easy" data-lang-link="zh" aria-current="true">中文</a>
+            <span class="sep">/</span>
+            <a href="../ja/table.html?t=easy" data-lang-link="ja">日本語</a>
           </div>
         </div>
       </div>
@@ -104,6 +107,8 @@
   </footer>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="../assets/app.js"></script>
+  <script src="../assets/site-data.js?v=20261103"></script>
+<script src="../assets/app.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
 </body>
 </html>

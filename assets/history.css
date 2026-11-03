@@ -241,3 +241,38 @@ html[data-from="upper"] .hist-sub { color: var(--umuted); }
   .hist-wrap { padding: 38px 18px 70px; }
   .hist-title { font-size: 28px; }
 }
+
+/* newest entry: full-width card spanning both columns */
+.hist-wide {
+  grid-column: 1 / -1;
+  min-height: 0;
+  padding: 26px 30px 30px;
+}
+html[data-from="lower"] .hist-wide {
+  background: linear-gradient(180deg, #221d18, var(--lpanel));
+  border: 1px solid rgba(201, 163, 92, 0.42);
+  color: var(--link);
+}
+html[data-from="upper"] .hist-wide {
+  background: var(--ucard);
+  border: 1px solid rgba(184, 137, 63, 0.35);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(64, 106, 148, 0.13);
+  color: var(--uink);
+}
+html[data-from="lower"] .hist-wide .hist-kicker,
+html[data-from="lower"] .hist-wide .hist-date { color: var(--lgold); }
+html[data-from="upper"] .hist-wide .hist-kicker,
+html[data-from="upper"] .hist-wide .hist-date { color: var(--ugold); }
+html[data-from="lower"] .hist-wide p { color: var(--lsoft); }
+html[data-from="upper"] .hist-wide p { color: var(--usoft); }
+
+/* language pill on the dark (lower) bar */
+.lower-bar .nav .lang {
+  padding: 5px 13px;
+  border: 1px solid rgba(201, 163, 92, 0.45);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--lsoft);
+}
+.lower-bar .nav .lang:hover { color: var(--lgold); border-color: rgba(201, 163, 92, 0.75); }

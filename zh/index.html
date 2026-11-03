@@ -6,12 +6,17 @@
   <title>DP Daoji · 道階表 / 道極表</title>
   <meta name="description" content="DP Daoji：下位表 固元道途（EASY / HARD）与上位表 証真道途（EASY CLEAR）。选择要进入的难度表。">
   <meta name="theme-color" content="#080b0f">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/split.css">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/split.css?v=20261103">
+  <style>
+    .page-links{position:fixed;left:50%;bottom:46px;transform:translateX(-50%);z-index:30;display:flex;gap:8px}
+    .page-links .history-link{position:static;left:auto;bottom:auto;transform:none}
+  </style>
+  <link rel="stylesheet" href="../assets/footer-bar.css?v=20261103">
 </head>
 <body>
   <div class="topmark"><span class="dot">◆</span> DP DAOJI <span class="dot">·</span> CHOOSE</div>
-  <div class="lang-switch"><span class="on">中文</span><a href="../index.html">English</a></div>
+  <div class="lang-switch"><a href="../index.html">English</a><span class="sep">/</span><span class="on">中文</span><span class="sep">/</span><a href="../ja/index.html">日本語</a></div>
   <div class="split">
     <a class="side side-dao" href="daoindex.html" aria-label="进入下位表 固元道途">
       <svg class="mountains" viewBox="0 0 800 300" preserveAspectRatio="none" aria-hidden="true">
@@ -24,7 +29,7 @@
       <h1 class="title">固元道途</h1>
       <p class="sub">DP♂◇道階表 · EASY / HARD</p>
       <div class="meta"><span>分成 7 大境界 共 49 阶</span></div>
-      <div class="sources">来自 δ難易度表 δ11、DPBMSと諸感 ☆11弱–☆12、DP Satellite DPsl1–DPsl8、発狂DP難易度表 ★1–★7、発狂14keyBMS闇鍋難易度表 ★1–★7 的 <b>2,070 张</b></div>
+      <div class="sources">来自 <span data-sources></span> 的 <b data-stat="total:lower_easy">7,781</b> / <b data-stat="total:lower_hard">7,574</b> 张</div>
       <span class="cta">进入下位表 <span class="arrow">→</span></span>
     </a>
 
@@ -35,12 +40,17 @@
       <h1 class="title">証真道途</h1>
       <p class="sub">DP◎◇道極表 · EASY CLEAR</p>
       <div class="meta"><span>分成 5 大境界 + 域外 共 42 阶</span></div>
-      <div class="sources">来自 発狂DP難易度表 ★8–★13、発狂14keyBMS闇鍋難易度表 ★8–★★17、DP Satellite DPsl8–DPsl10 的 <b>2,399 张</b></div>
+      <div class="sources">来自 <span data-sources></span> 的 <b data-stat="total:upper_easy">2,549</b> / <b data-stat="total:upper_hard">2,756</b> 张</div>
       <span class="cta">进入上位表 <span class="arrow">→</span></span>
     </a>
 
     <div class="seam" aria-hidden="true"></div>
   </div>
-  <a class="history-link" href="history.html">更新历史</a>
+  <div class="page-links">
+    <a class="history-link" href="history.html">更新历史</a>
+    <a class="history-link" href="faq.html">常见问题</a>
+  </div>
+<script src="../assets/site-data.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
 </body>
 </html>

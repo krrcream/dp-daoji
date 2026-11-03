@@ -1,139 +1,458 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FAQ · DP Daoji Table</title>
-  <meta name="description" content="Frequently asked questions about the DP Daoji tables: scope, data, error notes, and beatoraja import.">
-  <meta name="theme-color" content="#100e0c">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ · DP Daoji Lower / Upper</title>
+<style>
+  :root{
+    --ink:#14171a; --ink-soft:#5b656d; --ink-faint:#9aa4ac;
+    --paper:#fdfdfb; --line:rgba(20,23,26,.12);
+    --mist-1:#eaeef1; --mist-2:#d7dee4;
+    --night:#0d0f11; --night-2:#131619; --paper-night:#e9e9e6; --muted-night:#98a1a8; --line-night:rgba(255,255,255,.13);
+    --vermilion:#b23a2e; --jade:#2f6f5d;
+    --serif:"Songti SC","SimSun","Noto Serif CJK SC",serif;
+    --sans:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{width:min(880px,calc(100% - 48px));margin:0 auto;position:relative}
+
+  /* ---------- 动效 ---------- */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* ---------- 天空 ---------- */
+  .sky{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(900px 420px at 78% 6%, rgba(255,255,255,.95), rgba(255,255,255,0) 70%),
+      linear-gradient(180deg,#ffffff 0%,#f7fafc 38%,#e9eff4 100%);
+    padding-bottom:46px;
+  }
+  .clouds{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .clouds span{position:absolute;background:#fff;border-radius:999px;opacity:.92;
+    box-shadow:0 24px 60px rgba(133,160,184,.12);will-change:transform}
+  .clouds span::before,.clouds span::after{content:"";position:absolute;background:inherit;border-radius:50%}
+  .cl1{width:240px;height:60px;left:-60px;top:140px}
+  .cl1::before{width:104px;height:104px;left:36px;bottom:12px}
+  .cl1::after{width:70px;height:70px;right:36px;bottom:4px}
+  .cl2{width:160px;height:42px;right:5%;top:96px;opacity:.72}
+  .cl2::before{width:74px;height:74px;left:24px;bottom:8px}
+  .cl2::after{width:50px;height:50px;right:22px;bottom:2px}
+  .cl3{width:280px;height:68px;right:14%;top:330px;opacity:.82}
+  .cl3::before{width:118px;height:118px;left:48px;bottom:14px}
+  .cl3::after{width:78px;height:78px;right:44px;bottom:6px}
+  .cl4{width:140px;height:36px;left:8%;top:560px;opacity:.55}
+  .cl4::before{width:62px;height:62px;left:20px;bottom:6px}
+  .cl4::after{width:42px;height:42px;right:18px;bottom:2px}
+  .wash{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;opacity:.55}
+  .w1{width:460px;height:460px;right:-120px;top:40px;background:radial-gradient(circle,rgba(178,58,46,.07),transparent 70%)}
+  .w2{width:520px;height:520px;left:-180px;top:640px;background:radial-gradient(circle,rgba(47,111,93,.07),transparent 70%)}
+
+  /* ---------- 顶部导航 ---------- */
+  .nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 0}
+  .brand{font-family:var(--serif);font-size:15px;letter-spacing:.14em;text-decoration:none}
+  .nav nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+  .nav nav a{padding:7px 12px;font-size:13px;letter-spacing:.06em;color:var(--ink-soft);text-decoration:none;border-radius:999px;transition:color .2s}
+  .nav nav a:hover{color:var(--ink)}
+  .nav nav a.active{border:1px solid var(--line);color:var(--ink)}
+  .nav .lang{border:1px solid var(--line);padding:5px 13px;font-size:12px;border-radius:999px}
+
+  /* ---------- 卷首 ---------- */
+  .hero{position:relative;z-index:2;padding:44px 0 30px}
+  .hero .seal{
+    position:absolute;right:8px;top:26px;width:72px;height:72px;border:2px solid var(--vermilion);
+    border-radius:6px;display:grid;place-items:center;transform:rotate(5deg);
+    font-family:var(--serif);font-size:38px;color:var(--vermilion);opacity:.88;
+    box-shadow:inset 0 0 0 4px rgba(178,58,46,.10);
+  }
+  .eyebrow{font-size:11px;letter-spacing:.32em;color:var(--ink-faint);margin:0 0 16px}
+  .hero h1{font-family:var(--serif);font-size:clamp(44px,7vw,74px);font-weight:600;
+    letter-spacing:.18em;text-indent:.18em;margin:0 0 20px}
+  .lead{max-width:600px;margin:0;font-size:15px;line-height:2;color:var(--ink-soft)}
+  .hero .vnote{position:absolute;right:104px;top:30px}
+
+  .vnote{writing-mode:vertical-rl;text-orientation:upright;font-family:var(--serif);
+    font-size:11px;letter-spacing:.42em;color:var(--ink-faint)}
+
+  /* ---------- 章节 ---------- */
+  .block{position:relative;z-index:2;padding:54px 0 12px}
+  .block + .block{border-top:1px solid var(--line)}
+  .block h2{position:relative;z-index:1;font-family:var(--serif);font-size:27px;font-weight:600;
+    letter-spacing:.12em;margin:0 0 8px}
+  .num-bg{position:absolute;z-index:0;left:-6px;top:-46px;font-family:var(--serif);
+    font-size:170px;line-height:1;color:rgba(20,23,26,.045);pointer-events:none;user-select:none}
+  .block .vnote{position:absolute;right:0;top:6px}
+  .sub{margin:0 0 20px;font-size:13px;color:var(--ink-soft);letter-spacing:.02em}
+  .block h3{font-size:15px;font-weight:600;margin:28px 0 8px}
+  .block p,.block li{font-size:14.5px;line-height:1.95;color:var(--ink-soft)}
+  .block p{margin:0 0 10px}
+  .block p b,.block li b{color:var(--ink);font-weight:600}
+  .block ul{margin:6px 0 14px;padding-left:18px}
+  .block li{margin:4px 0}
+
+  /* ---------- 境界阶梯 ---------- */
+  .realms{list-style:none;margin:14px 0 0;padding:0;position:relative}
+  .realms::before{content:"";position:absolute;left:23px;top:10px;bottom:10px;width:1px;
+    background:linear-gradient(180deg,rgba(20,23,26,0),rgba(20,23,26,.18) 6%,rgba(20,23,26,.18) 94%,rgba(20,23,26,0))}
+  .realms li{position:relative;display:grid;grid-template-columns:46px 1fr auto;
+    grid-template-areas:"idx name code" ". desc desc";gap:1px 16px;align-items:baseline;
+    padding:7px 0;border-bottom:1px solid var(--line)}
+  .realms li::before{content:"";position:absolute;left:20px;top:15px;width:7px;height:7px;border-radius:50%;
+    background:var(--paper);border:1px solid rgba(20,23,26,.32)}
+  .realms li.peak::before{background:var(--paper);border-color:var(--vermilion)}
+  .realms .idx{grid-area:idx;font-family:var(--serif);font-size:11px;letter-spacing:.1em;color:var(--ink-faint);text-align:center}
+  .realms .rname{grid-area:name;font-family:var(--serif);font-size:18px;line-height:1.35;letter-spacing:.12em}
+  .realms .rname em{font-family:var(--sans);font-style:normal;font-size:10px;letter-spacing:.14em;color:var(--ink-faint);margin-left:9px}
+  .realms .rcode{grid-area:code;font-size:11px;letter-spacing:.1em;color:var(--ink-soft);white-space:nowrap;
+    border:1px solid var(--line);border-radius:999px;padding:1px 9px}
+  .realms p{grid-area:desc;margin:0;font-size:12.8px;line-height:1.65;color:var(--ink-soft)}
+
+  /* ---------- 小卡片 / 徽章 ---------- */
+  .table-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0 8px}
+  .tcard{position:relative;border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;
+    background:rgba(255,255,255,.66);overflow:hidden}
+  .tcard .sym{font-size:20px;letter-spacing:.08em}
+  .tcard h4{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:.12em;margin:6px 0 2px}
+  .tcard .meta{font-size:11.5px;letter-spacing:.08em;color:var(--ink-faint)}
+  .tcard .n{font-family:var(--serif);font-size:30px;margin-top:10px}
+  .tcard.easy{--c:var(--jade)} .tcard.hard{--c:var(--vermilion)}
+  .tcard .sym,.tcard .n{color:var(--c)}
+  .tcard::after{content:"";position:absolute;right:-30px;bottom:-40px;width:120px;height:120px;border-radius:50%;
+    background:radial-gradient(circle,rgba(0,0,0,.05),transparent 70%)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+  .chip{font-size:12px;letter-spacing:.04em;padding:5px 11px;border-radius:999px;
+    border:1px solid var(--line);color:var(--ink-soft);background:rgba(255,255,255,.6)}
+  .chip b{color:var(--ink)}
+
+  .mini-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:16px 0 6px}
+  .mini{border:1px solid var(--line);border-radius:14px;padding:14px 15px;background:rgba(255,255,255,.6)}
+  .mini .k{font-size:11px;letter-spacing:.16em;color:var(--ink-faint)}
+  .mini .v{font-family:var(--serif);font-size:17px;margin-top:6px;letter-spacing:.06em}
+  .mini p{font-size:12.5px;line-height:1.8;margin:6px 0 0}
+
+  .intro{max-width:720px;margin:8px 0 16px;font-size:15px;line-height:1.95;color:var(--ink)}
+  .figure{margin:26px 0 8px}
+  .figure a{display:block}
+  .figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:14px;
+    background:#fff;box-shadow:0 20px 44px rgba(20,23,26,.07);transition:transform .3s ease,box-shadow .3s ease}
+  .figure a:hover img{transform:translateY(-2px);box-shadow:0 26px 54px rgba(20,23,26,.10)}
+  .figure figcaption{margin-top:9px;font-size:11.5px;letter-spacing:.08em;color:var(--ink-faint);text-align:right}
+
+  /* ---------- 收录范围 ---------- */
+  .scope-legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 4px;font-size:11.5px;letter-spacing:.04em;color:var(--ink-faint)}
+  .scope-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+  .scope-legend i.e{background:var(--jade)}
+  .scope-legend i.h{background:var(--vermilion)}
+  .scope-sub{margin:0 0 8px;font-size:12.5px;line-height:1.8;color:var(--ink-faint)}
+
+  .xtable{margin:10px 0 6px}
+  .xt{width:auto;border-collapse:collapse;table-layout:fixed;font-size:11px}
+  .xt th,.xt td{border-bottom:1px solid rgba(20,23,26,.08);padding:0;height:36px}
+  .xt thead th{font-weight:500;font-size:10px;letter-spacing:.06em;color:var(--ink-faint);
+    position:sticky;top:0;background:#fbfbf9;z-index:2;text-align:center}
+  .xt thead th.rh{text-align:left;padding-left:8px}
+  .xt tbody th{font-weight:500;font-family:var(--serif);font-size:12.5px;text-align:left;padding-left:8px;white-space:nowrap}
+  .xt tbody th em{display:block;font-family:var(--sans);font-style:normal;font-size:9.5px;color:var(--ink-faint);letter-spacing:.08em}
+  .xt tbody td.src{font-size:11.5px;color:var(--ink-soft);padding-left:8px;white-space:nowrap}
+  .xt tbody td.lv{font-size:10.5px;color:var(--ink-faint);white-space:nowrap}
+  .xt th:not(.rh),.xt td.dc{border-left:1px solid rgba(20,23,26,.10)}
+  .dc{position:relative;background-image:linear-gradient(to bottom right,transparent calc(50% - .6px),rgba(20,23,26,.14) 50%,transparent calc(50% + .6px))}
+  .dc .e,.dc .h{position:absolute;font-size:10px;line-height:1;font-variant-numeric:tabular-nums}
+  .dc.empty{background-image:none}
+  .dc .e{left:20%;top:4px;color:var(--jade)}
+  .dc .h{right:20%;bottom:4px;color:var(--vermilion)}
+  .xt tr.upper th,.xt tr.upper td{border-top:1px solid rgba(20,23,26,.22)}
+  .xt.lv td:nth-child(10),.xt.lv th:nth-child(10){border-left:1px solid rgba(20,23,26,.18)}
+  .scope-note{margin:14px 0 4px;font-size:11.5px;line-height:1.8;color:var(--ink-faint)}
+
+  /* ---------- 中段深色带 ---------- */
+  .mid{background:linear-gradient(180deg,#111417 0%,#0c0e10 100%);color:var(--paper-night);padding:52px 0 66px}
+  .mid .block{padding:4px 0 0;border:0}
+  .mid h2,.mid h3{color:var(--paper-night)}
+  .mid .num-bg{color:rgba(255,255,255,.045)}
+  .mid .vnote{color:#6f787f}
+  .mid .intro,.mid .scope-read,.mid .scope-sub{color:var(--muted-night)}
+  .mid .scope-legend{color:#7f888f}
+  .mid .scope-legend i.e{background:#7fb3a0}
+  .mid .scope-legend i.h{background:#d9968b}
+  .mid .xt th,.mid .xt td{border-bottom-color:rgba(255,255,255,.10);border-left-color:rgba(255,255,255,.08)}
+  .mid .xt thead th{background:#0d0f11;color:#8a949c}
+  .mid .xt tbody th{color:var(--paper-night)}
+  .mid .xt tbody td.src{color:#b9c2c8}
+  .mid .xt tbody td.lv{color:#8a949c}
+  .mid .dc{background-image:linear-gradient(to bottom right,transparent calc(50% - .6px),rgba(255,255,255,.16) 50%,transparent calc(50% + .6px))}
+  .mid .dc.empty{background-image:none}
+  .mid .dc .e{color:#7fb3a0}
+  .mid .dc .h{color:#d9968b}
+  .mid .xt tr.upper th,.mid .xt tr.upper td{border-top-color:rgba(255,255,255,.22)}
+  .mid .scope-note{color:#6f787f}
+
+  .ridge-tail{display:block;width:100%;height:110px;line-height:0;background:#eef3f7}
+  .sky-2{position:relative;overflow:hidden;padding-bottom:46px;
+    background:linear-gradient(180deg,#eef3f7 0%,#f6fafc 38%,#e9eff4 100%)}
+
+  /* ---------- 山脊 ---------- */
+  .ridge-dark{display:block;width:100%;height:170px;line-height:0}
+
+  /* ---------- 山脚 ---------- */
+  .ground{background:linear-gradient(180deg,var(--night) 0%,var(--night-2) 100%);color:var(--paper-night);padding:10px 0 0}
+  .ground .block{border-color:var(--line-night)}
+  .ground .block + .block{border-top:1px solid var(--line-night)}
+  .ground h2,.ground h3{color:var(--paper-night)}
+  .ground .sub,.ground p,.ground li{color:var(--muted-night)}
+  .ground p b,.ground li b{color:var(--paper-night)}
+  .ground .num-bg{color:rgba(255,255,255,.045)}
+  .ground .vnote{color:#6f787f}
+  .ground code{font-size:12px;color:#cfd6db;word-break:break-all}
+  .urls{display:grid;gap:10px;margin:14px 0 6px}
+  .url{display:flex;gap:14px;align-items:center;padding:12px 15px;border:1px solid var(--line-night);
+    border-radius:12px;background:rgba(255,255,255,.03);transition:border-color .2s,background .2s}
+  .url:hover{border-color:rgba(255,255,255,.24);background:rgba(255,255,255,.05)}
+  .url span{font-size:11px;letter-spacing:.14em;min-width:52px}
+  .url.easy span{color:#7fb3a0} .url.hard span{color:#d9968b}
+  footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    padding:34px 0 46px;margin-top:46px;border-top:1px solid var(--line-night);font-size:12px;color:#7e878e}
+
+  /* ---------- 右侧目录 ---------- */
+  .toc{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:20;display:grid;gap:2px;
+    font-size:11.5px;letter-spacing:.06em}
+  .toc a{display:flex;align-items:center;gap:8px;padding:5px 8px;text-decoration:none;color:#9aa4ac;
+    border-right:1px solid rgba(20,23,26,.14);transition:color .2s}
+  .toc a i{font-style:normal;font-family:var(--serif);font-size:10px;opacity:.7}
+  .toc a:hover{color:var(--ink)}
+  .toc a.on{color:var(--vermilion);border-right-color:var(--vermilion)}
+  @media (max-width:1180px){.toc{display:none}}
+
+  @media (max-width:640px){
+    .nav{flex-wrap:wrap;padding:18px 0}
+    .nav nav{width:100%}
+    .hero{padding:26px 0 16px}
+    .hero .seal{width:54px;height:54px;font-size:28px;top:10px}
+    .hero .vnote{display:none}
+    .realms li{grid-template-columns:34px 1fr;grid-template-areas:"idx name" ". code" ". desc";gap:6px 12px}
+    .realms::before{left:17px}
+    .realms li::before{left:14px;top:14px}
+    .realms .rcode{justify-self:start}
+    .table-cards,.mini-grid{grid-template-columns:1fr}
+    .xtable{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .xt{min-width:620px}
+    .num-bg{font-size:120px;top:-30px}
+    .ridge-dark{height:110px}
+  }
+</style>
+  <link rel="stylesheet" href="assets/lang.css?v=20261103">
+  <link rel="stylesheet" href="assets/footer-bar.css?v=20261103">
 </head>
-<body data-page="faq" data-lang="en" data-root=".">
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="index.html">
-        <span class="brand-mark" aria-hidden="true">道</span>
-        <span class="brand-text">DP Daoji</span>
-      </a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="table.html?t=easy">Guyuan Daotu</a>
-        <a href="table.html?t=hard">Fengsha Jiantu</a>
+<body>
+
+<nav class="toc" aria-label="目录">
+  <a href="#map"><i>壹</i>Scoring</a>
+  <a href="#scope"><i>贰</i>Scope</a>
+  <a href="#realm"><i>叁</i>Realms</a>
+  <a href="#basics"><i>肆</i>Tiers</a>
+  <a href="#import"><i>伍</i>Import</a>
+</nav>
+
+<div class="sky">
+  <div class="clouds" aria-hidden="true">
+    <span class="cl1" data-parallax="0.04"></span>
+    <span class="cl2" data-parallax="0.07"></span>
+    <span class="cl3" data-parallax="0.03"></span>
+    <span class="cl4" data-parallax="0.09"></span>
+  </div>
+  <div class="wash w1" aria-hidden="true"></div>
+  <div class="wash w2" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="daoindex.html">道 · DP DAOJI</a>
+      <nav>
+        <a href="daoindex.html">固元道途 ▪ 鋒殺剣途</a>
+        <a href="upperindex.html">証真道途 ▪ 離妄塵途</a>
         <a class="active" href="faq.html" aria-current="page">FAQ</a>
         <a href="history.html">History</a>
-      </nav>
+        <div class="lang-menu" data-lang="en" data-theme="light">
+      <a href="faq.html?v=20261103" hreflang="en">English</a>
+      <a href="zh/faq.html?v=20261103" hreflang="zh">中文</a>
+      <a href="ja/faq.html?v=20261103" hreflang="ja">日本語</a>
     </div>
-  </header>
+      </nav>
+    </header>
 
-  <main>
-    <section class="faq-hero">
-      <div class="faq-hero-inner">
-        <div class="faq-hero-main">
-          <p class="eyebrow">LR2IR full archive · 2026-05-29 snapshot</p>
-          <h1>FAQ</h1>
-          <p class="hero-sub">Scope, data, and error notes for the DP Daoji tables.</p>
-          <div class="lang-switch" aria-label="Language">
-            <span class="lang-active" aria-current="true">English</span>
-            <span class="sep">/</span>
-            <a href="zh/faq.html">中文</a>
-            <span class="sep">·</span>
-            <span class="version">V0.3</span>
-          </div>
+    <main>
+      <section class="hero reveal">
+        <div class="seal" aria-hidden="true">問</div>
+        <span class="vnote">Climbing the Dao</span>
+        <p class="eyebrow">DP DAOJI · FAQ</p>
+        <h1>FAQ</h1>
+        <p class="lead">Welcome to the world of DP cultivation. Others cultivate by sitting in meditation and channeling qi; we cultivate with both hands at once — 14 keys pressed together. The higher the realm, the harder the chart.</p>
+      </section>
+
+      <section class="block" id="map">
+        <span class="num-bg" aria-hidden="true">壹</span>
+        <span class="vnote">Model scoring</span>
+        <h2>How difficulty is computed</h2>
+        <p class="intro">Every chart we could obtain is scored directly by the model. The difficulty model is still at an early stage and adjacent realms still overlap, so different realms are not suitable for absolute comparison — read it as “roughly which difficulty band”. If any chart looks unreasonable to you, telling me which ones would speed up the model’s iteration.</p>
+        <p class="sub">X axis is the model score, Y axis the true difficulty. The coloured bars are the realm ranges; the four rows of ticks below show where each source table’s levels (sl / st / ★ / ★★) land. EASY on top, HARD below.</p>
+        <figure class="figure reveal">
+          <a href="assets/level-map-bands.png" target="_blank" rel="noopener">
+            <img src="assets/level-map-bands.png" alt="Model score against true difficulty: EASY on top, HARD below, with EB / HB realm ranges and source-table level positions marked">
+          </a>
+          <figcaption>Click the chart to open it full size</figcaption>
+        </figure>
+      </section>
+
+    </main>
+  </div>
+
+</div>
+
+  <svg class="ridge-dark" viewBox="0 0 1440 170" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 118 L120 86 L240 112 L360 78 L480 108 L600 88 L720 116 L840 82 L960 110 L1080 90 L1200 114 L1320 88 L1440 108 L1440 170 L0 170 Z" fill="#9aa8b4" opacity=".55"/>
+    <path d="M0 140 L100 104 L196 132 L300 84 L404 126 L512 96 L620 140 L736 92 L852 132 L962 100 L1074 138 L1190 104 L1300 130 L1404 112 L1440 120 L1440 170 L0 170 Z" fill="#0d0f11"/>
+  </svg>
+
+<div class="mid">
+  <div class="wrap">
+      <section class="block" id="scope">
+        <span class="num-bg" aria-hidden="true">贰</span>
+        <span class="vnote">Sources &amp; counts</span>
+        <h2>Scope</h2>
+        <p class="intro">All four tables come from the same chart pool: under each scale, a chart falls into exactly one of the lower or upper tables. 10,330 charts in total — lower EASY 7,781 / HARD 7,574, upper EASY 2,549 / HARD 2,756.</p>
+
+        <p class="scope-read">The second table below shows the overall shape is already there. But the Yaminabe table’s charts have few training samples and some patterns are unusual, so a few charts land in odd-looking positions — that part has to wait for future model iterations. The Yaminabe table itself carries very little difficulty information; this is as far as we can go right now.</p>
+
+                <div class="scope-legend">
+          <span><i class="e"></i>Top-left = EASY</span>
+          <span><i class="h"></i>Bottom-right = HARD</span>
+          <span>Blank = 0</span>
         </div>
-        <nav class="faq-toc" aria-label="Contents">
-          <p class="faq-toc-title">Contents</p>
-          <a href="#sec-1">Realm guide</a><a href="#sec-2">I. Scope</a><a href="#sec-3">II. Data</a><a href="#sec-4">III. Errors and how to use it</a><a href="#sec-5">IV. Site and import</a>
-        </nav>
+
+        <h3>1. Realm × source table</h3>
+        <div class="xtable" id="scope-band-table" data-h="Realm"></div>
+
+        <h3>2. Source level × realm</h3>
+        <p class="scope-sub">Read across: where a given table and level end up. Read down: how many charts each realm holds. E1–E7 are the lower table, E8–E13 the upper.</p>
+        <div class="xtable" id="scope-level-table" data-h1="Source" data-h2="Level"></div>
+
+        <p class="scope-note">One chart can belong to several source tables, so adding sources across a row exceeds the real count; the totals of the four tables are the reference. 10,330 charts in total.</p>
+      </section>
+
+  </div>
+</div>
+
+<svg class="ridge-tail" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 0 H1440 V64 C1312 104 1188 54 1064 80 C940 106 816 52 692 78 C568 104 444 52 320 76 C196 100 98 58 0 82 Z" fill="#0c0e10"/>
+</svg>
+
+<div class="sky sky-2">
+  <div class="wrap">
+    <main>
+      <section class="block" id="realm">
+        <span class="num-bg" aria-hidden="true">叁</span>
+        <span class="vnote">Fourteen heavens</span>
+        <h2>Realm system</h2>
+        <p class="sub">From mortals at the foot of the mountain to the Dao Ancestor above the clouds. Tribulation Crossing is a transitional realm in the setting; the current tables have no separate tier for it.</p>
+
+        <ol class="realms">
+          <li class="reveal"><span class="idx">01</span><span class="rname">錬気期 <em>Qi Refining</em></span><span class="rcode">EB1 / HB1</span><p>Sense the spiritual qi of heaven and earth, draw it in and temper the mortal body. You have just stepped through the gate; everything is still budding.</p></li>
+          <li class="reveal"><span class="idx">02</span><span class="rname">築基期 <em>Foundation</em></span><span class="rcode">EB2 / HB2</span><p>Lay the foundation of the Dao and firm the immortal root. From here you leave the mundane behind — the divide between “cultivator” and “mortal”.</p></li>
+          <li class="reveal"><span class="idx">03</span><span class="rname">結丹期 <em>Golden Core</em></span><span class="rcode">EB3 / HB3</span><p>Spiritual power condenses into a core, the first qualitative change on the path. Once the core forms, combat power surges.</p></li>
+          <li class="reveal"><span class="idx">04</span><span class="rname">元嬰期 <em>Nascent Soul</em></span><span class="rcode">EB4 / HB4</span><p>The core shatters and a nascent soul is born, able to leave the body. Even if the flesh is destroyed it can seize another body and live on; lifespan reaches a thousand years.</p></li>
+          <li class="reveal"><span class="idx">05</span><span class="rname">化神期 <em>Spirit Form</em></span><span class="rcode">EB5 / HB5</span><p>The nascent soul takes form and divine sense reaches outward, first touching the laws of heaven and earth. Already a top-tier power of the mortal world.</p></li>
+          <li class="reveal"><span class="idx">06</span><span class="rname">錬虚期 <em>Void Refining</em></span><span class="rcode">EB6 / HB6</span><p>Refine the spirit and unite with the Dao, merging with heaven and earth. The peak of the mortal world, one step from ascension.</p></li>
+          <li class="reveal"><span class="idx">07</span><span class="rname">大乗期 <em>Mahayana</em></span><span class="rcode">EB7 / HB7</span><p>The limit of mortal cultivation. One foot is already in the immortal world; only the heavenly tribulation remains.</p></li>
+          <li class="reveal"><span class="idx">08</span><span class="rname">渡劫期 <em>Tribulation Crossing</em></span><span class="rcode">—</span><p>The final trial of nine heavens’ thunder. Survive and ascend; fail and body and soul are destroyed. The current tables have no separate tier.</p></li>
+          <li class="reveal peak"><span class="idx">09</span><span class="rname">真仙 <em>True Immortal</em></span><span class="rcode">EB8 / HB8</span><p>The first realm after ascending to the immortal world. Shed the mortal body, join the immortal ranks, and leave reincarnation behind.</p></li>
+          <li class="reveal peak"><span class="idx">10</span><span class="rname">金仙 <em>Golden Immortal</em></span><span class="rcode">EB9 / HB9</span><p>Cultivate an indestructible golden body and deep power; a pillar of the immortal world.</p></li>
+          <li class="reveal peak"><span class="idx">11</span><span class="rname">太乙 <em>Taiyi</em></span><span class="rcode">EB10 / HB10</span><p>Comprehend the great Dao of Taiyi and approach the source of law; begin to touch the essence of the Dao itself.</p></li>
+          <li class="reveal peak"><span class="idx">12</span><span class="rname">大羅 <em>Daluo</em></span><span class="rcode">EB11 / HB11</span><p>Untouched by ten thousand kalpas, free and unfettered, beyond the river of time — the top-tier power of the immortal world.</p></li>
+          <li class="reveal peak"><span class="idx">13</span><span class="rname">道祖 <em>Dao Ancestor</em></span><span class="rcode">EB12 / HB12</span><p>The first ancestor of the Dao, embodiment of law; a single thought decides the rise and fall of all things.</p></li>
+          <li class="reveal peak"><span class="idx">14</span><span class="rname">域外 <em>Yuwai</em></span><span class="rcode">EB13 / HB13</span><p>Beyond the three realms, outside the five elements; no longer measurable by ordinary standards.</p></li>
+        </ol>
+      </section>
+
+      <section class="block" id="basics">
+        <span class="num-bg" aria-hidden="true">肆</span>
+        <span class="vnote">Seven tiers</span>
+        <h2>Reading the tiers</h2>
+        <div class="mini-grid">
+          <div class="mini reveal"><div class="k">Per realm</div><div class="v">7 tiers</div><p>Higher number = harder, 1 → 7 from weak to strong. (Supposedly.)</p></div>
+          <div class="mini reveal"><div class="k">Borders</div><div class="v">Overlapping</div><p>Tier difficulty can overlap, and overlaps can also occur at realm boundaries.</p></div>
+          <div class="mini reveal"><div class="k">Source</div><div class="v">Auto-tiered</div><p>Overlap comes from statistical tiering, plus individual ability and feel; it is normal.</p></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+  <svg class="ridge-dark" viewBox="0 0 1440 170" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 118 L120 86 L240 112 L360 78 L480 108 L600 88 L720 116 L840 82 L960 110 L1080 90 L1200 114 L1320 88 L1440 108 L1440 170 L0 170 Z" fill="#9aa8b4" opacity=".55"/>
+    <path d="M0 140 L100 104 L196 132 L300 84 L404 126 L512 96 L620 140 L736 92 L852 132 L962 100 L1074 138 L1190 104 L1300 130 L1404 112 L1440 120 L1440 170 L0 170 Z" fill="#0d0f11"/>
+  </svg>
+
+<div class="ground">
+  <div class="wrap">
+    <section class="block" id="import">
+      <span class="num-bg" aria-hidden="true">伍</span>
+      <span class="vnote">Import</span>
+      <h2>Site &amp; import</h2>
+      <p>In beatoraja’s difficulty table manager, add the raw URL of <code>header.json</code>:</p>
+      <div class="urls">
+        <div class="url easy"><span>EASY</span><code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_easy/header.json</code></div>
+        <div class="url hard"><span>HARD</span><code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_hard/header.json</code></div>
+        <div class="url easy"><span>上位 EASY</span><code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_upper/header.json</code></div>
+        <div class="url hard"><span>上位 HARD</span><code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_upper_hard/header.json</code></div>
       </div>
     </section>
 
-    <article class="section faq">
-<h3>Welcome to the world of DP immortal cultivation. Other people cultivate by sitting in meditation and channeling qi — we cultivate with both hands at once, literally dual cultivation, smashing 14 keys at the same time. The higher the realm, the harder the chart.</h3>
-<h2 id="sec-1">Realm guide</h2>
-<p>This table is generated statistically, with no per-chart manual adjustment. Because the DPBMS player base is relatively small, insufficient sample data can occasionally lead to questionable placements. <strong>If you spot anything that seems wildly off, please let me know — I'd really appreciate your feedback!</strong></p>
-<p>It is not an official table, nor a personal ranking; use it to see the approximate difficulty band, not to settle comparisons between adjacent tiers.</p>
-<div class="faq-table">
-<table style="min-width:680px">
-<thead><tr><th>Realm</th><th>Code</th><th>Meaning</th></tr></thead>
-<tbody>
-<tr><td><strong>Qi Refining</strong><br>錬気期</td><td><code>EB1&nbsp;/&nbsp;HB1</code></td><td>The very first step on the cultivation path. You sense the spiritual energy of heaven and earth, draw it into your body, and temper your mortal flesh. You've just stepped through the door — everything is still in its infancy.</td></tr>
-<tr><td><strong>Foundation</strong><br>築基期</td><td><code>EB2&nbsp;/&nbsp;HB2</code></td><td>You lay the foundation of your immortal path and solidify your roots. This is the dividing line between "ordinary human" and "cultivator" — your lifespan starts to extend, and you're no longer just a mortal.</td></tr>
-<tr><td><strong>Golden Core</strong><br>結丹期</td><td><code>EB3&nbsp;/&nbsp;HB3</code></td><td>Your spiritual energy condenses into a golden core in your lower dantian. This is the first major breakthrough on your journey — once the core forms, your combat power spikes dramatically, and you can already call yourself a formidable expert.</td></tr>
-<tr><td><strong>Nascent Soul</strong><br>元嬰期</td><td><code>EB4&nbsp;/&nbsp;HB4</code></td><td>Your golden core shatters and gives birth to a Nascent Soul. This soul can leave your body and travel on its own — even if your physical body is destroyed, you can seize another's body and survive. Your lifespan stretches to a thousand years.</td></tr>
-<tr><td><strong>Spirit Form</strong><br>化神期</td><td><code>EB5&nbsp;/&nbsp;HB5</code></td><td>Your Nascent Soul takes on a spiritual form. Your divine sense extends outward, and you begin to touch the fundamental laws of the world. You can shake the heavens with a wave of your hand — you're already one of the strongest mortals alive.</td></tr>
-<tr><td><strong>Void Refining</strong><br>錬虚期</td><td><code>EB6&nbsp;/&nbsp;HB6</code></td><td>You refine your spirit and merge with the Dao, gradually becoming one with the world around you. You're transcending the limitations of your physical body. This is the peak of the mortal realm — one step away from ascending.</td></tr>
-<tr><td><strong>Mahayana</strong><br>大乗期</td><td><code>EB7&nbsp;/&nbsp;HB7</code></td><td>The absolute peak of mortal cultivation. One foot is already in the immortal world. All that remains is to survive the Heavenly Tribulation, and you can break through to immortality.</td></tr>
-<tr><td><strong>Tribulation Crossing</strong><br>渡劫期</td><td>—</td><td>The ultimate trial: the Nine Heavens Thunder Tribulation. Survive it, and you ascend to immortality, living as long as heaven and earth. Fail, and your body and soul are both destroyed — eternal annihilation. The current table has no separate tier for this realm; crossing it leads directly to True Immortal.</td></tr>
-<tr><td><strong>True Immortal</strong><br>真仙</td><td><code>EB8</code></td><td>The first realm after ascending to the Immortal World. You've shed your mortal flesh, officially joined the ranks of immortals, and are now beyond the cycle of reincarnation.</td></tr>
-<tr><td><strong>Golden Immortal</strong><br>金仙</td><td><code>EB9</code></td><td>The backbone of the Immortal World. You've cultivated an indestructible golden body, and your magical power is vast. You are one of the pillars of the immortal realm.</td></tr>
-<tr><td><strong>Taiyi</strong><br>太乙</td><td><code>EB10</code></td><td>You've comprehended the Great Dao of Taiyi and draw close to the origin of natural law. Being an immortal is no longer enough — you're beginning to touch the very essence of the "Dao" itself.</td></tr>
-<tr><td><strong>Daluo</strong><br>大羅</td><td><code>EB11</code></td><td>A Daluo Golden Immortal — untouchable by calamities, free and unfettered. You've stepped outside the river of time and fate. This is the highest tier of power in the Immortal World.</td></tr>
-<tr><td><strong>Dao Ancestor</strong><br>道祖</td><td><code>EB12</code></td><td>The Ancestor of the Dao — the embodiment of a fundamental law of existence. The absolute ceiling of the Immortal World. With a single thought, you can decide the rise and fall of all things.</td></tr>
-<tr><td><strong>Yuwai (Beyond the Domains)</strong><br>域外</td><td><code>EB13</code></td><td>Transcending the Three Realms, outside the Five Elements. Beings above even the Dao Ancestors — they cannot be measured by ordinary standards.</td></tr>
-</tbody>
-</table>
+    <footer>
+      <span>DP DAOJI · FAQ · <span data-version>V0.5.0</span></span>
+      <span>Results are indicative only</span>
+    </footer>
+  </div>
 </div>
-<h3>How sub-tiers work</h3>
-<ul>
-<li>Each major realm is divided into <strong>7 sub-tiers (1–7)</strong>. A higher number is harder.</li>
-<li><strong>Heads up:</strong> the 6th and 7th sub-tiers of any realm are the "extreme difficulty" tier. Their difficulty <strong>may</strong> overlap with sub-tiers 1–2 of the next realm up — so <code>EB2-7</code> can occasionally be harder than <code>EB3-1</code>, and that's normal. (Think of it like how some ★2 charts are harder than ★3 ones — this is statistically ranked, and DP is such a personal-skill thing, so it's bound to happen.)</li>
-<li>Every realm also has a final <strong>"?" (Pending)</strong> slot. These are charts where the statistical model isn't confident where to place them — they're temporarily parked here. <strong>This does NOT mean they're harder than sub-tier 7</strong> — it just means "still cultivating, under observation." In the lower table this slot is shown as "Pending" (EASY) / "Obscure" (HARD); in the upper table it is shown as "Que" (闕).</li>
-</ul>
-<p><strong>Current coverage:</strong> the lower table covers Qi Refining through Mahayana (EB1–EB7 / HB1–HB7). The upper table starts at True Immortal and covers EB8–EB13 (True Immortal through Yuwai). Tribulation Crossing is a story transition with no separate tier in the current tables.</p>
-<hr>
-<h2 id="sec-2">I. Scope</h2>
-<h3 id="q1">1. What is in the table?</h3>
-<ul><li>Two tables: <strong>EASY</strong> (♂◇ Guyuan Daotu, EASY CLEAR pass line) and <strong>HARD</strong> (♂◆ Fengsha Jiantu, HARD CLEAR pass line).</li><li>Each table has <strong>2,070 charts</strong>, 7 realms × 7 tiers = <strong>49 tiers</strong>; each realm also has one pending tier, not counted in the 49.</li><li>Both tables use the same 2,070 charts; because the pass lines differ, the same chart can sit in different tiers.</li><li>Realms from low to high: Qi Refining, Foundation, Golden Core, Nascent Soul, Spirit Form, Void Refining, Mahayana.</li><li>The final tier of each realm, "Pending" (EASY, code <code>EBn-?</code>) / "Obscure" (HARD, code <code>HBn-?</code>), is a <strong>pending tier</strong>, not "harder than tiers 1–7".</li></ul>
-<h3 id="q2">2. Which source tables and levels are covered?</h3>
-<p>V0.3 covers:</p>
-<div class="faq-table"><table><thead><tr><th>Source table</th><th>Levels</th></tr></thead><tbody><tr><td>δ Difficulty Table (δ難易度表)</td><td>δ11</td></tr><tr><td>DPBMS and Shokan (DPBMSと諸感)</td><td>☆11弱, ☆11中, ☆11強, ☆12</td></tr><tr><td>DP Satellite</td><td>DPsl1–DPsl8</td></tr><tr><td>Insane DP Difficulty Table (発狂DP難易度表)</td><td>★1–★7</td></tr><tr><td>DP Insane Yaminabe (発狂14keyBMS闇鍋難易度表)</td><td>★1–★7</td></tr></tbody></table></div>
-<p>The table is positioned around <strong>IIDX DP 8th dan to just below IIDX DP Kaiden</strong>. Charts above that range have fewer plays and cannot be estimated reliably, so they are not included for now. An ascension table may follow later.</p>
-<p>Composition of the 2,070 charts:</p>
-<ul><li><strong><code>1,792</code></strong> estimated directly by the five-level GRM;</li><li><strong><code>178</code></strong> DP Satellite charts that failed the new GRM inclusion filters (low sample, or extreme pass rate / poor fit), filled by a linear mapping from the previous 1PL model;</li><li><strong><code>100</code></strong> charts with only community rating data, outside the LR2IR target set, filled by external regression.</li></ul>
-<p>Not every chart in those source tables is included. Charts with too few plays, extreme pass rates, or poor fit are excluded rather than forced into the table.</p>
-<h2 id="sec-3">II. Data</h2>
-<h3 id="q3">3. Where does the score data come from?</h3>
-<ul><li><strong><a href="https://cdn.lr2ir.com/lr2ir-archive-v3.db.gz" target="_blank" rel="noreferrer">Full public LR2IR archive v3</a></strong>, snapshot <strong>2026-05-29</strong>.</li><li>LR2IR closed on <strong>2026-05-31</strong>; new scores after that cannot enter this dataset.</li><li>The compressed archive is about 3.27 GiB; the unpacked database is about 8.6 GB.</li><li>Source repository: <code>zkldi/lr2ir-dataset</code> (Unlicense).</li></ul>
-<h3 id="q4">4. How is the data cleaned?</h3>
-<ul><li>Only <strong>14-key (DP)</strong> charts; <code>is_cheated</code> and <code>suspended</code> rows are removed.</li><li>One best record per player × chart, so repeated plays are not counted as independent observations.</li><li>Only <strong>non-random charts</strong>: 乱 (random) and SR are excluded; 正 (normal), 鏡 (mirror), and 換 (flip) are kept.</li><li>Dan rank (<code>dan</code>) is not used in the model; it is only an external validity check.</li></ul>
-<h3 id="q5">5. How is difficulty estimated?</h3>
-<p>Difficulty is estimated with a <strong>five-level graded response model (GRM: FAILED / EASY / NORMAL / HARD / FC)</strong> fitted on the public LR2IR archive; the EASY table uses the FAILED→EASY threshold and the HARD table the NORMAL→HARD threshold. Realms follow the community rating where available and source-table levels otherwise; tiers within a realm are ordered by the estimated difficulty.</p>
-<h3 id="q6">6. Is player data published?</h3>
-<p>No. The public fields are only <code>md5</code>, <code>sha256</code> (when available), title, tier, and <code>comment</code>; no player names, individual scores, <code>b</code> / <code>θ</code>, or sample sizes.</p>
-<hr>
-<h2 id="sec-4">III. Errors and how to use it</h2>
-<h3 id="q7">7. Why are there errors?</h3>
-<ul><li><strong>The DP BMS player pool is small.</strong> Many charts have few plays, so difficulty estimates have large variance.</li><li>With a small or unusual player pool, a chart can move between adjacent tiers or drift noticeably.</li><li>Some charts only have random-mode scores, or have scores removed, leaving even fewer observations.</li><li>Charts filled from external data did not enter the LR2IR model, so they are less reliable; predictions for unpopular charts can have larger errors.</li><li>The model cannot fit every chart; a poorly fitting chart may simply be noise rather than a real "individual difference".</li></ul>
-<h3 id="q8">8. Can I still use it?</h3>
-<p>Yes, as a rough reference:</p>
-<ul><li>Charts in the same realm and nearby tiers are usually close, and the overall trend across realms is reliable.</li><li><strong>Do not treat adjacent tiers as an absolute conclusion.</strong> The order within 1–2 tiers is easily affected by sample size and player pool; do not use it for skill certification, gatekeeping, or attacking others.</li><li>Treat "Pending / Obscure" as "the data is not enough to place this chart stably in tiers 1–7", not as "the hardest".</li></ul>
-<h3 id="q9">9. What is "Pending / Obscure"?</h3>
-<p>"Pending / Obscure" is the final pending tier of each realm. It means the current data is not enough to place the chart stably in tiers 1–7; <strong>it does not mean the chart is the hardest</strong>. Low sample size, random-only scores, external filling, or an unusual player pool can all cause this uncertainty.</p>
-<p>It is an uncertainty hint, but it is not a complete low-sample flag: some low-sample charts remain in tiers 1–7, and some pending-tier charts are not there because of low sample size. So even if a chart is in tiers 1–7, its tier is not guaranteed to be stable. This is the biggest limitation of the table.</p>
-<h3 id="q10">10. Will the table be updated?</h3>
-<ul><li>The data snapshot is fixed at 2026-05-29; LR2IR is closed, so the same data source will not receive new scores.</li><li>If the data source, model, or criteria change, a new version number will be released.</li></ul>
-<h3 id="q11">11. What do EB / HB mean?</h3>
-<ul><li><code>EB</code> = EASY table, <code>HB</code> = HARD table.</li><li>The first digit is the realm (1–7), the second is the tier (1–7); <code>?</code> means the pending tier ("Pending" for EASY / "Obscure" for HARD).</li><li>Example: <code>EB4-?</code> = pending tier of realm IV (Nascent Soul) in the EASY table; <code>HB2-3</code> = tier 3 of realm II (Foundation) in the HARD table.</li></ul>
-<hr>
-<h2 id="sec-5">IV. Site and import</h2>
-<h3 id="q12">12. How do I import it into beatoraja?</h3>
-<p>Add the raw <code>header.json</code> URLs in the difficulty table manager:</p>
-<pre><code>https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_easy/header.json
-https://raw.githubusercontent.com/krrcream/dp-daoji/main/DP_dao_hard/header.json</code></pre>
-<h3>Results are indicative only</h3>
-<h3>Results are indicative only</h3>
-<h3>Results are indicative only</h3>
-    </article>
-  </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <p>DP Daoji Table · 2026-05-29 snapshot</p>
-      <p>Results are indicative only.</p>
-    </div>
-  </footer>
+<script>
+  // 淡入
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
-  <script src="assets/app.js"></script>
+  // 目录高亮
+  const links = [...document.querySelectorAll(".toc a")];
+  const io2 = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  document.querySelectorAll("section[id]").forEach(s => io2.observe(s));
+
+  // 云层视差
+  let raf = 0;
+  window.addEventListener("scroll", () => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = 0;
+      const y = window.scrollY;
+      document.querySelectorAll("[data-parallax]").forEach(el => {
+        el.style.transform = "translate3d(0," + (y * parseFloat(el.dataset.parallax)) + "px,0)";
+      });
+    });
+  }, { passive: true });
+</script>
+<script src="assets/site-data.js?v=20261103"></script>
+<script src="assets/scope-tables.js?v=20261103"></script>
+<script src="assets/lang.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
 </body>
 </html>

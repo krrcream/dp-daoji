@@ -1,0 +1,29 @@
+/* Fixed copyright strip at the bottom of every page */
+.copyright-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 27px;
+  padding: 0 14px;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #cfc7b8;
+  background: rgba(12, 12, 13, 0.78);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 640px) {
+  .copyright-bar { font-size: 9.5px; letter-spacing: 0.02em; height: 25px; }
+}

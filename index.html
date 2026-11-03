@@ -7,11 +7,16 @@
   <meta name="description" content="DP Daoji: the lower table Guyuan Daotu (EASY / HARD) and the upper table Zhengzhen Daotu (EASY CLEAR). Choose a table.">
   <meta name="theme-color" content="#080b0f">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/split.css">
+  <link rel="stylesheet" href="assets/split.css?v=20261103">
+  <style>
+    .page-links{position:fixed;left:50%;bottom:46px;transform:translateX(-50%);z-index:30;display:flex;gap:8px}
+    .page-links .history-link{position:static;left:auto;bottom:auto;transform:none}
+  </style>
+  <link rel="stylesheet" href="assets/footer-bar.css?v=20261103">
 </head>
 <body>
   <div class="topmark"><span class="dot">◆</span> DP DAOJI <span class="dot">·</span> CHOOSE</div>
-  <div class="lang-switch"><span class="on">English</span><a href="zh/index.html">中文</a></div>
+  <div class="lang-switch"><span class="on">English</span><span class="sep">/</span><a href="zh/index.html">中文</a><span class="sep">/</span><a href="ja/index.html">日本語</a></div>
   <div class="split">
     <a class="side side-dao" href="daoindex.html" aria-label="Enter the lower table, Guyuan Daotu">
       <svg class="mountains" viewBox="0 0 800 300" preserveAspectRatio="none" aria-hidden="true">
@@ -24,7 +29,7 @@
       <h1 class="title">固元道途</h1>
       <p class="sub">Guyuan Daotu · DP♂◇ Daoji Table · EASY / HARD</p>
       <div class="meta"><span>7 realms, 49 tiers</span></div>
-      <div class="sources">From δ難易度表 δ11, DPBMSと諸感 ☆11弱–☆12, DP Satellite DPsl1–8, 発狂DP難易度表 ★1–7, 発狂14keyBMS闇鍋難易度表 ★1–7 — <b>2,070 charts</b></div>
+      <div class="sources">From <span data-sources=", "></span> — <b data-stat="total:lower_easy">7,781</b> / <b data-stat="total:lower_hard">7,574</b> charts</div>
       <span class="cta">Enter lower table <span class="arrow">→</span></span>
     </a>
 
@@ -35,12 +40,17 @@
       <h1 class="title">証真道途</h1>
       <p class="sub">Zhengzhen Daotu · DP◎◇ Daoji Upper Table · EASY CLEAR</p>
       <div class="meta"><span>5 realms + Yuwai, 42 tiers</span></div>
-      <div class="sources">From 発狂DP難易度表 ★8–★13, 発狂14keyBMS闇鍋難易度表 ★8–★★17, DP Satellite DPsl8–10 — <b>2,399 charts</b></div>
+      <div class="sources">From <span data-sources=", "></span> — <b data-stat="total:upper_easy">2,549</b> / <b data-stat="total:upper_hard">2,756</b> charts</div>
       <span class="cta">Enter upper table <span class="arrow">→</span></span>
     </a>
 
     <div class="seam" aria-hidden="true"></div>
   </div>
-  <a class="history-link" href="history.html">Update History</a>
+  <div class="page-links">
+    <a class="history-link" href="history.html">Update History</a>
+    <a class="history-link" href="faq.html">FAQ</a>
+  </div>
+<script src="assets/site-data.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
 </body>
 </html>

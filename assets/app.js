@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const LANG = document.body.dataset.lang === "zh" ? "zh" : "en";
+  const LANG = document.body.dataset.lang === "ja" ? "ja" : (document.body.dataset.lang === "zh" ? "zh" : "en");
   const DATA_ROOT = document.body.dataset.root || ".";
 
   const MAJORS = [
@@ -74,6 +74,11 @@
     }
   };
 
+  // Japanese reuses the Chinese table / realm names (kanji) when no ja entry exists.
+  function withJa(o) { if (o && o.zh && !o.ja) o.ja = o.zh; return o; }
+  Object.keys(TABLES).forEach(function (k) { withJa(TABLES[k].name); withJa(TABLES[k].full); });
+  MAJORS.forEach(function (m) { withJa(m.name); withJa(m.numeral); withJa(m.desc); });
+
   const SUB_JP = {
     easy: ["微", "浅", "承", "盈", "鋭", "極", "満"],
     hard: ["蔵", "馳", "突", "撃", "摧", "断", "滅"]
@@ -109,26 +114,39 @@
       homeFileHint: "当前是直接以文件方式打开的页面，浏览器会拦截数据读取。请通过本地服务器或 GitHub Pages 访问。",
       homeHttpHint: "部分表数据载入失败，请确认 DP_dao_easy / DP_dao_hard 目录与 JSON 文件已上传，且仓库为 Public。",
       bucketTitle: "待考阶：样本不足或玩家池异常，低可信归入"
+    },
+    ja: {
+      tableTitle: name => `${name} · DP 道階表`,
+      copied: label => `${label} をコピーしました`.trim(),
+      errorTitle: "譜面データの読み込みに失敗しました。",
+      errorBefore: "",
+      errorAfter: " が存在するか、HTTP で配信されているか、リポジトリが公開されているかを確認してください。",
+      errorDetail: "技術情報：",
+      homeFileHint: "ファイルとして直接開いているため、ブラウザがデータ読み込みをブロックしています。HTTP サーバーか GitHub Pages で開いてください。",
+      homeHttpHint: "一部の表データを読み込めませんでした。DP_dao_easy / DP_dao_hard と JSON がアップロードされているか、リポジトリが Public か確認してください。",
+      bucketTitle: "保留階：サンプル不足またはプレイヤー層が特殊な譜面を、低信頼としてここに入れています。"
     }
   };
 
   const T = TEXT[LANG];
+
+  const pickText = (zh, ja, en) => (LANG === "ja" ? ja : (LANG === "zh" ? zh : en));
 
   const LEVEL_RE = /^\s*(.*?)\s*[（(]\s*([EH])B([1-7])-([1-7?])\s*[)）]\s*$/;
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
-  const formatter = new Intl.NumberFormat(LANG === "zh" ? "zh-CN" : "en-US");
+  const formatter = new Intl.NumberFormat(LANG === "ja" ? "ja-JP" : (LANG !== "en" ? "zh-CN" : "en-US"));
 
   function formatNumber(value) {
     return formatter.format(Number(value) || 0);
   }
 
   function subLabel(kind, sub) {
-    if (sub === "?") return LANG === "zh" ? BUCKET_JP[kind] : BUCKET_EN[kind];
+    if (sub === "?") return LANG !== "en" ? BUCKET_JP[kind] : BUCKET_EN[kind];
     const index = Number(sub) - 1;
-    return LANG === "zh" ? SUB_JP[kind][index] : SUB_EN[kind][index];
+    return LANG !== "en" ? SUB_JP[kind][index] : SUB_EN[kind][index];
   }
 
   function el(tag, className, text) {
@@ -258,7 +276,7 @@
       return;
     }
 
-    if (LANG === "zh" && header && header.name) {
+    if (LANG !== "en" && header && header.name) {
       $("#table-fullname").textContent = header.name;
     }
 
@@ -356,13 +374,13 @@
     const head = el("div", "level-head");
     const isBucket = group.meta.bucket;
     const subText = subLabel(group.meta.kind, group.meta.sub);
-    const chipText = LANG === "zh" ? `${group.meta.majorName}${subText}` : subText;
+    const chipText = LANG !== "en" ? `${group.meta.majorName}${subText}` : subText;
     const chip = el("span", `level-chip${isBucket ? " bucket" : ""}`, chipText);
     if (isBucket) chip.title = T.bucketTitle;
     head.append(
       chip,
       el("span", "code", group.meta.code),
-      el("span", "lv-count", `${formatNumber(group.charts.length)} ${LANG === "zh" ? "谱" : "charts"}`)
+      el("span", "lv-count", `${formatNumber(group.charts.length)} ${pickText("谱", "譜", "charts")}`)
     );
 
     const list = el("ul", "chart-list");
@@ -372,17 +390,17 @@
       row.dataset.search = norm(`${chart.title || ""} ${chart.md5 || ""} ${chart.sha256 || ""}`);
 
       const idx = el("span", "idx", String(index + 1).padStart(2, "0"));
-      const title = el("span", "title", chart.title || (LANG === "zh" ? "(无标题)" : "(untitled)"));
+      const title = el("span", "title", chart.title || pickText("(无标题)", "(無題)", "(untitled)"));
 
       const hash = el("button", "hash", shortHash(chart.md5));
       hash.type = "button";
       hash.dataset.copy = chart.md5 || "";
       hash.dataset.label = "md5";
       if (chart.md5) {
-        hash.title = LANG === "zh" ? `复制 md5：${chart.md5}` : `Copy md5: ${chart.md5}`;
+        hash.title = pickText(`复制 md5：${chart.md5}`, `md5 をコピー：${chart.md5}`, `Copy md5: ${chart.md5}`);
       } else {
         hash.disabled = true;
-        hash.title = LANG === "zh" ? "没有 md5" : "No md5";
+        hash.title = pickText("没有 md5", "md5 はありません", "No md5");
       }
 
       let sha;
@@ -391,10 +409,10 @@
         sha.type = "button";
         sha.dataset.copy = chart.sha256;
         sha.dataset.label = "sha256";
-        sha.title = LANG === "zh" ? `复制 sha256：${chart.sha256}` : `Copy sha256: ${chart.sha256}`;
+        sha.title = pickText(`复制 sha256：${chart.sha256}`, `sha256 をコピー：${chart.sha256}`, `Copy sha256: ${chart.sha256}`);
       } else {
         sha = el("span", "sha none", "—");
-        sha.title = LANG === "zh" ? "没有 sha256" : "No sha256";
+        sha.title = pickText("没有 sha256", "sha256 はありません", "No sha256");
       }
 
       row.append(idx, title, hash, sha);
@@ -418,7 +436,7 @@
       majorGroups.forEach(group => {
         const option = document.createElement("option");
         option.value = group.level;
-        option.textContent = LANG === "zh"
+        option.textContent = LANG !== "en"
           ? group.level
           : `${subLabel(group.meta.kind, group.meta.sub)} (${group.meta.code})`;
         optgroup.appendChild(option);
@@ -430,13 +448,15 @@
   }
 
   function syncLanguageLink(tableKey) {
-    const link = $("[data-lang-link]");
-    if (!link) return;
-    const target = new URL(link.getAttribute("href"), window.location.href);
+    const links = $$("[data-lang-link]");
+    if (!links.length) return;
     const params = new URLSearchParams(window.location.search);
     params.set("t", tableKey);
-    target.search = params.toString();
-    link.href = target.pathname + target.search;
+    links.forEach(link => {
+      const target = new URL(link.getAttribute("href"), window.location.href);
+      target.search = params.toString();
+      link.href = target.pathname + target.search;
+    });
   }
 
   function bindFilters({ tableKey, levelMeta, availableLevels, params }) {
@@ -471,7 +491,7 @@
           group.hidden = levelShown === 0;
           const count = $(".lv-count", group);
           if (count) {
-            count.textContent = `${formatNumber(levelShown)} ${LANG === "zh" ? "谱" : "charts"}`;
+            count.textContent = `${formatNumber(levelShown)} ${pickText("谱", "譜", "charts")}`;
           }
           bandShown += levelShown;
         });

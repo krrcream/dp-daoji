@@ -4,12 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Table · Daoji Upper · Zhengzhen Daotu</title>
-  <link rel="stylesheet" href="assets/upper.css">
+  <link rel="stylesheet" href="assets/upper.css?v=20261103">
   <style>
     .lvhead { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .empty { color: var(--muted); font-size: 13px; padding: 6px 0; }
     .row[hidden], details[hidden] { display: none; }
   </style>
+  <link rel="stylesheet" href="assets/lang.css?v=20261103">
+  <link rel="stylesheet" href="assets/footer-bar.css?v=20261103">
 </head>
 <body>
   <header class="wrap topbar">
@@ -17,17 +19,25 @@
     <nav class="nav">
       <a href="upperindex.html">Home</a>
       <a href="daoindex.html">Guyuan Daotu ▪ Fengsha Jiantu</a>
-      <a href="upperfaq.html">FAQ</a>
+      <a href="faq.html">FAQ</a>
       <a href="history.html?from=upper">History</a>
-      <a class="lang" href="zh/uppertable.html">中文</a>
+      <div class="lang-menu" data-lang="en" data-theme="light" data-keep-query>
+      <a href="uppertable.html" hreflang="en">English</a>
+      <a href="zh/uppertable.html" hreflang="zh">中文</a>
+      <a href="ja/uppertable.html" hreflang="ja">日本語</a>
+    </div>
     </nav>
   </header>
 
   <main class="wrap">
     <section class="page-head">
-      <div class="hero-symbol">◎ ◇ &nbsp; EASY CLEAR</div>
-      <h1>Zhengzhen Daotu</h1>
-      <p class="sub">DP◎◇ Daoji Upper Table · 2,399 charts · weak → strong</p>
+      <div class="hero-symbol" id="mode-symbol">◎ ◇ &nbsp; EASY CLEAR</div>
+      <h1 id="table-name">Zhengzhen Daotu</h1>
+      <p class="sub" id="table-sub">DP◎◇ Daoji Upper Table · 2,549 charts · weak → strong</p>
+      <p class="mode-switch">
+        <a href="uppertable.html?t=easy" data-mode="easy">EASY</a>
+        <a href="uppertable.html?t=hard" data-mode="hard">HARD</a>
+      </p>
     </section>
 
     <div class="toolbar">
@@ -45,18 +55,30 @@
     </div>
 
     <div id="levels">
-      <div class="loading">Loading DP_dao_upper/data.json …</div>
+      <div class="loading" id="loading">Loading DP_dao_upper/data.json …</div>
     </div>
   </main>
 
   <footer class="wrap">
-    <span>DP◎◇ Daoji Upper Table · Zhengzhen Daotu · 2026-05-29 snapshot</span>
-    <span>1 → 7 weak → strong; 闕 = pending; Yuwai = above Daozu (7 tiers)</span>
+    <span id="foot-line">DP 道極表 · 2026-11-03 版</span>
+    <span>1 → 7 weak → strong; Yuwai = above Daozu (7 tiers)</span>
   </footer>
 
   <script>
   (async function () {
     const $ = (s, r = document) => r.querySelector(s);
+    const MODES = {
+      easy: { folder: "DP_dao_upper", mode: "EASY CLEAR", symbol: "◎ ◇", name: "Zhengzhen Daotu", full: "DP◎◇ Daoji Upper Table" },
+      hard: { folder: "DP_dao_upper_hard", mode: "HARD CLEAR", symbol: "◎ ◆", name: "Liwang Chentu", full: "DP◎◆ Daoji Upper Table" }
+    };
+    const key = new URLSearchParams(location.search).get("t") === "hard" ? "hard" : "easy";
+    const M = MODES[key];
+    document.title = `Table · ${M.name} · Daoji Upper`;
+    $("#mode-symbol").textContent = `${M.symbol}   ${M.mode}`;
+    $("#table-name").textContent = M.name;
+    $("#loading").textContent = `Loading ${M.folder}/data.json …`;
+    document.querySelectorAll(".mode-switch a").forEach(a => a.classList.toggle("active", a.dataset.mode === key));
+
     const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
     const short = h => (h && h.length > 12) ? h.slice(0, 10) + "…" : (h || "—");
     const codeOf = lvl => (lvl.match(/\(([EH]B\d+-[\d?])\)/) || [])[1] || "";
@@ -64,8 +86,8 @@
     let header, data;
     try {
       [header, data] = await Promise.all([
-        fetch("DP_dao_upper/header.json", { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error("header " + r.status); return r.json(); }),
-        fetch("DP_dao_upper/data.json", { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error("data " + r.status); return r.json(); })
+        fetch(M.folder + "/header.json", { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error("header " + r.status); return r.json(); }),
+        fetch(M.folder + "/data.json", { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error("data " + r.status); return r.json(); })
       ]);
     } catch (e) {
       $("#levels").innerHTML = '<div class="error">Failed to load: ' + esc(e.message) +
@@ -98,6 +120,8 @@
     });
     $("#levels").innerHTML = "";
     $("#levels").appendChild(frag);
+    $("#table-sub").textContent = `${M.full} · ${data.length.toLocaleString()} charts · weak → strong`;
+    $("#foot-line").textContent = "DP 道極表 · 2026-11-03 版";
 
     const all = Array.from(document.querySelectorAll("details.level"));
     const stat = $("#stat");
@@ -128,5 +152,7 @@
     refresh();
   })();
   </script>
+<script src="assets/lang.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
 </body>
 </html>

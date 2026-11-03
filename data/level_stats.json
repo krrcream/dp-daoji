@@ -1,0 +1,4362 @@
+{
+ "generated": "2026-11-03",
+ "sources": [
+  "☆",
+  "δ",
+  "発狂★",
+  "暗鍋★",
+  "暗鍋★★",
+  "dpsl",
+  "dpst"
+ ],
+ "tables": {
+  "lower_easy": {
+   "name": "DP♂◇道階表 固元道途 (EASY CLEAR)",
+   "symbol": "♂◇",
+   "scale": "easy",
+   "charts": 7781,
+   "levels": 49,
+   "bands": [
+    {
+     "band": 1,
+     "realm": "錬気",
+     "code": "EB1",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 648
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 774
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 549
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 229
+      },
+      {
+       "source": "δ",
+       "level": "11",
+       "charts": 100
+      },
+      {
+       "source": "発狂★",
+       "level": "1",
+       "charts": 53
+      },
+      {
+       "source": "発狂★",
+       "level": "2",
+       "charts": 16
+      },
+      {
+       "source": "発狂★",
+       "level": "3",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 196
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 97
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 67
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 21
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 18
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 12
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 10
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 10
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 68
+      },
+      {
+       "source": "暗鍋★",
+       "level": "無理",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "0",
+       "charts": 73
+      },
+      {
+       "source": "dpsl",
+       "level": "1",
+       "charts": 61
+      },
+      {
+       "source": "dpsl",
+       "level": "2",
+       "charts": 27
+      },
+      {
+       "source": "dpsl",
+       "level": "3",
+       "charts": 2
+      }
+     ]
+    },
+    {
+     "band": 2,
+     "realm": "築基",
+     "code": "EB2",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 47
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 135
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 262
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 264
+      },
+      {
+       "source": "δ",
+       "level": "11",
+       "charts": 8
+      },
+      {
+       "source": "発狂★",
+       "level": "1",
+       "charts": 15
+      },
+      {
+       "source": "発狂★",
+       "level": "2",
+       "charts": 27
+      },
+      {
+       "source": "発狂★",
+       "level": "3",
+       "charts": 25
+      },
+      {
+       "source": "発狂★",
+       "level": "4",
+       "charts": 8
+      },
+      {
+       "source": "発狂★",
+       "level": "5",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 177
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 138
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 137
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 72
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 30
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 19
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 10
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "0",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "1",
+       "charts": 15
+      },
+      {
+       "source": "dpsl",
+       "level": "2",
+       "charts": 34
+      },
+      {
+       "source": "dpsl",
+       "level": "3",
+       "charts": 32
+      },
+      {
+       "source": "dpsl",
+       "level": "4",
+       "charts": 20
+      },
+      {
+       "source": "dpsl",
+       "level": "5",
+       "charts": 2
+      }
+     ]
+    },
+    {
+     "band": 3,
+     "realm": "結丹",
+     "code": "EB3",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 22
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 49
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 79
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 209
+      },
+      {
+       "source": "δ",
+       "level": "11",
+       "charts": 3
+      },
+      {
+       "source": "発狂★",
+       "level": "2",
+       "charts": 18
+      },
+      {
+       "source": "発狂★",
+       "level": "3",
+       "charts": 35
+      },
+      {
+       "source": "発狂★",
+       "level": "4",
+       "charts": 35
+      },
+      {
+       "source": "発狂★",
+       "level": "5",
+       "charts": 13
+      },
+      {
+       "source": "発狂★",
+       "level": "6",
+       "charts": 7
+      },
+      {
+       "source": "発狂★",
+       "level": "7",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 98
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 151
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 144
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 161
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 73
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 59
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 23
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 14
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 2
+      },
+      {
+       "source": "dpsl",
+       "level": "1",
+       "charts": 2
+      },
+      {
+       "source": "dpsl",
+       "level": "2",
+       "charts": 11
+      },
+      {
+       "source": "dpsl",
+       "level": "3",
+       "charts": 28
+      },
+      {
+       "source": "dpsl",
+       "level": "4",
+       "charts": 38
+      },
+      {
+       "source": "dpsl",
+       "level": "5",
+       "charts": 15
+      },
+      {
+       "source": "dpsl",
+       "level": "6",
+       "charts": 2
+      }
+     ]
+    },
+    {
+     "band": 4,
+     "realm": "元嬰",
+     "code": "EB4",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 10
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 24
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 31
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 144
+      },
+      {
+       "source": "δ",
+       "level": "11",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "2",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "3",
+       "charts": 14
+      },
+      {
+       "source": "発狂★",
+       "level": "4",
+       "charts": 15
+      },
+      {
+       "source": "発狂★",
+       "level": "5",
+       "charts": 35
+      },
+      {
+       "source": "発狂★",
+       "level": "6",
+       "charts": 31
+      },
+      {
+       "source": "発狂★",
+       "level": "7",
+       "charts": 5
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 42
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 62
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 119
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 165
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 140
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 148
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 78
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 32
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 15
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 11
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 15
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 2
+      },
+      {
+       "source": "dpsl",
+       "level": "3",
+       "charts": 6
+      },
+      {
+       "source": "dpsl",
+       "level": "4",
+       "charts": 19
+      },
+      {
+       "source": "dpsl",
+       "level": "5",
+       "charts": 37
+      },
+      {
+       "source": "dpsl",
+       "level": "6",
+       "charts": 18
+      },
+      {
+       "source": "dpsl",
+       "level": "7",
+       "charts": 3
+      }
+     ]
+    },
+    {
+     "band": 5,
+     "realm": "化神",
+     "code": "EB5",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 3
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 8
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 15
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 77
+      },
+      {
+       "source": "δ",
+       "level": "11",
+       "charts": 2
+      },
+      {
+       "source": "発狂★",
+       "level": "4",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "5",
+       "charts": 16
+      },
+      {
+       "source": "発狂★",
+       "level": "6",
+       "charts": 48
+      },
+      {
+       "source": "発狂★",
+       "level": "7",
+       "charts": 44
+      },
+      {
+       "source": "発狂★",
+       "level": "8",
+       "charts": 6
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 12
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 16
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 38
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 79
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 94
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 186
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 125
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 80
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 41
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 20
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 19
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "3",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "4",
+       "charts": 2
+      },
+      {
+       "source": "dpsl",
+       "level": "5",
+       "charts": 26
+      },
+      {
+       "source": "dpsl",
+       "level": "6",
+       "charts": 29
+      },
+      {
+       "source": "dpsl",
+       "level": "7",
+       "charts": 33
+      },
+      {
+       "source": "dpsl",
+       "level": "8",
+       "charts": 11
+      }
+     ]
+    },
+    {
+     "band": 6,
+     "realm": "錬虚",
+     "code": "EB6",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 2
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 6
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 6
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 44
+      },
+      {
+       "source": "発狂★",
+       "level": "5",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "6",
+       "charts": 6
+      },
+      {
+       "source": "発狂★",
+       "level": "7",
+       "charts": 24
+      },
+      {
+       "source": "発狂★",
+       "level": "8",
+       "charts": 29
+      },
+      {
+       "source": "発狂★",
+       "level": "9",
+       "charts": 5
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 16
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 31
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 45
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 85
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 144
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 128
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 82
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 40
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 16
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "4",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "5",
+       "charts": 3
+      },
+      {
+       "source": "dpsl",
+       "level": "6",
+       "charts": 14
+      },
+      {
+       "source": "dpsl",
+       "level": "7",
+       "charts": 38
+      },
+      {
+       "source": "dpsl",
+       "level": "8",
+       "charts": 27
+      },
+      {
+       "source": "dpsl",
+       "level": "9",
+       "charts": 7
+      }
+     ]
+    },
+    {
+     "band": 7,
+     "realm": "大乗",
+     "code": "EB7",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 3
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 3
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 31
+      },
+      {
+       "source": "発狂★",
+       "level": "7",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "8",
+       "charts": 16
+      },
+      {
+       "source": "発狂★",
+       "level": "9",
+       "charts": 29
+      },
+      {
+       "source": "発狂★",
+       "level": "10",
+       "charts": 3
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 13
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 13
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 36
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 70
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 101
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 107
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 60
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 21
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 13
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "5",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "7",
+       "charts": 6
+      },
+      {
+       "source": "dpsl",
+       "level": "8",
+       "charts": 17
+      },
+      {
+       "source": "dpsl",
+       "level": "9",
+       "charts": 24
+      },
+      {
+       "source": "dpsl",
+       "level": "10",
+       "charts": 10
+      }
+     ]
+    }
+   ]
+  },
+  "lower_hard": {
+   "name": "DP♂◆道階表 鋒殺剣途 (HARD CLEAR)",
+   "symbol": "♂◆",
+   "scale": "hard",
+   "charts": 7574,
+   "levels": 49,
+   "bands": [
+    {
+     "band": 1,
+     "realm": "錬気",
+     "code": "HB1",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 626
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 719
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 476
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 194
+      },
+      {
+       "source": "δ",
+       "level": "11",
+       "charts": 97
+      },
+      {
+       "source": "発狂★",
+       "level": "1",
+       "charts": 49
+      },
+      {
+       "source": "発狂★",
+       "level": "2",
+       "charts": 13
+      },
+      {
+       "source": "発狂★",
+       "level": "3",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 155
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 71
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 50
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 19
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 15
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 10
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 10
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 65
+      },
+      {
+       "source": "暗鍋★",
+       "level": "無理",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "0",
+       "charts": 74
+      },
+      {
+       "source": "dpsl",
+       "level": "1",
+       "charts": 60
+      },
+      {
+       "source": "dpsl",
+       "level": "2",
+       "charts": 10
+      }
+     ]
+    },
+    {
+     "band": 2,
+     "realm": "築基",
+     "code": "HB2",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 62
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 161
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 276
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 222
+      },
+      {
+       "source": "δ",
+       "level": "11",
+       "charts": 9
+      },
+      {
+       "source": "発狂★",
+       "level": "1",
+       "charts": 18
+      },
+      {
+       "source": "発狂★",
+       "level": "2",
+       "charts": 34
+      },
+      {
+       "source": "発狂★",
+       "level": "3",
+       "charts": 18
+      },
+      {
+       "source": "発狂★",
+       "level": "4",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 176
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 134
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 101
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 57
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 21
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 13
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "1",
+       "charts": 16
+      },
+      {
+       "source": "dpsl",
+       "level": "2",
+       "charts": 40
+      },
+      {
+       "source": "dpsl",
+       "level": "3",
+       "charts": 6
+      },
+      {
+       "source": "dpsl",
+       "level": "4",
+       "charts": 1
+      }
+     ]
+    },
+    {
+     "band": 3,
+     "realm": "結丹",
+     "code": "HB3",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 23
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 64
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 115
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 243
+      },
+      {
+       "source": "δ",
+       "level": "11",
+       "charts": 5
+      },
+      {
+       "source": "発狂★",
+       "level": "1",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "2",
+       "charts": 15
+      },
+      {
+       "source": "発狂★",
+       "level": "3",
+       "charts": 50
+      },
+      {
+       "source": "発狂★",
+       "level": "4",
+       "charts": 31
+      },
+      {
+       "source": "発狂★",
+       "level": "5",
+       "charts": 12
+      },
+      {
+       "source": "発狂★",
+       "level": "6",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 124
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 153
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 176
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 138
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 62
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 43
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 16
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "1",
+       "charts": 2
+      },
+      {
+       "source": "dpsl",
+       "level": "2",
+       "charts": 19
+      },
+      {
+       "source": "dpsl",
+       "level": "3",
+       "charts": 50
+      },
+      {
+       "source": "dpsl",
+       "level": "4",
+       "charts": 42
+      },
+      {
+       "source": "dpsl",
+       "level": "5",
+       "charts": 4
+      }
+     ]
+    },
+    {
+     "band": 4,
+     "realm": "元嬰",
+     "code": "HB4",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 12
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 21
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 45
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 151
+      },
+      {
+       "source": "δ",
+       "level": "11",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "3",
+       "charts": 9
+      },
+      {
+       "source": "発狂★",
+       "level": "4",
+       "charts": 20
+      },
+      {
+       "source": "発狂★",
+       "level": "5",
+       "charts": 41
+      },
+      {
+       "source": "発狂★",
+       "level": "6",
+       "charts": 23
+      },
+      {
+       "source": "発狂★",
+       "level": "7",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 48
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 80
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 116
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 152
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 133
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 111
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 50
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 25
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 12
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 2
+      },
+      {
+       "source": "dpsl",
+       "level": "2",
+       "charts": 3
+      },
+      {
+       "source": "dpsl",
+       "level": "3",
+       "charts": 13
+      },
+      {
+       "source": "dpsl",
+       "level": "4",
+       "charts": 34
+      },
+      {
+       "source": "dpsl",
+       "level": "5",
+       "charts": 48
+      },
+      {
+       "source": "dpsl",
+       "level": "6",
+       "charts": 11
+      }
+     ]
+    },
+    {
+     "band": 5,
+     "realm": "化神",
+     "code": "HB5",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 3
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 13
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 14
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 82
+      },
+      {
+       "source": "δ",
+       "level": "11",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "4",
+       "charts": 3
+      },
+      {
+       "source": "発狂★",
+       "level": "5",
+       "charts": 11
+      },
+      {
+       "source": "発狂★",
+       "level": "6",
+       "charts": 53
+      },
+      {
+       "source": "発狂★",
+       "level": "7",
+       "charts": 18
+      },
+      {
+       "source": "発狂★",
+       "level": "8",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 16
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 22
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 53
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 107
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 101
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 191
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 109
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 53
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 22
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 16
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 11
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 2
+      },
+      {
+       "source": "dpsl",
+       "level": "4",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "5",
+       "charts": 32
+      },
+      {
+       "source": "dpsl",
+       "level": "6",
+       "charts": 35
+      },
+      {
+       "source": "dpsl",
+       "level": "7",
+       "charts": 13
+      },
+      {
+       "source": "dpsl",
+       "level": "8",
+       "charts": 1
+      }
+     ]
+    },
+    {
+     "band": 6,
+     "realm": "錬虚",
+     "code": "HB6",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 3
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 9
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 6
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 57
+      },
+      {
+       "source": "δ",
+       "level": "11",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "5",
+       "charts": 2
+      },
+      {
+       "source": "発狂★",
+       "level": "6",
+       "charts": 12
+      },
+      {
+       "source": "発狂★",
+       "level": "7",
+       "charts": 41
+      },
+      {
+       "source": "発狂★",
+       "level": "8",
+       "charts": 13
+      },
+      {
+       "source": "発狂★",
+       "level": "9",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 21
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 48
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 52
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 108
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 153
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 101
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 72
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 27
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 11
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "4",
+       "charts": 2
+      },
+      {
+       "source": "dpsl",
+       "level": "6",
+       "charts": 15
+      },
+      {
+       "source": "dpsl",
+       "level": "7",
+       "charts": 56
+      },
+      {
+       "source": "dpsl",
+       "level": "8",
+       "charts": 19
+      },
+      {
+       "source": "dpsl",
+       "level": "9",
+       "charts": 1
+      }
+     ]
+    },
+    {
+     "band": 7,
+     "realm": "大乗",
+     "code": "HB7",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 2
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 4
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 4
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 32
+      },
+      {
+       "source": "発狂★",
+       "level": "6",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "7",
+       "charts": 11
+      },
+      {
+       "source": "発狂★",
+       "level": "8",
+       "charts": 33
+      },
+      {
+       "source": "発狂★",
+       "level": "9",
+       "charts": 28
+      },
+      {
+       "source": "発狂★",
+       "level": "10",
+       "charts": 2
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 10
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 20
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 19
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 56
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 92
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 141
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 114
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 56
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 11
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 16
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 14
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 11
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "6",
+       "charts": 3
+      },
+      {
+       "source": "dpsl",
+       "level": "7",
+       "charts": 10
+      },
+      {
+       "source": "dpsl",
+       "level": "8",
+       "charts": 35
+      },
+      {
+       "source": "dpsl",
+       "level": "9",
+       "charts": 29
+      },
+      {
+       "source": "dpsl",
+       "level": "10",
+       "charts": 4
+      }
+     ]
+    }
+   ]
+  },
+  "upper_easy": {
+   "name": "DP◎◇道極表 証真道途 (EASY CLEAR)",
+   "symbol": "◎◇",
+   "scale": "easy",
+   "charts": 2549,
+   "levels": 42,
+   "bands": [
+    {
+     "band": 8,
+     "realm": "真仙",
+     "code": "EB8",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 1
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 3
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 3
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 28
+      },
+      {
+       "source": "発狂★",
+       "level": "8",
+       "charts": 2
+      },
+      {
+       "source": "発狂★",
+       "level": "9",
+       "charts": 13
+      },
+      {
+       "source": "発狂★",
+       "level": "10",
+       "charts": 17
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 16
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 20
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 44
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 107
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 93
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 18
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 46
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 36
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 17
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 19
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 12
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "6",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "8",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "9",
+       "charts": 8
+      },
+      {
+       "source": "dpsl",
+       "level": "10",
+       "charts": 29
+      },
+      {
+       "source": "dpst",
+       "level": "0",
+       "charts": 3
+      }
+     ]
+    },
+    {
+     "band": 9,
+     "realm": "金仙",
+     "code": "EB9",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 2
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 20
+      },
+      {
+       "source": "発狂★",
+       "level": "10",
+       "charts": 18
+      },
+      {
+       "source": "発狂★",
+       "level": "11",
+       "charts": 10
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 10
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 10
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 23
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 36
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 72
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 61
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 34
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 33
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 36
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 18
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★10",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "10",
+       "charts": 18
+      },
+      {
+       "source": "dpst",
+       "level": "0",
+       "charts": 12
+      }
+     ]
+    },
+    {
+     "band": 10,
+     "realm": "太乙",
+     "code": "EB10",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 6
+      },
+      {
+       "source": "発狂★",
+       "level": "10",
+       "charts": 2
+      },
+      {
+       "source": "発狂★",
+       "level": "11",
+       "charts": 28
+      },
+      {
+       "source": "発狂★",
+       "level": "12",
+       "charts": 7
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 12
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 33
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 12
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 33
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 56
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 63
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 41
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 21
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 11
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★10",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★16",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "10",
+       "charts": 1
+      },
+      {
+       "source": "dpst",
+       "level": "0",
+       "charts": 20
+      },
+      {
+       "source": "dpst",
+       "level": "1",
+       "charts": 14
+      },
+      {
+       "source": "dpst",
+       "level": "2",
+       "charts": 5
+      }
+     ]
+    },
+    {
+     "band": 11,
+     "realm": "大羅",
+     "code": "EB11",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 1
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 10
+      },
+      {
+       "source": "発狂★",
+       "level": "11",
+       "charts": 6
+      },
+      {
+       "source": "発狂★",
+       "level": "12",
+       "charts": 14
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 15
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 16
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 14
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 16
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 28
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 80
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 33
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 21
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 14
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★10",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★11",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★15",
+       "charts": 1
+      },
+      {
+       "source": "dpst",
+       "level": "1",
+       "charts": 13
+      },
+      {
+       "source": "dpst",
+       "level": "2",
+       "charts": 13
+      },
+      {
+       "source": "dpst",
+       "level": "3",
+       "charts": 2
+      }
+     ]
+    },
+    {
+     "band": 12,
+     "realm": "道祖",
+     "code": "EB12",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 1
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 1
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 5
+      },
+      {
+       "source": "発狂★",
+       "level": "12",
+       "charts": 17
+      },
+      {
+       "source": "発狂★",
+       "level": "13",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 34
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 63
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 56
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 11
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★10",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★11",
+       "charts": 1
+      },
+      {
+       "source": "dpst",
+       "level": "1",
+       "charts": 1
+      },
+      {
+       "source": "dpst",
+       "level": "2",
+       "charts": 11
+      },
+      {
+       "source": "dpst",
+       "level": "3",
+       "charts": 7
+      },
+      {
+       "source": "dpst",
+       "level": "4",
+       "charts": 3
+      }
+     ]
+    },
+    {
+     "band": 13,
+     "realm": "域外",
+     "code": "EB13",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 30
+      },
+      {
+       "source": "発狂★",
+       "level": "12",
+       "charts": 2
+      },
+      {
+       "source": "発狂★",
+       "level": "13",
+       "charts": 13
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 10
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 87
+      },
+      {
+       "source": "暗鍋★",
+       "level": "無理",
+       "charts": 95
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 11
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 12
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 10
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 35
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 94
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 91
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 69
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 72
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★10",
+       "charts": 60
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★11",
+       "charts": 36
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★12",
+       "charts": 24
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★13",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★14",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★15",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★16",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★17",
+       "charts": 3
+      },
+      {
+       "source": "dpst",
+       "level": "3",
+       "charts": 6
+      },
+      {
+       "source": "dpst",
+       "level": "4",
+       "charts": 8
+      },
+      {
+       "source": "dpst",
+       "level": "5",
+       "charts": 21
+      },
+      {
+       "source": "dpst",
+       "level": "6",
+       "charts": 14
+      }
+     ]
+    }
+   ]
+  },
+  "upper_hard": {
+   "name": "DP◎◆道極表 離妄塵途 (HARD CLEAR)",
+   "symbol": "◎◆",
+   "scale": "hard",
+   "charts": 2756,
+   "levels": 42,
+   "bands": [
+    {
+     "band": 8,
+     "realm": "真仙",
+     "code": "HB8",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 1
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 5
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 2
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 20
+      },
+      {
+       "source": "発狂★",
+       "level": "6",
+       "charts": 2
+      },
+      {
+       "source": "発狂★",
+       "level": "7",
+       "charts": 3
+      },
+      {
+       "source": "発狂★",
+       "level": "8",
+       "charts": 5
+      },
+      {
+       "source": "発狂★",
+       "level": "9",
+       "charts": 12
+      },
+      {
+       "source": "発狂★",
+       "level": "10",
+       "charts": 26
+      },
+      {
+       "source": "発狂★",
+       "level": "11",
+       "charts": 2
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 10
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 22
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 35
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 58
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 98
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 96
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 17
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 52
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 24
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 13
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 14
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 2
+      },
+      {
+       "source": "dpsl",
+       "level": "8",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "9",
+       "charts": 9
+      },
+      {
+       "source": "dpsl",
+       "level": "10",
+       "charts": 26
+      }
+     ]
+    },
+    {
+     "band": 9,
+     "realm": "金仙",
+     "code": "HB9",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 3
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 3
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 3
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 13
+      },
+      {
+       "source": "発狂★",
+       "level": "8",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "9",
+       "charts": 3
+      },
+      {
+       "source": "発狂★",
+       "level": "10",
+       "charts": 8
+      },
+      {
+       "source": "発狂★",
+       "level": "11",
+       "charts": 18
+      },
+      {
+       "source": "発狂★",
+       "level": "12",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 13
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 13
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 23
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 62
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 74
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 10
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 51
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 48
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 34
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 41
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 24
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★10",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "7",
+       "charts": 1
+      },
+      {
+       "source": "dpsl",
+       "level": "10",
+       "charts": 24
+      },
+      {
+       "source": "dpst",
+       "level": "0",
+       "charts": 16
+      },
+      {
+       "source": "dpst",
+       "level": "1",
+       "charts": 3
+      }
+     ]
+    },
+    {
+     "band": 10,
+     "realm": "太乙",
+     "code": "HB10",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 1
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 18
+      },
+      {
+       "source": "発狂★",
+       "level": "10",
+       "charts": 2
+      },
+      {
+       "source": "発狂★",
+       "level": "11",
+       "charts": 23
+      },
+      {
+       "source": "発狂★",
+       "level": "12",
+       "charts": 8
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 17
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 44
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 37
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 51
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 58
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 47
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 25
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★10",
+       "charts": 2
+      },
+      {
+       "source": "dpsl",
+       "level": "10",
+       "charts": 4
+      },
+      {
+       "source": "dpst",
+       "level": "0",
+       "charts": 14
+      },
+      {
+       "source": "dpst",
+       "level": "1",
+       "charts": 12
+      },
+      {
+       "source": "dpst",
+       "level": "2",
+       "charts": 4
+      }
+     ]
+    },
+    {
+     "band": 11,
+     "realm": "大羅",
+     "code": "HB11",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 2
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 1
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 5
+      },
+      {
+       "source": "発狂★",
+       "level": "10",
+       "charts": 2
+      },
+      {
+       "source": "発狂★",
+       "level": "11",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "12",
+       "charts": 19
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★",
+       "level": "1",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "3",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 18
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 14
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 20
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 15
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 32
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 63
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 34
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 29
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 15
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★11",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★16",
+       "charts": 1
+      },
+      {
+       "source": "dpst",
+       "level": "0",
+       "charts": 5
+      },
+      {
+       "source": "dpst",
+       "level": "1",
+       "charts": 11
+      },
+      {
+       "source": "dpst",
+       "level": "2",
+       "charts": 17
+      },
+      {
+       "source": "dpst",
+       "level": "3",
+       "charts": 1
+      }
+     ]
+    },
+    {
+     "band": 12,
+     "realm": "道祖",
+     "code": "HB12",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 1
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 2
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 6
+      },
+      {
+       "source": "発狂★",
+       "level": "12",
+       "charts": 11
+      },
+      {
+       "source": "発狂★",
+       "level": "13",
+       "charts": 2
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 13
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 14
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 36
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 54
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 59
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 20
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 8
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★10",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★15",
+       "charts": 1
+      },
+      {
+       "source": "dpst",
+       "level": "1",
+       "charts": 2
+      },
+      {
+       "source": "dpst",
+       "level": "2",
+       "charts": 8
+      },
+      {
+       "source": "dpst",
+       "level": "3",
+       "charts": 10
+      },
+      {
+       "source": "dpst",
+       "level": "4",
+       "charts": 5
+      },
+      {
+       "source": "dpst",
+       "level": "5",
+       "charts": 1
+      }
+     ]
+    },
+    {
+     "band": 13,
+     "realm": "域外",
+     "code": "HB13",
+     "cells": [
+      {
+       "source": "☆",
+       "level": "11弱",
+       "charts": 3
+      },
+      {
+       "source": "☆",
+       "level": "11中",
+       "charts": 1
+      },
+      {
+       "source": "☆",
+       "level": "11強",
+       "charts": 2
+      },
+      {
+       "source": "☆",
+       "level": "12",
+       "charts": 54
+      },
+      {
+       "source": "発狂★",
+       "level": "12",
+       "charts": 1
+      },
+      {
+       "source": "発狂★",
+       "level": "13",
+       "charts": 12
+      },
+      {
+       "source": "発狂★",
+       "level": "？",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "2",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "4",
+       "charts": 2
+      },
+      {
+       "source": "暗鍋★",
+       "level": "5",
+       "charts": 3
+      },
+      {
+       "source": "暗鍋★",
+       "level": "6",
+       "charts": 1
+      },
+      {
+       "source": "暗鍋★",
+       "level": "7",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★",
+       "level": "8",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★",
+       "level": "9",
+       "charts": 12
+      },
+      {
+       "source": "暗鍋★",
+       "level": "10",
+       "charts": 14
+      },
+      {
+       "source": "暗鍋★",
+       "level": "?",
+       "charts": 107
+      },
+      {
+       "source": "暗鍋★",
+       "level": "無理",
+       "charts": 95
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★1",
+       "charts": 6
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★2",
+       "charts": 17
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★3",
+       "charts": 14
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★4",
+       "charts": 21
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★5",
+       "charts": 45
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★6",
+       "charts": 88
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★7",
+       "charts": 83
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★8",
+       "charts": 66
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★9",
+       "charts": 71
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★10",
+       "charts": 61
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★11",
+       "charts": 37
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★12",
+       "charts": 24
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★13",
+       "charts": 9
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★14",
+       "charts": 7
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★15",
+       "charts": 4
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★16",
+       "charts": 5
+      },
+      {
+       "source": "暗鍋★★",
+       "level": "★17",
+       "charts": 3
+      },
+      {
+       "source": "dpst",
+       "level": "3",
+       "charts": 4
+      },
+      {
+       "source": "dpst",
+       "level": "4",
+       "charts": 6
+      },
+      {
+       "source": "dpst",
+       "level": "5",
+       "charts": 20
+      },
+      {
+       "source": "dpst",
+       "level": "6",
+       "charts": 14
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

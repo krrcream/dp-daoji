@@ -4,10 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DP Daoji Table · Insane DP Difficulty Table</title>
-  <meta name="description" content="Insane DP difficulty estimates based on the 2026-05-29 LR2IR archive: seven realms, forty-nine tiers, and two beatoraja tables (EASY / HARD).">
+  <meta name="description" content="Insane DP difficulty estimates from chart features and community ratings: seven realms, forty-nine tiers, and two beatoraja tables (EASY / HARD).">
   <meta name="theme-color" content="#100e0c">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v=20261103">
+  <link rel="stylesheet" href="assets/lang.css?v=20261103">
+  <link rel="stylesheet" href="assets/footer-bar.css?v=20261103">
 </head>
 <body data-page="home" data-lang="en" data-root=".">
   <header class="topbar">
@@ -17,11 +19,14 @@
         <span class="brand-text">DP Daoji</span>
       </a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="table.html?t=easy">Guyuan Daotu</a>
-        <a href="table.html?t=hard">Fengsha Jiantu</a>
-        <a href="upperindex.html">Zhengzhen Daotu</a>
+        <a href="upperindex.html">Zhengzhen Daotu ▪ Liwang Chentu</a>
         <a href="faq.html">FAQ</a>
         <a href="history.html">History</a>
+        <div class="lang-menu" data-lang="en" data-theme="dark">
+      <a href="daoindex.html" hreflang="en">English</a>
+      <a href="zh/daoindex.html" hreflang="zh">中文</a>
+      <a href="ja/daoindex.html" hreflang="ja">日本語</a>
+    </div>
       </nav>
     </div>
   </header>
@@ -35,21 +40,17 @@
       </svg>
 
       <div class="seal" aria-hidden="true"><span>♂</span><i>道</i></div>
-      <p class="eyebrow">LR2IR full archive · Insane DP · 2026-05-29 snapshot</p>
+      <p class="eyebrow">Chart features · Insane DP · 2026-11-03 build</p>
       <h1>Daoji Table</h1>
-      <div class="lang-switch" aria-label="Language">
-        <span class="lang-active" aria-current="true">English</span>
-        <span class="sep">/</span>
-        <a href="zh/daoindex.html" data-lang-link="zh">中文</a>
-        <span class="sep">·</span>
-        <span class="version">V0.3</span>
+      <div class="lang-switch" aria-label="Version">
+        <span class="version" data-version>V0.5.0</span>
       </div>
-      <p class="hero-sub">Chart difficulty inferred from LR2IR records. Seven realms, forty-nine tiers, split into EASY and HARD paths.</p>
+      <p class="hero-sub">Seven realms, forty-nine tiers, split into EASY and HARD paths.</p>
       <div class="hero-meta">
-        <span><b>2,070</b>charts / table</span>
-        <span><b>49</b>tiers</span>
+        <span><b data-stat="total:lower_easy">7,781</b>EASY charts</span>
+        <span><b data-stat="total:lower_hard">7,574</b>HARD charts</span>
+        <span><b>49</b>tiers each</span>
         <span><b>7</b>realms</span>
-        <span><b>2026-05-29</b>snapshot</span>
       </div>
     </section>
 
@@ -62,7 +63,7 @@
         <h2>Guyuan Daotu</h2>
         <p>Uses EASY CLEAR as the pass line, measuring a chart's basic carrying capacity and consistency.</p>
         <div class="card-stats">
-          <div class="stat"><b data-total="easy">2,070</b><span>charts</span></div>
+          <div class="stat"><b data-total="easy">7,781</b><span>charts</span></div>
           <div class="stat"><b>49</b><span>tiers</span></div>
           <div class="stat"><b>7</b><span>realms</span></div>
         </div>
@@ -77,7 +78,7 @@
         <h2>Fengsha Jiantu</h2>
         <p>Uses HARD CLEAR as the pass line, measuring upper-end pressure and burst demands.</p>
         <div class="card-stats">
-          <div class="stat"><b data-total="hard">2,070</b><span>charts</span></div>
+          <div class="stat"><b data-total="hard">7,574</b><span>charts</span></div>
           <div class="stat"><b>49</b><span>tiers</span></div>
           <div class="stat"><b>7</b><span>realms</span></div>
         </div>
@@ -92,7 +93,7 @@
     <section class="section" aria-labelledby="bands-title">
       <div class="section-head">
         <h2 id="bands-title">Seven Realms</h2>
-        <p>From low to high, seven tiers per realm, with a final pending tier · <span class="count-easy">Jade EASY</span> / <span class="count-hard">Crimson HARD</span></p>
+        <p>From low to high, seven tiers per realm · <span class="count-easy">Jade EASY</span> / <span class="count-hard">Crimson HARD</span></p>
       </div>
       <div class="band-grid">
         <div class="band-cell">
@@ -145,36 +146,19 @@
         </div>
       </div>
     </section>
-
-    <section class="section" aria-labelledby="method-title">
-      <div class="section-head">
-        <h2 id="method-title">Method</h2>
-      </div>
-      <div class="notes">
-        <article>
-          <h3>Data</h3>
-          <p>Full LR2IR archive, 2026-05-29 snapshot. Only non-random charts are used: 乱 (random) and SR excluded; 正 (normal), 鏡 (mirror), and 換 (flip) retained.</p>
-        </article>
-        <article>
-          <h3>Model</h3>
-          <p>Five-level GRM (FAILED / EASY / NORMAL / HARD / FC) estimated with MCMC. Discrimination separates stamina charts from pattern-specific charts.</p>
-        </article>
-        <article>
-          <h3>Tiers</h3>
-          <p>High-sample charts define 7 realms × 7 tiers; charts with sparse data or an unusual player pool are placed in the final pending tier of their realm.</p>
-        </article>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <p>DP Daoji Table · 2026-05-29 snapshot</p>
+      <p>DP Daoji Table · 2026-11-03 build</p>
       <p>Results are indicative only.</p>
     </div>
   </footer>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="assets/app.js"></script>
+  <script src="assets/site-data.js?v=20261103"></script>
+<script src="assets/app.js?v=20261103"></script>
+<script src="assets/lang.js?v=20261103"></script>
+<div class="copyright-bar">© 2026 krrcream | DP Daoji 道階表 / DP Dōkyoku 道極表. All rights reserved.</div>
 </body>
 </html>
