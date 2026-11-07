@@ -105,6 +105,13 @@
   .block p{margin:0 0 10px}
   .block p.fork-note{font-size:13px;margin:2px 0 14px}
   #backbeat p a{text-decoration:underline;text-underline-offset:2px}
+  .url.makiba{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:12px;row-gap:4px}
+  .url.makiba .kind{grid-row:1 / span 2;font-size:11px;letter-spacing:.14em}
+  .url.makiba .uname{grid-column:2;min-width:0;font-size:13.5px}
+  .url.makiba a{grid-column:2;font-size:12px;color:#cfd6db;text-decoration:underline;text-underline-offset:2px;word-break:break-all}
+  .url.makiba a:hover{color:#fff}
+  .url.makiba.easy .kind,.url.makiba.easy .uname{color:#7fb3a0}
+  .url.makiba.hard .kind,.url.makiba.hard .uname{color:#d9968b}
   .block p b,.block li b{color:var(--ink);font-weight:600}
   .block ul{margin:6px 0 14px;padding-left:18px}
   .block li{margin:4px 0}
@@ -437,12 +444,36 @@
       <p>難易度表は makiba の個人 collections にまとめてあります（個人管理のため makiba 公式の収録ではなく、リンクは予告なく切れることがあります）。lr2oraja ~Endless Dream~ は Backbeat に対応しています。Table を購読し、Backbeat App で表内の譜面をまとめてダウンロードできます。詳細は <a href="https://backbeat.ac/">backbeat.ac</a>。</p>
       <p class="fork-note">lr2oraja Endless Dream（<a href="https://github.com/zkldi/lr2oraja-endlessdream/releases">zkldi の FORK</a> / <a href="https://github.com/krrcream/lr2oraja-endlessdream/releases/">私の FORK</a>）</p>
       <div class="urls">
-        <div class="url easy"><span>EASY</span><span class="uname">DP♂◇道階表 固元道途</span><code>https://makiba.ac/tables/bms-14k/tb-01a1b46d-8954-7ce7-a513-1669e6bbebc4</code></div>
-        <div class="url hard"><span>HARD</span><span class="uname">DP♂◆道階表 鋒殺剣途</span><code>https://makiba.ac/tables/bms-14k/tb-01a1b48c-d4c7-7469-b701-f7589e8d4ab8</code></div>
-        <div class="url"><span>PACK</span><span class="uname">固元道途 · EB1–EB2</span><code>https://makiba.ac/packs/bms-14k/pk-01a1b494-69e5-7bd2-806d-61fbc8269a08</code></div>
-        <div class="url"><span>PACK</span><span class="uname">固元道途 · EB3–EB7</span><code>https://makiba.ac/packs/bms-14k/pk-01a1b4ba-2624-7ee7-af5b-8ab422a3865c</code></div>
-        <div class="url easy"><span>EASY</span><span class="uname">DP◎◇道極表 証真道途</span><code>https://makiba.ac/tables/bms-14k/tb-01a1b48e-c099-729d-adf3-d104c6c29eaf</code></div>
-        <div class="url hard"><span>HARD</span><span class="uname">DP◎◆道極表 離妄塵途</span><code>https://makiba.ac/tables/bms-14k/tb-01a1b491-e943-77f4-a9af-451117984df6</code></div>
+        <div class="url makiba easy">
+          <span class="kind">EASY</span>
+          <span class="uname">DP♂◇道階表 固元道途</span>
+          <a href="https://makiba.ac/tables/bms-14k/tb-01a1b46d-8954-7ce7-a513-1669e6bbebc4">https://makiba.ac/tables/bms-14k/tb-01a1b46d-8954-7ce7-a513-1669e6bbebc4</a>
+        </div>
+        <div class="url makiba hard">
+          <span class="kind">HARD</span>
+          <span class="uname">DP♂◆道階表 鋒殺剣途</span>
+          <a href="https://makiba.ac/tables/bms-14k/tb-01a1b48c-d4c7-7469-b701-f7589e8d4ab8">https://makiba.ac/tables/bms-14k/tb-01a1b48c-d4c7-7469-b701-f7589e8d4ab8</a>
+        </div>
+        <div class="url makiba">
+          <span class="kind">PACK</span>
+          <span class="uname">固元道途 · EB1–EB2</span>
+          <a href="https://makiba.ac/packs/bms-14k/pk-01a1b494-69e5-7bd2-806d-61fbc8269a08">https://makiba.ac/packs/bms-14k/pk-01a1b494-69e5-7bd2-806d-61fbc8269a08</a>
+        </div>
+        <div class="url makiba">
+          <span class="kind">PACK</span>
+          <span class="uname">固元道途 · EB3–EB7</span>
+          <a href="https://makiba.ac/packs/bms-14k/pk-01a1b4ba-2624-7ee7-af5b-8ab422a3865c">https://makiba.ac/packs/bms-14k/pk-01a1b4ba-2624-7ee7-af5b-8ab422a3865c</a>
+        </div>
+        <div class="url makiba easy">
+          <span class="kind">EASY</span>
+          <span class="uname">DP◎◇道極表 証真道途</span>
+          <a href="https://makiba.ac/tables/bms-14k/tb-01a1b48e-c099-729d-adf3-d104c6c29eaf">https://makiba.ac/tables/bms-14k/tb-01a1b48e-c099-729d-adf3-d104c6c29eaf</a>
+        </div>
+        <div class="url makiba hard">
+          <span class="kind">HARD</span>
+          <span class="uname">DP◎◆道極表 離妄塵途</span>
+          <a href="https://makiba.ac/tables/bms-14k/tb-01a1b491-e943-77f4-a9af-451117984df6">https://makiba.ac/tables/bms-14k/tb-01a1b491-e943-77f4-a9af-451117984df6</a>
+        </div>
       </div>
     </section>
 

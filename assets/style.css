@@ -608,6 +608,28 @@ body[data-lang="en"] .band-cell .name {
 
 .url-name { flex: 0 0 auto; font-size: 12px; letter-spacing: 0.02em; color: var(--ink-soft); }
 
+/* makiba 行：左侧色标 + 表名，地址做成可点的链接 */
+.url-row.makiba {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 3px;
+}
+.url-row.makiba .url-label { grid-row: 1 / span 2; }
+.url-row.makiba .url-name { grid-column: 2; font-size: 13px; color: var(--ink); }
+.url-row.makiba.easy .url-name { color: var(--jade); }
+.url-row.makiba.hard .url-name { color: var(--crimson); }
+.url-row.makiba a {
+  grid-column: 2;
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+.url-row.makiba a:hover { color: var(--gold); }
+
 .url-row code {
   flex: 1 1 auto;
   overflow-x: auto;
