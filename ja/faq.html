@@ -55,13 +55,24 @@
   .w2{width:520px;height:520px;left:-180px;top:640px;background:radial-gradient(circle,rgba(47,111,93,.07),transparent 70%)}
 
   /* ---------- 顶部导航 ---------- */
-  .nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 0}
-  .brand{font-family:var(--serif);font-size:15px;letter-spacing:.14em;text-decoration:none}
-  .nav nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-  .nav nav a{padding:7px 12px;font-size:13px;letter-spacing:.06em;color:var(--ink-soft);text-decoration:none;border-radius:999px;transition:color .2s}
-  .nav nav a:hover{color:var(--ink)}
-  .nav nav a.active{border:1px solid var(--line);color:var(--ink)}
-  .nav .lang{border:1px solid var(--line);padding:5px 13px;font-size:12px;border-radius:999px}
+  .topbar{position:sticky;top:0;z-index:60;background:rgba(253,253,251,.86);backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:background .3s,border-color .3s,color .3s}
+  .topbar-inner{width:min(880px,calc(100% - 48px));margin:0 auto;display:flex;align-items:center;
+    justify-content:space-between;gap:20px;padding:14px 0}
+  .topbar.is-dark{background:rgba(13,15,17,.84);border-bottom-color:var(--line-night);color:var(--paper-night)}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:15px;letter-spacing:.14em;text-decoration:none}
+  .brand-mark{position:relative;display:grid;place-items:center;flex:0 0 auto;width:34px;height:34px;
+    border:1px solid #b8893f;color:#b8893f;font-size:17px;letter-spacing:0;line-height:1}
+  .brand-mark::before{content:"";position:absolute;inset:1px;border:1px solid #b8893f;border-radius:50%;opacity:.55}
+  .topbar nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+  .topbar nav a{padding:7px 12px;font-size:13px;letter-spacing:.06em;color:var(--ink-soft);text-decoration:none;border-radius:999px;transition:color .2s}
+  .topbar nav a:hover{color:var(--ink)}
+  .topbar nav a.active{border:1px solid var(--line);color:var(--ink)}
+  .topbar .lang{border:1px solid var(--line);padding:5px 13px;font-size:12px;border-radius:999px}
+  .topbar.is-dark nav a{color:var(--muted-night)}
+  .topbar.is-dark nav a:hover,.topbar.is-dark nav a.active{color:var(--paper-night)}
+  .topbar.is-dark nav a.active{border-color:rgba(255,255,255,.18)}
+  .topbar.is-dark .lang{color:var(--muted-night);border-color:rgba(255,255,255,.18)}
 
   /* ---------- 卷首 ---------- */
   .hero{position:relative;z-index:2;padding:44px 0 30px}
@@ -81,7 +92,7 @@
     font-size:11px;letter-spacing:.42em;color:var(--ink-faint)}
 
   /* ---------- 章节 ---------- */
-  .block{position:relative;z-index:2;padding:54px 0 12px}
+  .block{position:relative;z-index:2;padding:54px 0 12px;scroll-margin-top:86px}
   .block + .block{border-top:1px solid var(--line)}
   .block h2{position:relative;z-index:1;font-family:var(--serif);font-size:27px;font-weight:600;
     letter-spacing:.12em;margin:0 0 8px}
@@ -234,8 +245,8 @@
   @media (max-width:1180px){.toc{display:none}}
 
   @media (max-width:640px){
-    .nav{flex-wrap:wrap;padding:18px 0}
-    .nav nav{width:100%}
+    .topbar-inner{flex-wrap:wrap;padding:10px 0}
+    .topbar nav{width:100%}
     .hero{padding:26px 0 16px}
     .hero .seal{width:54px;height:54px;font-size:28px;top:10px}
     .hero .vnote{display:none}
@@ -264,6 +275,23 @@
   <a href="#backbeat"><i>陸</i>Backbeat</a>
 </nav>
 
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="daoindex.html"><span class="brand-mark" aria-hidden="true">道</span> DP DAOJI</a>
+    <nav>
+      <a href="daoindex.html">固元道途 ▪ 鋒殺剣途</a>
+      <a href="upperindex.html">証真道途 ▪ 離妄塵途</a>
+      <a class="active" href="faq.html" aria-current="page">よくある質問</a>
+      <a href="history.html">更新履歴</a>
+      <div class="lang-menu" data-lang="ja" data-theme="light">
+        <a href="../faq.html?v=20261103" hreflang="en">English</a>
+        <a href="../zh/faq.html?v=20261103" hreflang="zh">中文</a>
+        <a href="faq.html?v=20261103" hreflang="ja">日本語</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
 <div class="sky">
   <div class="clouds" aria-hidden="true">
     <span class="cl1" data-parallax="0.04"></span>
@@ -275,21 +303,6 @@
   <div class="wash w2" aria-hidden="true"></div>
 
   <div class="wrap">
-    <header class="nav">
-      <a class="brand" href="daoindex.html">道 · DP DAOJI</a>
-      <nav>
-        <a href="daoindex.html">固元道途 ▪ 鋒殺剣途</a>
-        <a href="upperindex.html">証真道途 ▪ 離妄塵途</a>
-        <a class="active" href="faq.html" aria-current="page">よくある質問</a>
-        <a href="history.html">更新履歴</a>
-        <div class="lang-menu" data-lang="ja" data-theme="light">
-      <a href="../faq.html?v=20261103" hreflang="en">English</a>
-      <a href="../zh/faq.html?v=20261103" hreflang="zh">中文</a>
-      <a href="faq.html?v=20261103" hreflang="ja">日本語</a>
-    </div>
-      </nav>
-    </header>
-
     <main>
       <section class="hero reveal">
         <div class="seal" aria-hidden="true">問</div>
@@ -469,6 +482,16 @@
       });
     });
   }, { passive: true });
+
+  // 顶栏随山脚（深色段）换色
+  const bar = document.querySelector(".topbar");
+  const ground = document.querySelector(".ground");
+  const syncBar = () => {
+    if (!bar || !ground) return;
+    bar.classList.toggle("is-dark", window.scrollY + 72 >= ground.offsetTop);
+  };
+  syncBar();
+  window.addEventListener("scroll", syncBar, { passive: true });
 </script>
 <script src="../assets/site-data.js?v=20261103"></script>
 <script src="../assets/scope-tables.js?v=20261103"></script>
