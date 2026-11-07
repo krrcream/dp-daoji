@@ -381,6 +381,8 @@ a.card:hover {
 .url-label.easy { color: #2f6f5d; }
 .url-label.hard { color: #b4553f; }
 
+.url-name { flex: 0 0 auto; font-size: 13px; color: var(--ink); }
+
 /* big symbol watermark on the mode cards */
 .card[data-symbol]::after {
   content: attr(data-symbol);
@@ -481,7 +483,13 @@ a.card:hover {
   box-shadow: var(--shadow-soft);
 }
 .import h2 { margin: 0 0 10px; font-size: 20px; letter-spacing: .04em; }
+/* 标题移到卡片外，两个区块各自一张卡 */
+.import-block { margin: 0 0 46px; }
+.import-block > .import { margin: 0; }
+.import-title { margin: 0 0 12px; font-size: 20px; letter-spacing: .04em; }
 .import p { margin: 8px 0; color: var(--ink-soft); font-size: 14px; }
+.import p.fork-note { margin: 0 0 6px; font-size: 12.5px; }
+.import p a { text-decoration: underline; text-underline-offset: 2px; }
 .url-box {
   display: flex;
   align-items: center;
